@@ -49,8 +49,13 @@ export default function Hero() {
     <Section>
       <BackgroundCover>
         <img
-            src={settings?.splash_screen_image?`${process.env.REACT_APP_SERVER_URL}/images/${settings?.splash_screen_image}`:Background}
-            alt="" />
+          src={
+            settings?.splash_screen_image
+              ? `${process.env.REACT_APP_SERVER_URL}/images/${settings?.splash_screen_image}`
+              : Background
+          }
+          alt=""
+        />
         {/* <video src={Video} autoPlay loop muted /> */}
       </BackgroundCover>
       <BackgroundContent>
@@ -98,8 +103,12 @@ export default function Hero() {
         <Modal.Body>
           <ModalImg>
             <img
-                src={`${process.env.REACT_APP_SERVER_URL}/images/${settings?.welcome_pic}`}
-                alt=""
+              src={
+                settings?.welcome_pic
+                  ? `${process.env.REACT_APP_SERVER_URL}/images/${settings?.welcome_pic}`
+                  : Background
+              }
+              alt=""
             />
             {/* <video src={Video} autoPlay loop muted /> */}
           </ModalImg>

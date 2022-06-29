@@ -1,140 +1,153 @@
-import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
-import Cover from '../Assets/Cover.png';
-import Inter from '../Assets/Interhouse.png'
-import Roll from 'react-reveal/Roll';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import Cover from "../Assets/Cover.png";
+import Inter from "../Assets/Interhouse.png";
+import Roll from "react-reveal/Roll";
 import { Link } from "react-router-dom";
-import {api} from "../misc/api";
+import { api } from "../misc/api";
 // import fullCalendar  from "fullCalendar";
 
-
 export default function Calendar() {
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-    const fetchData = () => {
-        api.get('news-events')
-            .then(res => {
-                const abridgeData = res.data;
-                setData(abridgeData);
-            })
-            .catch(console.log);
+  const fetchData = () => {
+    api
+      .get("news-events")
+      .then((res) => {
+        const abridgeData = res.data;
+        console.log("Fetched", res.data);
+        setData(res.data);
+      })
+      .catch(console.log);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const EventDates = [
+    {
+      date: "27 April",
+      ceremony: "World Book Day",
+    },
+    {
+      date: "05 May",
+      ceremony: "Art Day",
+    },
+    {
+      date: "27 May",
+      ceremony: "Children’s Day",
+    },
+  ];
 
-    };
-    useEffect(() => {
-        fetchData();
-    },[]);
-    const EventDates =[
-        {
-            date:'27 April',
-            ceremony:'World Book Day'
-        },
-        {
-            date:'05 May',
-            ceremony:'Art Day'
-        },
-        {
-            date:'27 May',
-            ceremony:'Children’s Day'
-        }
-    ]
+  const EventContent = [
+    {
+      holder: Inter,
+      header: "Primary section Interhouse Sports",
+      date: "3/10/2022",
+      ceremony:
+        "lore dolore magna aliqua. Ut enim ad minim consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, veniam,",
+    },
+    {
+      holder: Cover,
+      header: "Primary section Interhouse Sports",
+      date: "3/10/2022",
+      ceremony:
+        "lore dolore magna aliqua. Ut enim ad minim consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, veniam,",
+    },
+  ];
+  // console.log(data);
+  const EventContent2 = [];
+  if (data != [] && data?.news) {
+    console.log(data?.news);
+    const newsList = data?.news;
+    if (newsList) {
+      newsList.forEach((dat) => {
+        EventContent2.push({
+          holder: `${process.env.REACT_APP_SERVER_URL}/images/${dat?.holder}`,
+          header: dat?.header,
+          date: dat?.date,
+          ceremony: dat?.ceremony,
+        });
+      });
 
-    const EventContent =[
-        {
-            holder:Inter,
-            header:'Primary section Interhouse Sports',
-            date:'3/10/2022',
-            ceremony:'lore dolore magna aliqua. Ut enim ad minim consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, veniam,'
-        },
-        {
-            holder:Cover,
-            header:'Primary section Interhouse Sports',
-            date:'3/10/2022',
-            ceremony:'lore dolore magna aliqua. Ut enim ad minim consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, veniam,'
-         
-        }
-    ]
-    // const EventContent2 =[];
-    // data?.news.forEach((data) => {
-    //     EventContent2.push(
-    //         {
-    //             holder:`${process.env.REACT_APP_SERVER_URL}/images/${data?.holder}`,
-    //             header: data?.header,
-    //             date: data?.date,
-    //             ceremony: data?.ceremony
-    //         }
-    //     )
-    // })
+      // EventContent = EventContent2;
+    }
+  }
 
+  const EventDates2 = [];
+  if (data != [] && data?.events) {
+    console.log(data?.events);
+    const eventsList = data?.events;
+    if (eventsList) {
+      data?.events.forEach((data) => {
+        EventDates2.push({
+          date: data?.date,
+          ceremony: data?.ceremony,
+        });
+      });
+    }
+  }
 
-
-    // const EventDates2 =[];
-    // data?.events.forEach((data) => {
-    //     EventDates2.push(
-    //         {
-    //             date: data?.date,
-    //             ceremony: data?.ceremony
-    //         }
-    //     )
-    // });
-
-    // console.log(EventDates2)
+  // console.log(EventDates2)
 
   return (
     <CalendarSection>
       <Events>
         <Roll left cascade>
-          <div className="upcoming" data-aos="zoom-in-right">
-            <h4>Recent Posts</h4>
-          </div>
-          {EventContent.map((ent, index) => {
-            return (
-              <div className="content" key={index} data-aos="zoom-in-left">
-                <div className="holder-img">
-                  <img src={ent.holder} alt="holder" />
+          <>
+            <div className="upcoming" data-aos="zoom-in-right">
+              <h4>Recent Posts</h4>
+            </div>
+            {EventContent2.map((ent, index) => {
+              return (
+                <div className="content" key={index} data-aos="zoom-in-left">
+                  <div className="holder-img">
+                    <img src={ent.holder} alt="holder" />
+                  </div>
+                  <div className="pesp">
+                    <h4>{ent.header}</h4>
+                    <label>{ent.date}</label>
+                    <p>{ent.ceremony}</p>
+                  </div>
                 </div>
-                <div className="pesp">
-                  <h4>{ent.header}</h4>
-                  <label>{ent.date}</label>
-                  <p>{ent.ceremony}</p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </>
         </Roll>
       </Events>
       <Dates>
         <Roll right cascade>
-          <div className="upcoming">
-            <h4>UPCOMING EVENTS</h4>
-          </div>
-          {EventDates.map((duty, index) => {
-            return (
-              <div className="arrange" key={index}>
-                <div className="date">{duty.date}</div>
-                <div className="comment">{duty.ceremony}</div>
-              </div>
-            );
-          })}
-          <Link to="/academics/full_calendar">
-            <button>View Calendar</button>
-          </Link>
+          <>
+            <div className="upcoming">
+              <h4>UPCOMING EVENTS</h4>
+            </div>
+            {EventDates2.map((duty, index) => {
+              return (
+                <div className="arrange" key={index}>
+                  <div className="date">{duty.date}</div>
+                  <div className="comment">{duty.ceremony}</div>
+                </div>
+              );
+            })}
+            <Link to="/academics/full_calendar">
+              <button>View Calendar</button>
+            </Link>
+          </>
         </Roll>
       </Dates>
     </CalendarSection>
   );
 }
 
-
 const CalendarSection = styled.section`
-    display:grid ;
-    grid-template-columns:1fr 500px ;
-    width:85% ;
-    margin:7rem auto ;
-    @media screen and (min-width: 280px) and (max-width: 1080px) {
-        display:grid ;
-        grid-template-columns:1fr  ;
-    }
-`
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  width: 85%;
+  margin: 7rem auto;
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+`;
 
 const Events = styled.div`
   display: flex;
@@ -161,7 +174,7 @@ const Events = styled.div`
     grid-template-columns: 400px 1fr;
     grid-gap: 2rem;
     border-top: solid 1px grey;
-    padding-top:50px;
+    padding-top: 50px;
 
     .holder-img {
       height: 300px;
@@ -191,7 +204,7 @@ const Events = styled.div`
       }
     }
   }
-  
+
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     .content {
       display: grid;

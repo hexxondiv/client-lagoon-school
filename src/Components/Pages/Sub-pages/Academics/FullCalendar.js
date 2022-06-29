@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
 import styled from "styled-components";
 import { subRoute } from "./Acaitems";
 
@@ -6,7 +7,6 @@ import Backdrop from "../../../../Assets/Backdrop.png";
 import Calendar1 from "../../../../Assets/calendarimg.png";
 
 import Calendar2 from "../../../../Assets/calendarimg2.png";
-
 
 import {
   Accordion,
@@ -26,19 +26,44 @@ import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import "./fullCalendar.css";
 import Pdf from "../../../../Assets/bigCalendar.pdf";
 // import "react-accessible-accordion/dist/fancy-example.css";
+import { api } from "../../../../misc/api";
 
-
-export default function fullCalendar() {
+export default function FullCalendr() {
   const currentPath = window.location.pathname;
-
-
 
   // function handleChange(e) {
   //   let link = e.target.value;
   //   console.log(link);
   //   window.location = link;
   // }
+  const [data, setData] = useState([]);
 
+  const fetchData = () => {
+    api
+      .get("full-calendar")
+      .then((res) => {
+        // const abridgeData = res.data;
+        console.log("Fetched", res.data.data);
+        setData(res.data.data);
+      })
+      .catch(console.log);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const EventDates2 = [];
+  if (data != [] && data?.events) {
+    // console.log(data?.events);
+    const eventsList = data?.events;
+    if (eventsList) {
+      data?.events.forEach((data) => {
+        EventDates2.push({
+          date: data?.date,
+          title: data?.ceremony,
+        });
+      });
+    }
+  }
 
   return (
     <Container>
@@ -176,7 +201,7 @@ export default function fullCalendar() {
       <div className="col-md-12 flexy">
         <div className="col-md-1">&nbsp;</div>
         <div className="col-md-10">
-          <FullCalendar
+          {/* <FullCalendar
             plugins={[dayGridPlugin]}
             initialView="dayGridMonth"
             events={[
@@ -186,14 +211,17 @@ export default function fullCalendar() {
               { title: "Open day", date: "2022-06-19" },
               { title: "Social day", date: "2022-06-11" },
             ]}
+          />  */}
+          <FullCalendar
+            plugins={[dayGridPlugin]}
+            initialView="dayGridMonth"
+            events={EventDates2}
           />
         </div>
       </div>
     </Container>
   );
 }
-
-
 
 const Container = styled.section`
   .placeholder2 {
@@ -223,7 +251,7 @@ const Container = styled.section`
         /* height:100% ; */
         align-items: baseline;
         position: absolute;
-              margin-left:160px;
+        margin-left: 160px;
 
         bottom: 30%;
         li {

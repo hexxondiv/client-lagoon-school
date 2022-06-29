@@ -1,96 +1,105 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styled from 'styled-components';
-import Confrence from '../Assets/Confrence.png'
-import ExploreOne from '../Assets/ExploreOne.png'
-import ExploreTwo from '../Assets/ExplaoreTwo.png'
+import styled from "styled-components";
+import Confrence from "../Assets/Confrence.png";
+import ExploreOne from "../Assets/ExploreOne.png";
+import ExploreTwo from "../Assets/ExplaoreTwo.png";
+import { api } from "../misc/api";
 
 function Carousel() {
-    
-    const settings = {
-        dots: true,
-        infinite: true,
-        fade: true,
-        arrows:true,
-        speed: 1000, 
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay:false,
-        };
+  const settings = {
+    dots: true,
+    infinite: true,
+    fade: true,
+    arrows: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+  };
 
-        const Slideing = [
-          {
-            label: "ONLY AT LAGOON SCHOOL",
-            image: Confrence,
+  const [data, setData] = useState([]);
 
-            paragraph:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minimx veniam, quis nostrud e ercitation  x ea ullamco laboris nisi ut aliquip ecommodo consequat.",
-            commentor: "Isabella Nweze",
-          },
-          {
-            label: "ONLY AT LAGOON SCHOOL",
-            image: ExploreOne,
+  const fetchData = () => {
+    api
+      .get("testimonials")
+      .then((res) => {
+        const abridgeData = res.data;
+        console.log("Fetched data", res.data);
+        setData(res.data.data);
+      })
+      .catch(console.log);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const Slideing = [
+    {
+      label: "ONLY AT LAGOON SCHOOL 0",
+      image: Confrence,
 
-            paragraph:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minimx veniam, quis nostrud e ercitation  x ea ullamco laboris nisi ut aliquip ecommodo consequat.",
-            commentor: "Amanda Eze",
-          },
-          {
-            label: "ONLY AT LAGOON SCHOOL",
-            image: ExploreTwo,
+      paragraph:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minimx veniam, quis nostrud e ercitation  x ea ullamco laboris nisi ut aliquip ecommodo consequat.",
+      commentor: "Isabella Nweze",
+    },
+    {
+      label: "ONLY AT LAGOON SCHOOL 1",
+      image: ExploreOne,
 
-            paragraph:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minimx veniam, quis nostrud e ercitation  x ea ullamco laboris nisi ut aliquip ecommodo consequat.",
-            commentor: "Bella Ugwu",
-          },
-        ];
+      paragraph:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minimx veniam, quis nostrud e ercitation  x ea ullamco laboris nisi ut aliquip ecommodo consequat.",
+      commentor: "Amanda Eze",
+    },
+    {
+      label: "ONLY AT LAGOON SCHOOL 2",
+      image: ExploreTwo,
+
+      paragraph:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minimx veniam, quis nostrud e ercitation  x ea ullamco laboris nisi ut aliquip ecommodo consequat.",
+      commentor: "Bella Ugwu",
+    },
+  ];
 
   return (
     <Container>
-        <Slider {...settings}>
-
-          {Slideing.map((slide, index) =>{
-              return (
-                <SlickContent key={index}>
-                  <div className="cont">
-                    <div className="imagen">
-                      <img src={slide.image} alt="" />
-                      <h4>{slide.commentor}</h4>
-                    </div>
-                    <div className="stories">
-                      <label>{slide.label}</label>
-                      <p>{slide.paragraph} </p>
-                    </div>
-                  </div>
-                </SlickContent>
-              );
-
-          })
-
-          }
-        </Slider>
-
+      <Slider {...settings}>
+        {data.map((slide, index) => {
+          return (
+            <SlickContent key={index}>
+              <div className="cont">
+                <div className="imagen">
+                  <img
+                    src={`${process.env.REACT_APP_SERVER_URL}/images/${slide?.image_path}`}
+                    alt=""
+                  />
+                  <h4>{slide.commentor}</h4>
+                </div>
+                <div className="stories">
+                  <label>{slide.label}</label>
+                  <p dangerouslySetInnerHTML={{ __html: slide.paragraph }}></p>
+                </div>
+              </div>
+            </SlickContent>
+          );
+        })}
+      </Slider>
     </Container>
-  )
+  );
 }
 
-export default Carousel
-
+export default Carousel;
 
 const Container = styled.section`
-    position: relative;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    overflow-x: hidden;
-
-`
-
-
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  overflow-x: hidden;
+`;
 
 const SlickContent = styled.div`
   height: 40rem;

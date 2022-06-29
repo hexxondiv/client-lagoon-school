@@ -9,7 +9,7 @@ import Club from './Sub-pages/Academics/Club';
 import Courses from './Sub-pages/Academics/Courses';
 import PrimarySchool from './Sub-pages/Academics/PrimarySchool';
 import SecSchool from './Sub-pages/Academics/SecSchool';
-import fullCalendar from "./Sub-pages/Academics/fullCalendar";
+import FullCalendr from "./Sub-pages/Academics/FullCalendar";
 
 function Academics() {
   const location = useLocation();
@@ -29,7 +29,7 @@ function Academics() {
         <Route path="/academics/primary-school" component={PrimarySchool} />
         <Route path="/academics/secondary-school" component={SecSchool} />
         <Route path="/academics/club_&_activities" component={Club} />
-        <Route path="/academics/full_calendar" component={fullCalendar} />
+        <Route path="/academics/full_calendar" component={FullCalendr} />
 
         <Route path="*" component={NotFound} />
       </Switch>

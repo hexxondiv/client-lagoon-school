@@ -57,12 +57,10 @@ export default function Welcome() {
 
     ];
     mission?.forEach((data) => {
-        Mission2.push(
-            {
-                Heading :data.Heading,
-                Paragraph1: data.Paragraph1,
-            }
-        )
+        Mission2.push({
+          Heading: data.title,
+          Paragraph1: data.description,
+        });
     })
 
     const Explore2 = [];
