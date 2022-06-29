@@ -39,19 +39,19 @@ export default function Images() {
                 {splash.map((spl,index)=>{
                     let num2text = '';
                     console.log(spl)
-                    if (spl.id === 1){
+                    if (spl.position === 1){
                         num2text = 'one'
-                    }else if(spl.id === 2){
+                    }else if(spl.position === 2){
                         num2text = 'two'
-                    }else if(spl.id === 3){
+                    }else if(spl.position === 3){
                         num2text = 'three'
-                    }else if(spl.id === 4){
+                    }else if(spl.position === 4){
                         num2text = 'four'
-                    }else if(spl.id === 5){
+                    }else if(spl.position === 5){
                         num2text = 'five'
-                    }else if(spl.id === 6){
+                    }else if(spl.position === 6){
                         num2text = 'six'
-                    }else if(spl.id === 7){
+                    }else if(spl.position === 7){
                         num2text = 'seven'
                     }
                     return (
