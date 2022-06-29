@@ -211,15 +211,15 @@ function Footer() {
           <div className="col-md-5">
             <Link to={"/"}>
               <img
-                   src={`${process.env.REACT_APP_SERVER_URL}/images/${settings?.logo}`}
-                   alt="logo"
-                   className="footerlogo" />
+                src={`${process.env.REACT_APP_SERVER_URL}/images/${settings?.logo}`}
+                alt="logo"
+                className="footerlogo"
+              />
             </Link>{" "}
             <p>
               {" "}
               {settings?.address}
-               <br /> <br />{" "}
-              Secondary: {settings?.secondary_phone} <br />
+              <br /> <br /> Secondary: {settings?.secondary_phone} <br />
               Primary: {settings?.primary_phone} <br /> <br />
               <a href="#"> Direction</a>
             </p>
@@ -231,15 +231,15 @@ function Footer() {
             <h3>Useful Links</h3>
 
             <ul className="list-unstyled">
-              {ulinks?.map((link,index)=>{
+              {ulinks?.map((link, index) => {
                 return (
-                    <li>
-                      <a href={link.url} target={link.target}>{link.title}</a>
-                    </li>
-                )
-              })}
-              {" "}
-
+                  <li>
+                    <a href={link.url} target={link.target}>
+                      {link.title}
+                    </a>
+                  </li>
+                );
+              })}{" "}
               {/*<li>*/}
               {/*  <a href="/ESC">Elara Study Center</a>*/}
               {/*</li>{" "}*/}
@@ -259,16 +259,16 @@ function Footer() {
 
             <ul className="list-inline none">
               <li className="list-inline-item">
-                <a href={settings?.facebook}>
+                <a href={settings?.facebook} target="_blank">
                   <Icofont icon="icofont-facebook" />
                 </a>
               </li>
               <li className="list-inline-item">
-                <a href={settings?.instagram}>
+                <a href={settings?.instagram} target="_blank">
                   <Icofont icon="icofont-instagram" />
                 </a>
               </li>{" "}
-              <li className="list-inline-item">
+              <li className="list-inline-item" target="_blank">
                 <a href={settings?.twitter}>
                   <Icofont icon="icofont-twitter" />
                 </a>
@@ -285,7 +285,10 @@ function Footer() {
 
       <div className=" flexy boda">
         <div className="col-md-3 copi">
-          <p>&copy; {new Date().getFullYear()} The {settings?.display_name} - All Rights Reserved</p>
+          <p>
+            &copy; {new Date().getFullYear()} The {settings?.display_name} - All
+            Rights Reserved
+          </p>
         </div>
         <div className="col-md-7">&nbsp;</div>
         <div className="col-md-2 lastcopi">
