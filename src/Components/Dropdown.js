@@ -9,14 +9,16 @@ function Dropdown(props) {
     const [click, setClick] = useState(false);
     const {menuArray} = props;
     let label = props?.label[0].label;
-    // console.log('label',label)
+    console.log(props);
+    let menu_pic = null;
+    props?.menuPic?menu_pic=`${process.env.REACT_APP_SERVER_URL}/images/${props?.menuPic}`:menu_pic=ExploreTwo;
 
     const handleClick = () => setClick(!click);
 
     const MenuImg =[
         {
-            placeHolder: ExploreTwo ,
-            caption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis deleniti beatae exercitationem illum labore officia ad placeat laboriosam nihil aliquid.'
+            placeHolder: menu_pic ,
+            caption: props?.menuText?props.menuText:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis deleniti beatae exercitationem illum labore officia ad placeat laboriosam nihil aliquid.'
         }
     ]
 

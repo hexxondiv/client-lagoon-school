@@ -35,10 +35,6 @@ export default function Nabar() {
     useEffect(() => {
         fetchSiteSettings();
         fetchMenus();
-        // const fetchedMenus = menus;
-        // const fetchedSettings = settings;
-        // console.log(fetchedMenus);
-        // console.log(fetchedSettings)
     },[2]);
 
 
@@ -139,6 +135,8 @@ export default function Nabar() {
               <a href={"/about"}> About </a>{" "}
               {activeMenu.menu1 && (
                 <Dropdown
+                    menuPic={settings?.menu_pic}
+                    menuText={settings?.menu_text}
                   menuArray={navMenus.about}
                   label={navLabels["about"]}
                 />
@@ -149,6 +147,8 @@ export default function Nabar() {
               <a href={"/academics"}> Academics </a>{" "}
               {activeMenu.menu2 && (
                 <Dropdown
+                    menuPic={settings?.menu_pic}
+                    menuText={settings?.menu_text}
                   menuArray={navMenus.academics}
                   label={navLabels["academics"]}
                 />
@@ -169,6 +169,8 @@ export default function Nabar() {
               <a href={"/admission"}> Admission </a>{" "}
               {activeMenu.menu3 && (
                 <Dropdown
+                    menuPic={settings?.menu_pic}
+                    menuText={settings?.menu_text}
                   menuArray={navMenus.admission}
                   label={navLabels["admission"]}
                 />
@@ -179,6 +181,8 @@ export default function Nabar() {
               <a href={"/student_life"}> Student Life </a>{" "}
               {activeMenu.menu6 && (
                 <Dropdown
+                    menuPic={settings?.menu_pic}
+                    menuText={settings?.menu_text}
                   menuArray={navMenus.studentlife}
                   label={navLabels["studentlife"]}
                 />
@@ -189,6 +193,8 @@ export default function Nabar() {
               <a href={"/parents"}> Parents </a>{" "}
               {activeMenu.menu5 && (
                 <Dropdown
+                    menuPic={settings?.menu_pic}
+                    menuText={settings?.menu_text}
                   menuArray={navMenus.parents}
                   label={navLabels["parents"]}
                 />
