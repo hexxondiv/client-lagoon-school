@@ -1,28 +1,50 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Backdrop from '../../../../Assets/Backdrop.png'
 import Holder from '../../../../Assets/ExplaoreTwo.png'
 import Girl from '../../../../Assets/Confrence.png'
-import Girl1 from '../../../../Assets/Counter.png'
+import Girl1 from '../../../../Assets/Image2.png'
 import Girl2 from '../../../../Assets/Image3.png'
 import { Link } from "react-router-dom";
 
 // import {Link} from 'react-router-dom';
 import { subRoute } from './AboutItems';
+import {api} from "../../../../misc/api";
 
 
 
 export default function Welcome() {
   
   const currentPath = window.location.pathname;
-  
+  const [pageData, setPageData] = useState('');
+
+  const fetchPageData = () => {
+    api.get('about/welcome-to-the-lagoon-school')
+        .then(res => {
+          const abridgePageData = res.data;
+          setPageData(abridgePageData);
+        })
+        .catch(console.log);
+
+  };
+
+  useEffect(() => {
+    fetchPageData();
+    console.log(pageData);
+  },[]);
+
+  let bkdp = null;
+  pageData?.banner?bkdp=`${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`:bkdp=Backdrop;
+
 
   // const {menuArray} = props;
 
   return (
     <Container>
       <div className="placeholder2">
-        <img src={Backdrop} alt="placeholder" />
+        <img
+            src={bkdp}
+            alt="placeholder" />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -66,54 +88,50 @@ export default function Welcome() {
         {/* <header>Welcome to The Lagoon School</header> */}
         <div className="first">
           <span>
-            <h2>WHY LAGOON?</h2>
+            <h2>{pageData?.other_titles_1??'WHY LAGOON?'}</h2>
           </span>
-          <h4>
-            The Lagoon School is open to girls of all cultural, religious and
-            ethnic backgrounds. Our educational model is based on our mission
-            statement: Partnership with parents to give an all-round education
-            to each child based on the dignity of the human person, integrity,
-            leadership qualities and academic excellence.
-          </h4>
-          <h4>
-            We help young women to become leaders who are called to greatness.
-            Every aspect of school life provides an occasion to nurture the
-            education of the whole person, including our
-          </h4>
-          <ul>
-            <li>rigorous and engaging liberal arts curriculum</li>
-            <li>outstanding faculty and staf</li>
-            <li>collaboration with parent</li>
-            <li>individualized mentoring progra</li>
-            <li>opportunities for spiritual growth</li>
-            <li>ethic of service and community outreach</li>
-            <li>family atmosphere and tradition</li>
-            <li>rich student lif</li>
-            <li>study abroad opportunitie</li>
-            <li>
-              effort to do ordinary things extraordinarily well for love of God
-            </li>
-          </ul>
-          <Link to="Video.mp4">
-            <button>MEET A LAGOON STUDENT</button>
+          <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
+          {/*<h4>*/}
+          {/*  The Lagoon School is open to girls of all cultural, religious and*/}
+          {/*  ethnic backgrounds. Our educational model is based on our mission*/}
+          {/*  statement: Partnership with parents to give an all-round education*/}
+          {/*  to each child based on the dignity of the human person, integrity,*/}
+          {/*  leadership qualities and academic excellence.*/}
+          {/*</h4>*/}
+          {/*<h4>*/}
+          {/*  We help young women to become leaders who are called to greatness.*/}
+          {/*  Every aspect of school life provides an occasion to nurture the*/}
+          {/*  education of the whole person, including our*/}
+          {/*</h4>*/}
+          {/*<ul>*/}
+          {/*  <li>rigorous and engaging liberal arts curriculum</li>*/}
+          {/*  <li>outstanding faculty and staf</li>*/}
+          {/*  <li>collaboration with parent</li>*/}
+          {/*  <li>individualized mentoring progra</li>*/}
+          {/*  <li>opportunities for spiritual growth</li>*/}
+          {/*  <li>ethic of service and community outreach</li>*/}
+          {/*  <li>family atmosphere and tradition</li>*/}
+          {/*  <li>rich student lif</li>*/}
+          {/*  <li>study abroad opportunitie</li>*/}
+          {/*  <li>*/}
+          {/*    effort to do ordinary things extraordinarily well for love of God*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
+          <Link to="/about/virtual-tour">
+            <button>{pageData?.other_titles_2}</button>
           </Link>
         </div>
         <div className="second">
           <div className="size">
             <div className="img-hold">
-              <img src={Holder} alt="placeHolder" />
+              <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}`??Holder} alt="placeHolder" />
             </div>
             <div className="cont-hold">
               <span>
-                <h2>WHAT PARENTS ARE SAYING</h2>
+                <h2>{pageData?.other_titles_3}</h2>
               </span>
               <p>
-                "Where Girls are Called to Greatness' isn’t just a tagline or a
-                marketing tool, it is woven into the fabric of everything
-                Montrose does. The girls are constantly encouraged to be the
-                best version of themselves all the while with amazing support
-                from teachers, mentors, coaches, administration and their
-                peers."
+                {pageData?.other_contents_1}
               </p>
             </div>
           </div>
@@ -121,26 +139,27 @@ export default function Welcome() {
       </div>
       <div className="potrait">
         <div className="first-col">
-          <h4>A PORTRAIT OF LAGOON GIRLS</h4>
+          <h4>{pageData?.other_titles_4}</h4>
         </div>
         <div>
-          <img src={Girl} alt="placeholder" />
-          <ul>
-            <li>Intellectual curiosity</li>
-            <li>Ability to problem-solve</li>
-            <li>
-              Passion for learning, a breadth of interests and a clear sense of
-              purpos
-            </li>
-            <li>Resilience and perseverance in the face of difficulty</li>
-            <li>
-              Practical wisdom and the competence to commit herself to what is
-              noble and worthwhile
-            </li>
-          </ul>
+          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}`??Girl} alt="placeholder" />
+          <span dangerouslySetInnerHTML={{__html:pageData?.other_contents_2}}></span>
+          {/*<ul>*/}
+          {/*  <li>Intellectual curiosity</li>*/}
+          {/*  <li>Ability to problem-solve</li>*/}
+          {/*  <li>*/}
+          {/*    Passion for learning, a breadth of interests and a clear sense of*/}
+          {/*    purpos*/}
+          {/*  </li>*/}
+          {/*  <li>Resilience and perseverance in the face of difficulty</li>*/}
+          {/*  <li>*/}
+          {/*    Practical wisdom and the competence to commit herself to what is*/}
+          {/*    noble and worthwhile*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
         </div>
         <div>
-          <img src={Girl1} alt="placeholder" />
+          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}`??Girl1} alt="placeholder" />
           <ul>
             <li>
               Understands the integral relationship between faith and reason
@@ -161,21 +180,22 @@ export default function Welcome() {
           </ul>
         </div>
         <div>
-          <img src={Girl2} alt="placeholder" />
-          <ul>
-            <li>A strong self-knowledge</li>
-            <li>
-              An open and loving heart, actively participating in and serving
-              her community
-            </li>
-            <li>Confidence, initiative and courage</li>
-            <li>A sense of balance and a sense of humor</li>
-            <li>The wisdom to use her freedom responsibly</li>
-            <li>
-              A principled, independent ability to challenge others articulately
-              and respectfully
-            </li>
-          </ul>
+          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_4}`??Girl2} alt="placeholder" />
+          <span dangerouslySetInnerHTML={{__html:pageData?.other_contents_3}}></span>
+          {/*<ul>*/}
+          {/*  <li>A strong self-knowledge</li>*/}
+          {/*  <li>*/}
+          {/*    An open and loving heart, actively participating in and serving*/}
+          {/*    her community*/}
+          {/*  </li>*/}
+          {/*  <li>Confidence, initiative and courage</li>*/}
+          {/*  <li>A sense of balance and a sense of humor</li>*/}
+          {/*  <li>The wisdom to use her freedom responsibly</li>*/}
+          {/*  <li>*/}
+          {/*    A principled, independent ability to challenge others articulately*/}
+          {/*    and respectfully*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
         </div>
       </div>
     </Container>

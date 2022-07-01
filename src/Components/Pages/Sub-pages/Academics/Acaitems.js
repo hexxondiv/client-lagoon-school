@@ -10,7 +10,7 @@ export const subRoute = [
       path:'/academics/primary-school'
     },
     {
-      title:'Seconday School',
+      title:'Secondary School',
       cName:'linked',
       path:'/academics/secondary-school'
     },

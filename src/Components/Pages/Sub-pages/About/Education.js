@@ -1,18 +1,36 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Backdrop from '../../../../Assets/Backdrop.png';
 import Badge from '../../../../Assets/Badge.png'
 import { Link } from "react-router-dom";
 
 import { subRoute } from './AboutItems';
+import {api} from "../../../../misc/api";
 
 export default function Education() {
   const currentPath = window.location.pathname;
 
+  const [pageData, setPageData] = useState('');
+
+  const fetchPageData = () => {
+    api.get('about/educational-philosophy')
+        .then(res => {
+          const abridgePageData = res.data;
+          setPageData(abridgePageData);
+        })
+        .catch(console.log);
+
+  };
+
+  useEffect(() => {
+    fetchPageData();
+  },[]);
+  console.log(pageData);
+
   return (
     <Container>
       <div className="placeholder2">
-        <img src={Backdrop} alt="placeholder" />
+        <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -53,16 +71,10 @@ export default function Education() {
         </div>
       </div>
       <div className="content">
+
         <div>
           <div className="patch">
-            <h2>PURSUE THE TRUTH</h2>
-            <h1>Our mission:</h1>
-            <p>
-              Partnership with parents to give an all-round education to each
-              student, based on Christian principles, with emphasis on the
-              dignity of the human person, integrity, leadership qualities and
-              academic excellence.
-            </p>
+            <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
           </div>
           <div className="patch">
             <h2>FOSTER VIRTUES OF MIND, HEART AND CHARACTER</h2>
@@ -117,7 +129,7 @@ export default function Education() {
 
         <div className="badge">
           <div className="cor">
-            <img src={Badge} alt="" />
+            <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}`??Badge} alt="" />
 
             <Link to="Video.mp4">
               <button>Meet an alumni</button>

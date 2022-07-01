@@ -1,21 +1,38 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Backdrop from '../../../../Assets/Backdrop.png';
 import Holdr from '../../../../Assets/Image2.png'
 import { accordionData } from './Accordion';
 import { subRoute } from './AboutItems';
 import Accordion from './Accordion';
+import {api} from "../../../../misc/api";
 
 
 
 export default function Parents() {
   const currentPath = window.location.pathname;
 
+  const [pageData, setPageData] = useState('');
+
+  const fetchPageData = () => {
+    api.get('about/partnership')
+        .then(res => {
+          const abridgePageData = res.data;
+          setPageData(abridgePageData);
+        })
+        .catch(console.log);
+
+  };
+
+
+  useEffect(() => {
+    fetchPageData();
+  },[]);
 
   return (
     <Container>
       <div className="placeholder2">
-        <img src={Backdrop} alt="placeholder" />
+        <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -58,12 +75,7 @@ export default function Parents() {
       <div className="content">
         <div className="redup">
           <h4>
-            Parent partnership is foundational to the mission and philosophy of
-            Oakcrest School. We are committed to supporting parents as the
-            primary educators of their daughters. By offering continuing
-            education programs for parents, we assist parents in their noble
-            mission of forming their daughters to be passionate, confident,
-            empathetic and service-oriented leaders.
+            <span dangerouslySetInnerHTML={{__html:pageData?.other_contents_1}}></span>
           </h4>
         </div>
         <div className="primary">

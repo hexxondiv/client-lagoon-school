@@ -20,9 +20,12 @@ export const navMenus = {
       path: "/about/virtual-tour",
       cName: "dropdown-link",
     },
-    { title: "faith", path: "/about/opus-dei", cName: "dropdown-link" },
     {
-      title: "patnership with parents",
+      title: "faith",
+      path: "/about/opus-dei",
+      cName: "dropdown-link" },
+    {
+      title: "partnership with parents",
       path: "/about/partnership-with-parents",
       cName: "dropdown-link",
     },
@@ -40,7 +43,7 @@ export const navMenus = {
       cName: "dropdown-link",
     },
     {
-      title: "seconday school",
+      title: "secondary school",
       path: "/academics/secondary-school",
       cName: "dropdown-link",
     },
@@ -53,7 +56,7 @@ export const navMenus = {
   ],
   admission: [
     {
-      title: "Admission Proceedure",
+      title: "Admission Procedure",
       path: "./admission/admission-proceedure",
       cName: "dropdown-link",
     },

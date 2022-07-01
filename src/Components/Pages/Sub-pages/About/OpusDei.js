@@ -1,19 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Backdrop from '../../../../Assets/Backdrop.png'
 import { subRoute } from './AboutItems';
 import Holder from '../../../../Assets/image.CT8WM1.png'
 import Dei from '../../../../Assets/image.JQQTM1.png'
+import {api} from "../../../../misc/api";
 
 
 
 export default function OpusDei() {
   const currentPath = window.location.pathname;
 
+    const [pageData, setPageData] = useState('');
+
+    const fetchPageData = () => {
+        api.get('about/faith')
+            .then(res => {
+                const abridgePageData = res.data;
+                setPageData(abridgePageData);
+            })
+            .catch(console.log);
+
+    };
+
+    useEffect(() => {
+        fetchPageData();
+    },[]);
+    console.log(pageData);
+
   return (
     <Container>
     <div className='placeholder2'>
-        <img src={Backdrop} alt="placeholder" />
+        <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
       <div className='overlay'>
         <ul>
               {subRoute?.map((sub, idx)=>{
@@ -32,75 +50,16 @@ export default function OpusDei() {
     </div>
     <div className='content'>
         <div className='writings'>
-            <h4>
-              Christ is at the heart of everything we do. Our education,
-              guided by the teachings of the Catholic Church and the
-              spirituality of <a href={"https://www.opusdei.ng/"} target="_blank" rel='noopener noreferrer'>Opus Dei</a>, immerses students in a life of
-              Christian virtue and helps them discover the joy of
-              friendship with God. Whether it’s through Enrichment—
-              when the school day pauses for daily Mass—monthly
-              Adoration, or frequent opportunities for the Sacrament of
-              Reconciliation, Lagoon provides an environment rooted in
-              God’s love. Our students know that faith is a gift as well as
-              a responsibility that calls for a life of integrity and
-              compassion. Lagoon students learn to be open to a healthy
-              pluralism of opinions. From its founding, the school has
-              welcomed students of all faiths or of no particular faith, and
-              has respected the religious freedom of all.
-            </h4>
-            <h4>
-                The spiritual guidance and doctrinal instruction offered at
-                Lagoon is entrusted to Opus Dei, a personal prelature of
-                the Catholic Church. At the core of Opus Dei’s mission is
-                the teaching that all men and women are called to holiness,
-                which can be pursued through our everyday lives and work.
-                The spirit of Opus Dei inspires freedom, responsibility,
-                initiative, and an environment of trust. Lagoon students are
-                encouraged to take ownership of their faith and their
-                decisions so they live them to the fullest in college and
-                beyond.
-            </h4>
-            <h4>
-                Daily Mass is offered at Lagoon every morning, and many
-                students and faculty choose to attend. 
-            </h4>
-            <h4>
-                Our chaplain, who is a priest of Opus Dei, is available every
-                day for students and faculty who would like to receive
-                spiritual direction or the Sacrament of Penance. Our
-                chaplain periodically offers reflections for Dovtrine classes
-                and leads class spiritual retreats throughout the year.
-            </h4>
-            <h4>
-                Situated in the heart of the campus, the chapel is available
-                throughout the school day for quiet prayer.
-            </h4>
+            <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
 
-            <img src={Dei} alt="" />
+            <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}`??Dei} alt="" />
 
         </div>
         <div className='hold'>
-              <img src={Holder} alt="" />
-              <img src={Holder} alt="" />
+              <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}`??Holder} alt="" />
+              <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}`??Holder} alt="" />
               <div>
-                  <span>
-                        <h2>Opus Dei</h2>
-                    </span>
-                  <h4>
-                      Opus Dei is a personal prelature of the Catholic
-                      Church founded in 1928 by St. Josemaría Escrivá.
-                      At the core of Opus Dei’s mission is the teaching
-                      that all men and women are called to holiness,
-                      which can be pursued through our everyday lives
-                      and work.
-                  </h4>
-                  <h4>
-                    Our chaplains, priests of the Prelature, celebrate
-                    Mass in our chapel daily, and our school community
-                    approaches all work in a manner reflective of the
-                    spirit of Opus Dei—with dedication and
-                    cheerfulness, especially in the face of challenges.
-                  </h4>
+                  <span dangerouslySetInnerHTML={{__html:pageData?.other_contents_1}}></span>
               </div>
                
         </div>

@@ -1,16 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Backdrop from '../../../../Assets/Backdrop.png'
 import { subRoute } from './AboutItems';
 import Holder from '../../../../Assets/ExplaoreTwo.png'
+import {api} from "../../../../misc/api";
 
 export default function Message() {
   const currentPath = window.location.pathname;
+    const [pageData, setPageData] = useState('');
+
+    const fetchPageData = () => {
+        api.get('about/meet-the-head')
+            .then(res => {
+                const abridgePageData = res.data;
+                setPageData(abridgePageData);
+            })
+            .catch(console.log);
+
+    };
+
+    useEffect(() => {
+        fetchPageData();
+        console.log(pageData);
+    },[]);
 
   return (
     <Container>
       <div className='placeholder2'>
-          <img src={Backdrop} alt="placeholder" />
+          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
         <div className='overlay'>
             <ul>
                 {subRoute?.map((sub, idx)=>{
@@ -33,19 +50,12 @@ export default function Message() {
         {/* <header>Welcome to The Lagoon School</header> */}
           <div className='first'>
               <span>
-                  <h2>WELCOME FROM THE HEAD OF SCHOOL</h2>
+                  <h2>{pageData?.other_titles_1}</h2>
               </span>
               <h4>
-                    <img src={Holder} alt="placeHolder" />
-                    The Lagoon School aims at
-                    investing in the Nigerian girl
-                    child for the good of the society.
-                    We have both primary and
-                    secondary sections. Our school
-                    has a reputation of high moral
-                    and academic standards. We
-                    have been able to achieve these
-                    through our mission:
+                    <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}`??Holder} alt="placeHolder" />
+                  <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
+
               </h4>
               <h4>
                   ‘partnership with the parents to give an all-round education
@@ -89,10 +99,10 @@ export default function Message() {
           </div>
           <div className='second'>
               <div className='img-hold'>
-                  <img src={Holder} alt="placeHolder" />
+                  <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}`??Holder} alt="placeHolder" />
               </div>
               <div className='img-hold'>
-                  <img src={Holder} alt="placeHolder" />
+                  <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}`??Holder} alt="placeHolder" />
               </div>
               
 

@@ -12,6 +12,7 @@ import {api} from "../../../../misc/api";
 export default function VirtualTour(props) {
   const currentPath = window.location.pathname;
     const [settings, setSettings] = useState('');
+    const [pageData, setPageData] = useState('');
 
     const fetchSiteSettings = () => {
         api.get('site-settings')
@@ -23,17 +24,29 @@ export default function VirtualTour(props) {
 
     };
 
+    const fetchPageData = () => {
+        api.get('about/virtual-tour')
+            .then(res => {
+                const abridgePageData = res.data;
+                setPageData(abridgePageData);
+            })
+            .catch(console.log);
+
+    };
+
     useEffect(() => {
         fetchSiteSettings();
+        fetchPageData();
     },[]);
 
   // const {menuArray} = props;
+    console.log()
 
   return (
     <Container>
 
       <div className='placeholder2'>
-          <img src={Backdrop} alt="placeholder" />
+          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
         <div className='overlay'>
           <ul>
             {subRoute?.map((sub, idx)=>{
@@ -73,23 +86,7 @@ export default function VirtualTour(props) {
 
         <header>Virtual Tour</header>
 
-          <div>
-            <h4>The Lagoon School is the first project of the Nigerian
-                Association for Women`s Advancement (NAWA), a not-
-                for-profit and non-governmental educational and social
-                trust dedicated to investing in the girl child for the
-                good of the societ</h4>
-                          </div>
-                          <div>
-                            <p>The Lagoon School is open to girls of all cultural,
-                religious and ethnic backgrounds. Our educational
-                model is based on our mission statement: Partnership
-                with parents to give an all-round education to each
-                child based on the dignity of the human person,
-                integrity, leadership qualities and academic
-                excellence.
-                </p>
-          </div>
+          <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
 
       </div>
     </Container>
