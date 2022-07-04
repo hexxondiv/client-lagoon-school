@@ -115,7 +115,7 @@ export default function Parents() {
             }
             alt=""
           />
-          <div className="table">
+          <div className="table table-hover">
             <div className="accordion">
               {accordionDD.map(({ title, content }) => (
                 <Accordion title={title} content={content} />

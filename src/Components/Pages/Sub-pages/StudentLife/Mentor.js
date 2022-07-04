@@ -8,9 +8,11 @@ import { api } from "../../../../misc/api";
 export default function Mentor() {
   const currentPath = window.location.pathname;
   const [pageData, setPageData] = useState("");
+  const [noteData, setNoteData] = useState({});
+  const [testimonialList, setTestimonialList] = useState([]);
   const fetchPageData = () => {
     api
-      .get("about/meet-the-head")
+      .get("mentors-index")
       .then((res) => {
         const abridgePageData = res.data;
         setPageData(abridgePageData);
@@ -19,9 +21,15 @@ export default function Mentor() {
   };
 
   useEffect(() => {
-    // fetchPageData();
-    console.log(pageData);
+    fetchPageData();
   }, []);
+  useEffect(() => {
+    if (pageData !== "") {
+      setNoteData(pageData.images);
+      setTestimonialList(pageData.testimonials);
+      console.log(noteData);
+    }
+  }, [pageData]);
   return (
     <Container>
       <div className="placeholder2">
@@ -100,18 +108,62 @@ export default function Mentor() {
           </div>
           <div className="quotes">
             <hr />
-            <h4>
-              “ My Montrose advisors challenged me to grow in confidence by
-              encouraging me to push myself, which prompted me to take the
-              chance to apply for the White House internship. Lagoon encourages
-              students not only to think but also reflect, a skill that is
-              absolutely necessary in college. This type of preparation at the
-              high school level is rare. “
-            </h4>
-            <h4>- Nweze Isabella</h4>
+            <h4>“ {testimonialList.paragraph} “</h4>
+            <h4>- {testimonialList.commentor}</h4>
           </div>
+          {/* <img src={Holder} alt="" /> */}
           <img src={Holder} alt="" />
-          <img src={Holder} alt="" />
+        </div>
+      </div>
+
+      <div className="col-md-12 flexy">
+        {Object.values(noteData).map(({ id, title, image_path }) => {
+          return (
+            <div className="col-md-4 ">
+              <div className="col-md-11 ">
+                {" "}
+                <img
+                  src={
+                    `${process.env.REACT_APP_SERVER_URL}/images/${image_path}` ??
+                    Holder
+                  }
+                />
+              </div>
+            </div>
+          );
+        })}
+
+        {/* <div className="col-md-4 ">
+          <div className="col-md-11 ">
+            {" "}
+            <img src={Holder} alt="" />
+          </div>
+        </div>
+        <div className="col-md-4 ">
+          <div className="col-md-11 ">
+            {" "}
+            <img src={Holder} alt="" />
+          </div>
+        </div>
+      </div>
+      <div className="col-md-12 flexy">
+        <div className="col-md-4 ">
+          <div className="col-md-11 ">
+            {" "}
+            <img src={Holder} alt="" />
+          </div>
+        </div>
+        <div className="col-md-4 ">
+          <div className="col-md-11 ">
+            {" "}
+            <img src={Holder} alt="" />
+          </div>
+        </div>
+        <div className="col-md-4 ">
+          <div className="col-md-11 ">
+            {" "}
+            <img src={Holder} alt="" />
+          </div>
         </div>
       </div>
 
@@ -133,48 +185,7 @@ export default function Mentor() {
             {" "}
             <img src={Holder} alt="" />
           </div>
-        </div>
-      </div>
-      <div className="col-md-12 flexy">
-        <div className="col-md-4 ">
-          <div className="col-md-11 ">
-            {" "}
-            <img src={Holder} alt="" />
-          </div>
-        </div>
-        <div className="col-md-4 ">
-          <div className="col-md-11 ">
-            {" "}
-            <img src={Holder} alt="" />
-          </div>
-        </div>
-        <div className="col-md-4 ">
-          <div className="col-md-11 ">
-            {" "}
-            <img src={Holder} alt="" />
-          </div>
-        </div>
-      </div>
-
-      <div className="col-md-12 flexy">
-        <div className="col-md-4 ">
-          <div className="col-md-11 ">
-            {" "}
-            <img src={Holder} alt="" />
-          </div>
-        </div>
-        <div className="col-md-4 ">
-          <div className="col-md-11 ">
-            {" "}
-            <img src={Holder} alt="" />
-          </div>
-        </div>
-        <div className="col-md-4 ">
-          <div className="col-md-11 ">
-            {" "}
-            <img src={Holder} alt="" />
-          </div>
-        </div>
+        </div>*/}
       </div>
     </Container>
   );

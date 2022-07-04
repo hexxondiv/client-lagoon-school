@@ -60,8 +60,8 @@ function Admission() {
   return (
     <>
       <section>
-        <div className="row">
-          <div className="col-md-12">
+        <div className="container">
+          <div className="row col-md-12">
             <Switch location={location} key={location.pathname}>
               <Route path={"/admission"} exact>
                 <Redirect to={"/admission/admission-proceedure"} />
@@ -76,7 +76,7 @@ function Admission() {
                 <Scholarship content={noteData.content} />
               </Route>
               <Route path="/admission/f-a-q" component={Frequent}>
-                <Frequent content={noteData.content} />
+                <Frequent noteData={noteData} />
               </Route>
               <Route path="/admission/apply-to-lagoon" component={Applyto}>
                 <Applyto content={noteData.content} />

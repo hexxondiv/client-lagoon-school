@@ -1,16 +1,46 @@
-import React from 'react';
-import styled from 'styled-components';
-import Backdrop from '../../../../Assets/Backdrop.png'
-import { subRoute } from './Acaitems';
-import Accordion,{accordionData2} from '../About/Accordion';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import Backdrop from "../../../../Assets/Backdrop.png";
+import { subRoute } from "./Acaitems";
+import Accordion, { accordionData2 } from "../About/Accordion";
 import "./fullCalendar.css";
+import { api } from "../../../../misc/api";
 
 export default function Club() {
+  const [accordionDt, setAccordionData] = useState({});
+  const [primaries, setPrimaries] = useState({});
+  const [secondaries, setSecondaries] = useState({});
+  const fetchAccordionData = () => {
+    api
+      .get("clubs-index")
+      .then((res) => {
+        const abridgeAccordionData = res.data;
+        setAccordionData(abridgeAccordionData);
+      })
+      .catch(console.log);
+  };
 
-//   const currentPath = window.location.pathname;
+  useEffect(() => {
+    fetchAccordionData();
+  }, []);
+  function callListPrimary(content) {
+    var arr = { title: "Primary School", content };
+    setPrimaries(arr);
+  }
+  function callListPrimary(content) {
+    var arr = { title: "Secondary School", content };
+    setPrimaries(arr);
+  }
+  useEffect(() => {
+    console.log(accordionDt);
+    callListPrimary(accordionDt?.primaries);
+    callListPrimary(accordionDt?.secondaries);
+  }, [accordionDt]);
 
-
- 
+  useEffect(() => {
+    console.log("primaries", primaries);
+  }, [primaries]);
+  //   const currentPath = window.location.pathname;
 
   return (
     <Container>
@@ -85,53 +115,49 @@ export default function Club() {
   );
 }
 
-
-
-
 const Container = styled.section`
+  .placeholder2 {
+    height: 37rem;
+    position: relative;
 
-  .placeholder2{
-    height:37rem ;
-    position:relative ;
-
-    img{
-      width:100% ;
-      height:100% ;
-      object-fit:cover ;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .overlay{
-      position:absolute ;
-      top:0 ;
-      background-color:rgba(0,0,0,0.5) ;
-      width:100% ;
-      height:100% ;
-      ul{
-        padding:0 ;
-        list-style:none ;
-        display:flex ;
-        justify-content:center ;
-        flex-wrap:wrap ;
-        gap:2rem;
+    .overlay {
+      position: absolute;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+      ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
         /* height:100% ; */
-        align-items:baseline ;
+        align-items: baseline;
         position: absolute;
         bottom: 30%;
-        width:100% !important;
+        width: 100% !important;
 
-        li{
-          display:flex ;
-          flex-direction:column ;
+        li {
+          display: flex;
+          flex-direction: column;
           /* height:70% ; */
-          align-items:baseline ;
-          justify-content:flex-end ;
+          align-items: baseline;
+          justify-content: flex-end;
 
-          a{
-            text-decoration:none ;
-            font-size:1.5rem;
-            color:#fff ;
+          a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #fff;
 
-            &:hover{
+            &:hover {
               color: red;
             }
           }
@@ -140,116 +166,100 @@ const Container = styled.section`
     }
   }
 
-  .content{
-    width:90% ;
-    margin:5rem auto 0 auto ;
-    display:flex ;
-    flex-direction:column ;
+  .content {
+    width: 90%;
+    margin: 5rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
 
-   .first{
-        span{
+    .first {
+      span {
+        h2 {
+          position: relative;
+          font-size: 1.6rem;
+          margin: 5rem 0;
 
-            h2{
-              position:relative ;
-              font-size:1.6rem ;
-              margin: 5rem 0 ;
-              
-              &::before{
-                content: '';
-                border-bottom: 5px solid red;
-                width: 5rem;
-                position: absolute;
-                bottom: 0;
-                top: 30px;
+          &::before {
+            content: "";
+            border-bottom: 5px solid red;
+            width: 5rem;
+            position: absolute;
+            bottom: 0;
+            top: 30px;
+          }
+        }
+      }
+      h4 {
+        font-size: 1.4rem;
+        line-height: 35px;
+        letter-spacing: 1px;
+        font-weight: 500;
+      }
+
+      .lists {
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          tbody {
+            tr {
+              text-align: left;
+              vertical-align: center;
+              align-items: center;
+
+              \ &:first-child {
+                background: #d9d9d9;
               }
-            }
-            }
-            h4{
-                font-size:1.4rem ;
-                line-height:35px ;
-                letter-spacing:1px ;
-                font-weight:500 ;
+              &:last-child {
+                height: 10rem;
               }
 
-              .lists{
+              td {
+                border: 2px solid #000 !important;
+                padding-left: 5rem;
+                label {
+                  p {
+                    padding: 0;
+                    margin: 10px 0;
+                    font-style: italic;
+                    font-size: 18px;
+                    align-items: center;
+                  }
+                }
+                select {
+                  height: 30px;
+                  width: 15%;
+                  position: relative;
+                  &::after {
+                    content: "hiuwejijw>";
+                    position: absolute;
+                    right: 0;
+                  }
 
-                table{
-                    width:100% ;
-                    border-collapse:collapse;
-                    tbody{
+                  &::placeholder {
+                    color: #000;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    vertical-align: center;
+                    align-self: center;
+                    padding-left: 10px;
+                  }
 
-                      tr{
-                        text-align:left ;
-                        vertical-align:center ;
-                        align-items:center ;
-                        
-\                        &:first-child{
-                          background:#d9d9d9;
-                        }
-                        &:last-child{
-                          height:10rem ;
-                        }
-                        
-                        td{
-                          border:2px solid #000 !important;
-                          padding-left: 5rem;
-                          label{
-
-
-                            p{
-                              padding:0 ;
-                              margin: 10px 0 ;
-                              font-style:italic;
-                              font-size:18px ;
-                              align-items:center ;
-                            }
-                          }
-                          select{
-                              height: 30px;
-                              width: 15%;
-                              position:relative ;
-                              &::after{
-                                content:'hiuwejijw>' ;
-                                position:absolute ;
-                                right:0 ;
-                              }
-
-                              &::placeholder{
-                                color:#000 ;
-                                font-size:18px ;
-                                text-transform:uppercase ;
-                                vertical-align:center ;
-                                align-self:center ;
-                                padding-left:10px;
-                              }
-
-                             option{
-
-                              &:disabled{
-                                color:#000 ;
-                                font-size:18px ;
-                                text-transform:uppercase ;
-                                vertical-align:center ;
-                                align-self:center ;
-                                padding-left:10px;
-                              }
-                             }
-                            }
-                        }
-                      }
+                  option {
+                    &:disabled {
+                      color: #000;
+                      font-size: 18px;
+                      text-transform: uppercase;
+                      vertical-align: center;
+                      align-self: center;
+                      padding-left: 10px;
                     }
+                  }
                 }
               }
-           
-   }
-
-
-
-   
-   
+            }
+          }
+        }
+      }
+    }
   }
-
-
- 
-
-`
+`;
