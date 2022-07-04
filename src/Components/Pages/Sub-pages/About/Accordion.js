@@ -22,51 +22,39 @@ export default Accordion;
 
 
 const Accord = styled.div`
-
-&:first-child{
+  &:first-child {
     margin-top: 10rem;
-}
-
-
-.accordion {
-  max-width: 600px;
-
-}
-
-.accordion-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  cursor: pointer;
-  background-color: #fff;
-  font-size:20px ;
-  font-weight:900 ;
-}
-
-.accordion-title:hover {
-  background-color: #fff;
-}
-
-.accordion-title,
-.accordion-content {
-  padding: 1rem;
-  border:2px solid #000;
-
-  ul{
-
-    li{
-      font-size:1.4rem ;
-      font-weight:300 ;
+  }
+  .accordion {
+    max-width: 600px;
+  }
+  .accordion-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .accordion-title:hover {
+    background-color: #fff;
+  }
+  .accordion-title,
+  .accordion-content {
+    padding: 1rem;
+    border: 2px solid #000;
+    ul {
+      li {
+        font-size: 1.4rem;
+        font-weight: 300;
+      }
     }
   }
-
-}
-
-.accordion-content {
-  background-color: #f9f9f9;
-}
-
-`
+  .accordion-content {
+    background-color: #f9f9f9;
+  }
+`;
 
 
 export const accordionData = [

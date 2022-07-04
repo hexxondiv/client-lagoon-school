@@ -63,7 +63,7 @@ function App() {
 
             <Route to="*" component={NotFound} />
           </Switch>
-          
+
           <Footer />
         </Suspense>
       )}

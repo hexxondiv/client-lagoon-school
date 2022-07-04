@@ -26,38 +26,72 @@ export default function Message() {
 
   return (
     <Container>
-      <div className='placeholder2'>
-          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
-        <div className='overlay'>
-            <ul>
-                {subRoute?.map((sub, idx)=>{
-                  return(
-                      <li key={idx}>
-                          <a className={sub.cName} href={sub.path} 
-                          style={{color:sub.path.toString() === currentPath.toString()?'red':'',backgroundColor:sub.path.toString() === currentPath.toString()?'#fff':'',padding:sub.path.toString() === currentPath.toString()?'20px':'',border:sub.path.toString() === currentPath.toString()?'2px solid red':'',borderRadius:sub.path.toString() === currentPath.toString()?'20px':''}}
-                          >
-                            {sub.title}
-                          </a>
-                      </li>
-                  )
-                  
-                })
-                }
-              </ul>
+      <div className="placeholder2">
+        <img
+          src={
+            `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}` ??
+            Backdrop
+          }
+          alt="placeholder"
+        />
+        <div className="overlay">
+          <ul>
+            {subRoute?.map((sub, idx) => {
+              return (
+                <li key={idx}>
+                  <a
+                    className={sub.cName}
+                    href={sub.path}
+                    style={{
+                      color:
+                        sub.path.toString() === currentPath.toString()
+                          ? "red"
+                          : "",
+                      backgroundColor:
+                        sub.path.toString() === currentPath.toString()
+                          ? "#fff"
+                          : "",
+                      padding:
+                        sub.path.toString() === currentPath.toString()
+                          ? "20px"
+                          : "",
+                      border:
+                        sub.path.toString() === currentPath.toString()
+                          ? "2px solid red"
+                          : "",
+                      borderRadius:
+                        sub.path.toString() === currentPath.toString()
+                          ? "20px"
+                          : "",
+                    }}
+                  >
+                    {sub.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
-      <div className='content'>
+      <div className="content">
         {/* <header>Welcome to The Lagoon School</header> */}
-          <div className='first'>
-              <span>
-                  <h2>{pageData?.other_titles_1}</h2>
-              </span>
-              <h4>
-                    <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}`??Holder} alt="placeHolder" />
-                  <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
-
-              </h4>
-              <h4>
+        <div className="first">
+          <span>
+            <h2>{pageData?.other_titles_1}</h2>
+          </span>
+          <h4>
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
+                Holder
+              }
+              alt="placeHolder"
+            />
+            <span
+              dangerouslySetInnerHTML={{ __html: pageData?.content }}
+            ></span>
+          </h4>
+          {/* <h4>
                   ‘partnership with the parents to give an all-round education
                   to the students, based on the dignity of the human person,
                   integrity, leadership qualities and academic excellence’ and
@@ -94,22 +128,31 @@ export default function Message() {
                     For more information, do not hesitate to contact us.
               </h4>
 
-              <h4>Doreen Onyekwelu (Principal)</h4>
-
+              <h4>Doreen Onyekwelu (Principal)</h4> */}
+        </div>
+        <div className="second">
+          <div className="img-hold">
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
+                Holder
+              }
+              alt="placeHolder"
+            />
           </div>
-          <div className='second'>
-              <div className='img-hold'>
-                  <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}`??Holder} alt="placeHolder" />
-              </div>
-              <div className='img-hold'>
-                  <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}`??Holder} alt="placeHolder" />
-              </div>
-              
-
+          <div className="img-hold">
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}` ??
+                Holder
+              }
+              alt="placeHolder"
+            />
           </div>
+        </div>
       </div>
     </Container>
-  )
+  );
 }
 
 

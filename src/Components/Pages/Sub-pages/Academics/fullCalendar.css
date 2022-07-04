@@ -92,6 +92,13 @@ background-image:url('../../../../Assets/ExplaoreTwo.png');
        background-position: center;
       }
 
+.fac {
+
+   background-image: url('../../../../Assets/ExplaoreTwo.png');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+}
 
 
 .fac2{

@@ -30,7 +30,13 @@ export default function Education() {
   return (
     <Container>
       <div className="placeholder2">
-        <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
+        <img
+          src={
+            `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}` ??
+            Backdrop
+          }
+          alt="placeholder"
+        />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -71,65 +77,34 @@ export default function Education() {
         </div>
       </div>
       <div className="content">
-
         <div>
-          <div className="patch">
-            <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
-          </div>
           <div className="patch">
             <h2>FOSTER VIRTUES OF MIND, HEART AND CHARACTER</h2>
             <p>
-              At The Lagoon School special care is taken to foster the virtues
-              of personal integrity, self-discipline, order, honesty,
-              industriousness, modesty and sense of responsibility. The School
-              is committed to raising useful upright citizens. Moral education
-              at the school is based on Christian principles. Activities for
-              spiritual and human development are entrusted to the Opus Dei
-              Prelature.
+              <span
+                dangerouslySetInnerHTML={{ __html: pageData?.content2 }}
+              ></span>
             </p>
           </div>
           <div className="patch">
             <h2>DISCOVER GREATNESS IN ORDINARY LIFE</h2>
             <p>
-              What are some of the practical ways we integrate faith and work at
-              Lagoon?
+              <span
+                dangerouslySetInnerHTML={{ __html: pageData?.content }}
+              ></span>
             </p>
-            <ul>
-              <li>
-                Engage the world, every academic discipline, and professional
-                field with ambition
-              </li>
-              <li>
-                Work with excellence and purpose to bring joy and peace to those
-                around us
-              </li>
-              <li>
-                Respect freedom, freedom of conscience, and individuals of all
-                faith traditions
-              </li>
-              <li>
-                Pray before each class to set an intention and offer work to God
-              </li>
-              <li>
-                Practice solidarity with those in need--locally and
-                globally--through prayer and service
-              </li>
-              <li>
-                Know that we are children of God--unique, unrepeatable and
-                called to greatness
-              </li>
-              <li>
-                To discover God's presence in our daily lives--to give our
-                personal best and make our work a gift--is at the heart of
-                Montrose School’s Christian identity
-              </li>
-            </ul>
           </div>
         </div>
 
         <div className="badge">
           <div className="cor">
-            <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}`??Badge} alt="" />
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
+                Badge
+              }
+              alt=""
+            />
 
             <Link to="Video.mp4">
               <button>Meet an alumni</button>

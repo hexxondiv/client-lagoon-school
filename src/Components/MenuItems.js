@@ -23,7 +23,8 @@ export const navMenus = {
     {
       title: "faith",
       path: "/about/opus-dei",
-      cName: "dropdown-link" },
+      cName: "dropdown-link",
+    },
     {
       title: "partnership with parents",
       path: "/about/partnership-with-parents",
@@ -57,20 +58,20 @@ export const navMenus = {
   admission: [
     {
       title: "Admission Procedure",
-      path: "./admission/admission-proceedure",
+      path: "/admission/admission-proceedure",
       cName: "dropdown-link",
     },
     {
       title: "school tuition fees",
-      path: "./admission/tuition",
+      path: "/admission/tuition",
       cName: "dropdown-link",
     },
     {
       title: "scholarships",
-      path: "./admission/scholarship",
+      path: "/admission/scholarship",
       cName: "dropdown-link",
     },
-    { title: "FAQs", path: "./admission/f-a-q", cName: "dropdown-link" },
+    { title: "FAQs", path: "/admission/f-a-q", cName: "dropdown-link" },
     {
       title: "Apply to lagoon school",
       path: "https://lagoonweb.eschoolng.net/primary/application/start_application.php",

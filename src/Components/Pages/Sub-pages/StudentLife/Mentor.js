@@ -1,12 +1,27 @@
-import React from 'react';
-import styled from 'styled-components';
-import Backdrop from '../../../../Assets/Backdrop.png'
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import Backdrop from "../../../../Assets/Backdrop.png";
 import { subRoute } from "./LifeItems";
-import Holder from '../../../../Assets/ExplaoreTwo.png'
+import Holder from "../../../../Assets/ExplaoreTwo.png";
+import { api } from "../../../../misc/api";
 
 export default function Mentor() {
   const currentPath = window.location.pathname;
+  const [pageData, setPageData] = useState("");
+  const fetchPageData = () => {
+    api
+      .get("about/meet-the-head")
+      .then((res) => {
+        const abridgePageData = res.data;
+        setPageData(abridgePageData);
+      })
+      .catch(console.log);
+  };
 
+  useEffect(() => {
+    // fetchPageData();
+    console.log(pageData);
+  }, []);
   return (
     <Container>
       <div className="placeholder2">
@@ -161,14 +176,9 @@ export default function Mentor() {
           </div>
         </div>
       </div>
-
-      
     </Container>
   );
 }
-
-
-
 
 const Container = styled.section`
   .placeholder2 {
@@ -280,11 +290,9 @@ const Container = styled.section`
         padding: 50px;
         margin-top: 30px;
         @media screen and (min-width: 280px) and (max-width: 1080px) {
-         
-            padding: 10px;
-            height: fit-content;
-            width: 100%;
-        
+          padding: 10px;
+          height: fit-content;
+          width: 100%;
         }
         span {
           h2 {

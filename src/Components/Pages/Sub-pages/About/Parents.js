@@ -12,27 +12,54 @@ import {api} from "../../../../misc/api";
 export default function Parents() {
   const currentPath = window.location.pathname;
 
-  const [pageData, setPageData] = useState('');
-
-  const fetchPageData = () => {
-    api.get('about/partnership')
-        .then(res => {
-          const abridgePageData = res.data;
-          setPageData(abridgePageData);
-        })
-        .catch(console.log);
-
+  const [pageData, setPageData] = useState("");
+  const [accordionDt, setAccordionData] = useState("");
+  const fetchAccordionData = () => {
+    api
+      .get("parent-accordion")
+      .then((res) => {
+        const abridgeAccordionData = res.data;
+        setAccordionData(abridgeAccordionData);
+      })
+      .catch(console.log);
   };
-
+  const fetchPageData = () => {
+    api
+      .get("about/partnership")
+      .then((res) => {
+        const abridgePageData = res.data;
+        setPageData(abridgePageData);
+      })
+      .catch(console.log);
+  };
 
   useEffect(() => {
     fetchPageData();
-  },[]);
+    fetchAccordionData();
+  }, []);
+  let accordionDD = accordionData;
+  if (accordionDt !== "") {
+    accordionDD = [];
+    accordionDt.forEach((dat) => {
+      accordionDD.push({
+        idx: dat?.id,
+        title: dat?.title,
+        content: dat?.content,
+      });
+    });
+    console.log(accordionDD);
+  }
 
   return (
     <Container>
       <div className="placeholder2">
-        <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
+        <img
+          src={
+            `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}` ??
+            Backdrop
+          }
+          alt="placeholder"
+        />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -75,14 +102,22 @@ export default function Parents() {
       <div className="content">
         <div className="redup">
           <h4>
-            <span dangerouslySetInnerHTML={{__html:pageData?.other_contents_1}}></span>
+            <span
+              dangerouslySetInnerHTML={{ __html: pageData?.other_contents_1 }}
+            ></span>
           </h4>
         </div>
         <div className="primary">
-          <img src={Holdr} alt="" />
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
+              Holdr
+            }
+            alt=""
+          />
           <div className="table">
             <div className="accordion">
-              {accordionData.map(({ title, content }) => (
+              {accordionDD.map(({ title, content }) => (
                 <Accordion title={title} content={content} />
               ))}
             </div>
@@ -101,26 +136,35 @@ export default function Parents() {
           </div>
         </div>
         <div className="stacks">
-          <img src={Holdr} alt="" />
-          <img src={Holdr} alt="" />
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
+              Holdr
+            }
+            alt=""
+          />
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}` ??
+              Holdr
+            }
+            alt=""
+          />
         </div>
       </div>
     </Container>
   );
 }
 
-
 const Container = styled.section`
   .placeholder2 {
     height: 37rem;
     position: relative;
-
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .overlay {
       position: absolute;
       top: 0;
@@ -128,7 +172,7 @@ const Container = styled.section`
       width: 100%;
       height: 100%;
       text-align: center;
-padding:50px;
+      padding: 50px;
       ul {
         padding: 0;
         list-style: none;
@@ -140,14 +184,12 @@ padding:50px;
         align-items: baseline;
         position: absolute;
         bottom: 30%;
-
         li {
           display: flex;
           flex-direction: column;
           /* height:70% ; */
           align-items: baseline;
           justify-content: flex-end;
-
           a {
             text-decoration: none;
             font-size: 1.5rem;
@@ -160,7 +202,6 @@ padding:50px;
       }
     }
   }
-
   .content {
     width: 90%;
     margin: 0 auto;
@@ -180,7 +221,6 @@ padding:50px;
         line-height: 30px;
       }
     }
-
     .primary {
       width: 80%;
       margin-top: 8rem;
@@ -189,7 +229,6 @@ padding:50px;
         height: 20rem;
         object-fit: cover;
       }
-
       .table {
         ul {
           list-style: none;
@@ -209,10 +248,8 @@ padding:50px;
           }
         }
       }
-
       .principle {
         margin-top: 10rem;
-
         header {
           color: red;
           margin: 0;
@@ -220,7 +257,6 @@ padding:50px;
           font-size: 20px;
           font-weight: 900;
         }
-
         ul {
           li {
             font-size: 20px;
@@ -229,15 +265,12 @@ padding:50px;
         }
       }
     }
-
     .stacks {
       margin-top: 8rem;
-
       img {
         width: 100%;
         height: 20rem;
         object-fit: cover;
-
         &:nth-child(n + 2) {
           margin-top: 3rem;
         }

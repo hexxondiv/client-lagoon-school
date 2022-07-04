@@ -42,9 +42,7 @@ export default function Welcome() {
   return (
     <Container>
       <div className="placeholder2">
-        <img
-            src={bkdp}
-            alt="placeholder" />
+        <img src={bkdp} alt="placeholder" />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -88,9 +86,9 @@ export default function Welcome() {
         {/* <header>Welcome to The Lagoon School</header> */}
         <div className="first">
           <span>
-            <h2>{pageData?.other_titles_1??'WHY LAGOON?'}</h2>
+            <h2>{pageData?.other_titles_1 ?? "WHY LAGOON?"}</h2>
           </span>
-          <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
+          <span dangerouslySetInnerHTML={{ __html: pageData?.content }}></span>
           {/*<h4>*/}
           {/*  The Lagoon School is open to girls of all cultural, religious and*/}
           {/*  ethnic backgrounds. Our educational model is based on our mission*/}
@@ -124,15 +122,19 @@ export default function Welcome() {
         <div className="second">
           <div className="size">
             <div className="img-hold">
-              <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}`??Holder} alt="placeHolder" />
+              <img
+                src={
+                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
+                  Holder
+                }
+                alt="placeHolder"
+              />
             </div>
             <div className="cont-hold">
               <span>
                 <h2>{pageData?.other_titles_3}</h2>
               </span>
-              <p>
-                {pageData?.other_contents_1}
-              </p>
+              <p>{pageData?.other_contents_1}</p>
             </div>
           </div>
         </div>
@@ -142,8 +144,16 @@ export default function Welcome() {
           <h4>{pageData?.other_titles_4}</h4>
         </div>
         <div>
-          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}`??Girl} alt="placeholder" />
-          <span dangerouslySetInnerHTML={{__html:pageData?.other_contents_2}}></span>
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
+              Girl
+            }
+            alt="placeholder"
+          />
+          <span
+            dangerouslySetInnerHTML={{ __html: pageData?.other_contents_2 }}
+          ></span>
           {/*<ul>*/}
           {/*  <li>Intellectual curiosity</li>*/}
           {/*  <li>Ability to problem-solve</li>*/}
@@ -159,8 +169,14 @@ export default function Welcome() {
           {/*</ul>*/}
         </div>
         <div>
-          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}`??Girl1} alt="placeholder" />
-          <ul>
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}` ??
+              Girl1
+            }
+            alt="placeholder"
+          />
+          {/* <ul>
             <li>
               Understands the integral relationship between faith and reason
             </li>
@@ -177,11 +193,22 @@ export default function Welcome() {
               contribution to the world
             </li>
             <li>Understands the value of a personal relationship with God</li>
-          </ul>
+          </ul> */}
+          <span
+            dangerouslySetInnerHTML={{ __html: pageData?.other_contents_3 }}
+          ></span>
         </div>
         <div>
-          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_4}`??Girl2} alt="placeholder" />
-          <span dangerouslySetInnerHTML={{__html:pageData?.other_contents_3}}></span>
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_4}` ??
+              Girl2
+            }
+            alt="placeholder"
+          />
+          <span
+            dangerouslySetInnerHTML={{ __html: pageData?.other_contents_4 }}
+          ></span>
           {/*<ul>*/}
           {/*  <li>A strong self-knowledge</li>*/}
           {/*  <li>*/}

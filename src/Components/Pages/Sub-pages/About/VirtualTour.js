@@ -44,8 +44,7 @@ export default function VirtualTour(props) {
 
   return (
     <Container>
-
-      <div className='placeholder2'>
+      {/* <div className='placeholder2'>
           <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.banner}`??Backdrop} alt="placeholder" />
         <div className='overlay'>
           <ul>
@@ -65,32 +64,32 @@ export default function VirtualTour(props) {
             }
           </ul>
         </div>
+      </div> */}
+      <div className="row col-md-12">
+        <iframe
+          width="100%"
+          height={720}
+          marginWidth={500}
+          marginHeight={560}
+          src={
+            settings?.virtual_tour +
+            (settings.autoplay == 1 ? `?autoplay=1` : ``)
+          }
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full-screen"
+          allowFullScreen={true}
+          autoplay={true}
+        ></iframe>
       </div>
-        <div className="row col-md-12">
-            <iframe
-                width="100%"
-                height={720}
-                marginWidth={500}
-                marginHeight={560}
-                src={settings?.virtual_tour+(settings.autoplay==1?`?autoplay=1`:``)}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full-screen"
-                allowFullScreen={true}
-                autoplay={true}>
 
-            </iframe>
-        </div>
-
-      <div className='content'>
-
+      <div className="content">
         <header>Virtual Tour</header>
 
-          <span dangerouslySetInnerHTML={{__html:pageData?.content}}></span>
-
+        <span dangerouslySetInnerHTML={{ __html: pageData?.content }}></span>
       </div>
     </Container>
-  )
+  );
 }
 
 

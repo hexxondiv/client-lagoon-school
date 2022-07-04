@@ -30,7 +30,7 @@ import { api } from "../../../../misc/api";
 
 export default function FullCalendr() {
   const currentPath = window.location.pathname;
-
+  const [noteData, setNoteData] = useState({});
   // function handleChange(e) {
   //   let link = e.target.value;
   //   console.log(link);
@@ -51,6 +51,12 @@ export default function FullCalendr() {
   useEffect(() => {
     fetchData();
   }, []);
+  useEffect(() => {
+    if (data != [] && data.notes) {
+      setNoteData(data.notes);
+      console.log(noteData);
+    }
+  }, [data]);
   const EventDates2 = [];
   if (data != [] && data?.events) {
     // console.log(data?.events);
@@ -68,7 +74,13 @@ export default function FullCalendr() {
   return (
     <Container>
       <div className="placeholder2">
-        <img src={Backdrop} alt="placeholder" />
+        <img
+          src={
+            `${process.env.REACT_APP_SERVER_URL}/images/${noteData.banner}` ??
+            Backdrop
+          }
+          alt="placeholder"
+        />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -185,15 +197,31 @@ export default function FullCalendr() {
         </div>
 
         <div className="col-md-4 cal">
-          <h4>2021-22 T.L.S. Key Dates</h4>
+          <h4>Academic Activities Key Dates</h4>
 
-          <a href={Pdf} without rel="noopener noreferrer" target="_blank">
+          <a
+            href={
+              `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_1}` ??
+              Pdf
+            }
+            without
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <img src={Calendar1} alt="calendar" />
           </a>
         </div>
         <div className="col-md-4 cal">
-          <h4>2021-22 T.L.S. Key Dates</h4>
-          <a href={Pdf} without rel="noopener noreferrer" target="_blank">
+          <h4>Atheletic Activities Key Dates</h4>
+          <a
+            href={
+              `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_2}` ??
+              Pdf
+            }
+            without
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <img src={Calendar2} alt="calendar" />
           </a>
         </div>

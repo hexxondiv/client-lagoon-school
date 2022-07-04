@@ -1,31 +1,59 @@
-import {React,useState} from 'react';
-import styled from 'styled-components';
-import Backdrop from '../../../../Assets/Backdrop.png'
-import { subRoute } from './Acaitems';
+import React, { useEffect, useState } from "react";
+import { api } from "../../../../misc/api";
+import styled from "styled-components";
+import Backdrop from "../../../../Assets/Backdrop.png";
+import { subRoute } from "./Acaitems";
 // import Holder from '../../../../Assets/ExplaoreTwo.png'
 // import { useLocation } from 'react-router-dom';
 // import { useRoute } from '@react-navigation/native';
 export default function Courses() {
-
   const currentPath = window.location.pathname;
-  const [sublink, setSublink]=useState(undefined)
+  const [sublink, setSublink] = useState(undefined);
   function handleChange(e) {
     let link = e.target.value;
-       console.log(link);      
-    if(link==="primary"|| link==="secondary") {
-      setSublink(link)
-    }
-    else
-    {
+    console.log(link);
+    if (link === "primary" || link === "secondary") {
+      setSublink(link);
+    } else {
       setSublink(undefined);
       window.location = link;
     }
   }
 
+  const [pageData, setPageData] = useState("");
+  const [noteData, setNoteData] = useState({});
+  const [testimonialList, setTestimonialList] = useState([]);
+
+  const fetchPageData = () => {
+    api
+      .get("courses-index")
+      .then((res) => {
+        const abridgePageData = res.data;
+        console.log(abridgePageData);
+        setPageData(abridgePageData);
+      })
+      .catch(console.log);
+  };
+  useEffect(() => {
+    fetchPageData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    if (pageData !== "") {
+      setNoteData(pageData.note);
+      setTestimonialList(pageData.testimonials);
+    }
+  }, [pageData]);
   return (
     <Container>
       <div className="placeholder2">
-        <img src={Backdrop} alt="placeholder" />
+        <img
+          src={
+            `${process.env.REACT_APP_SERVER_URL}/images/${noteData.banner}` ??
+            Backdrop
+          }
+          alt="placeholder"
+        />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -131,20 +159,29 @@ export default function Courses() {
               </tbody>
             </table>
           </div>
-          <div className="redbo"></div>
-          <div>
-            <h4 className="col-md-10">
-              “ Lagoon encourages students not only to think but also reflect, a
-              skill that is absolutely necessary in college. This type of
-              preparation at the high school level is rare. “
-            </h4>
-            <br />
-            <span>
-              <p>- Nweze Isabella</p>
-            </span>
-          </div>
           <br /> <br />
-          <div className="redb"></div>
+          {testimonialList.map(({ id, commentor, paragraph }) => {
+            return (
+              <>
+                <div className="redb"></div>
+                <div>
+                  <h1 className="col-md-12">
+                    “{" "}
+                    <span
+                      dangerouslySetInnerHTML={{ __html: paragraph }}
+                    ></span>{" "}
+                    “
+                  </h1>
+                  <br />
+                  <span>
+                    <p>- {commentor}</p>
+                  </span>
+                </div>
+                <br /> <br />
+              </>
+            );
+          })}
+          {/* <div className="redb"></div>
           <div className="second">
             <h1 className="col-md-12 ">
               “ Lagoon School provided me with the invaluable academic and
@@ -158,15 +195,12 @@ export default function Courses() {
             <span>
               <p>- Nweze Isabella</p>
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </Container>
   );
 }
-
-
-
 
 const Container = styled.section`
   .placeholder2 {
@@ -235,7 +269,7 @@ const Container = styled.section`
     border-top: solid 7px red;
     width: 220px;
     margin-left: 570px;
-    margin-top:60px;
+    margin-top: 60px;
   }
 
   .second {
@@ -290,8 +324,8 @@ const Container = styled.section`
         .redb {
           display: none;
         }
-        .redbo{
-          display:none;
+        .redbo {
+          display: none;
         }
       }
       .lists {
