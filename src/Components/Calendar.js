@@ -3,13 +3,22 @@ import styled from "styled-components";
 import Cover from "../Assets/Cover.png";
 import Inter from "../Assets/Interhouse.png";
 import Roll from "react-reveal/Roll";
-import { Link } from "react-router-dom";
 import { api } from "../misc/api";
+import NewsDetails from "./NewsDetail";
+import {
+  BrowserRouter as Router,
+  Switch,
+  useLocation,
+  Route,
+  Link,
+  useParams,
+  Redirect,
+} from "react-router-dom";
 // import fullCalendar  from "fullCalendar";
 
 export default function Calendar() {
+  const location = useLocation();
   const [data, setData] = useState([]);
-
   const fetchData = () => {
     api
       .get("news-events")
@@ -66,6 +75,7 @@ export default function Calendar() {
           header: dat?.header,
           date: dat?.date,
           ceremony: dat?.ceremony,
+          slug: dat?.slug,
         });
       });
 
@@ -99,16 +109,24 @@ export default function Calendar() {
             </div>
             {EventContent2.map((ent, index) => {
               return (
-                <div className="content" key={index} data-aos="zoom-in-left">
-                  <div className="holder-img">
-                    <img src={ent.holder} alt="holder" />
-                  </div>
-                  <div className="pesp">
-                    <h4>{ent.header}</h4>
-                    <label>{ent.date}</label>
-                    <p>{ent.ceremony}</p>
-                  </div>
-                </div>
+                <Router>
+                  <Link to={`/blog/${ent.slug}`}>
+                    <div
+                      className="content"
+                      key={index}
+                      data-aos="zoom-in-left"
+                    >
+                      <div className="holder-img">
+                        <img src={ent.holder} alt="holder" />
+                      </div>
+                      <div className="pesp">
+                        <h4>{ent.header}</h4>
+                        <label>{ent.date}</label>
+                        <p>{ent.ceremony}</p>
+                      </div>
+                    </div>
+                  </Link>
+                </Router>
               );
             })}
           </>

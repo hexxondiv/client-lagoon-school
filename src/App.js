@@ -13,40 +13,38 @@ import Admission from './Components/Pages/Admission';
 import PuffLoader from "react-spinners/PuffLoader";
 import { css } from "@emotion/react";
 import StudentLife from './Components/Pages/StudentLife';
+import NewsDetails from "./Components/NewsDetail";
 // import stuLife from './Components/Pages/Sub-pages/StudentLife/stuLife';
 // import Loader from './Components/Loader';
-const About = React.lazy(() => import('./Components/Pages/About'))
-const Home = React.lazy(() => import('./Components/Container'))
-
+const About = React.lazy(() => import("./Components/Pages/About"));
+const Home = React.lazy(() => import("./Components/Container"));
 
 const override = css`
-    display: flex;
-    /* flex-direction: column; */
-    width: 100%;
-    height: 100%;
-    justify-content:center ;
-    text-align:center ;
-    align-items:center ;
-    margin: 0 auto;
-    position:fixed ;
-    /* top:0 ; */
-    /* left:0 ; */
-    right:-50% ;
-    bottom:-40% ;
+  display: flex;
+  /* flex-direction: column; */
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  position: fixed;
+  /* top:0 ; */
+  /* left:0 ; */
+  right: -50%;
+  bottom: -40%;
 `;
 
 function App() {
-  const [loading, setLoading] = useState(false)
-  
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() =>{
-    setLoading(true)
-    setTimeout(()=>{
-      setLoading(false)
-    },2000);
-  },[])
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
-  
   return (
     <>
       {loading ? (
@@ -60,6 +58,7 @@ function App() {
             <Route path={"/academics"} component={Academics} />
             <Route path={"/admission"} component={Admission} />
             <Route path={"/student_life"} component={StudentLife} />
+            <Route path="/blog/:id" component={NewsDetails} />
 
             <Route to="*" component={NotFound} />
           </Switch>

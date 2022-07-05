@@ -8,6 +8,7 @@ import Message from "./Sub-pages/About/Message";
 import VirtualTour from "./Sub-pages/About/VirtualTour";
 import Parents from "./Sub-pages/About/Parents";
 import Inquire from "./Inquire";
+import NewsDetails from "../NewsDetail";
 const Welcome = React.lazy(() => import("./Sub-pages/About/Welcome"));
 
 function About() {
