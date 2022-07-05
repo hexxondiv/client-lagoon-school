@@ -109,24 +109,21 @@ export default function Calendar() {
             </div>
             {EventContent2.map((ent, index) => {
               return (
-                <Router>
-                  <Link to={`/blog/${ent.slug}`}>
-                    <div
-                      className="content"
-                      key={index}
-                      data-aos="zoom-in-left"
-                    >
-                      <div className="holder-img">
-                        <img src={ent.holder} alt="holder" />
-                      </div>
-                      <div className="pesp">
-                        <h4>{ent.header}</h4>
-                        <label>{ent.date}</label>
-                        <p>{ent.ceremony}</p>
-                      </div>
+                <div>
+                  <div className="content" key={index} data-aos="zoom-in-left">
+                    <div className="holder-img">
+                      <img src={ent.holder} alt="holder" />
                     </div>
-                  </Link>
-                </Router>
+                    <div className="pesp">
+                      <h4>{ent.header}</h4>
+                      <label>{ent.date}</label>
+                      <p>{ent.ceremony}</p>
+                      <a className="text-info" href={`/blog/${ent.slug}`}>
+                        Continue reading
+                      </a>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </>

@@ -9,15 +9,12 @@ import {
   Switch,
   Route,
   Link,
-  Redirect,
-  useLocation,
   useParams,
 } from "react-router-dom";
 export default function NewsDetails() {
   const currentPath = window.location.pathname;
   const [pageData, setPageData] = useState("");
   const [otherNews, setOtherNewsData] = useState("");
-  const location = useLocation();
   let { id } = useParams();
   // console.log(id);
   const fetchPageData = () => {
