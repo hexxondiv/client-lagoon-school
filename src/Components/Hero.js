@@ -8,30 +8,45 @@ import 'aos/dist/aos.css'
 import { Link } from "react-router-dom";
 import { Modal,Button as Btn } from "react-bootstrap";
 import {api} from "../misc/api";
-
+import { Zoom } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 export default function Hero() {
   const [show, setShow] = useState(false);
   const [firstTime, setFirstTime] = useState(false);
   const [settings, setSettings] = useState('');
+  const [slideImages, setSlideImages] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const fetchSiteSettings = () => {
-    api.get('site-settings')
-        .then(res => {
-          const abridgeSettings = res.data;
-          setSettings(abridgeSettings);
-        })
-        .catch(console.log);
-
+    api
+      .get("site-settings")
+      .then((res) => {
+        const abridgeSettings = res.data;
+        setSettings(abridgeSettings);
+      })
+      .catch(console.log);
   };
-    useEffect(() => {
-        Aos.init({  offset: 200,
-          duration: 600,
-          easing: 'ease-in-sine',
-          delay: 120,});
-        fetchSiteSettings();
-    }, []);
+  const fetchSlideImages = () => {
+    api
+      .get("slide-images")
+      .then((res) => {
+        const abridgeSettings = res.data;
+        setSlideImages(abridgeSettings);
+        console.log("slide images: ", slideImages);
+      })
+      .catch(console.log);
+  };
+  useEffect(() => {
+    Aos.init({
+      offset: 200,
+      duration: 600,
+      easing: "ease-in-sine",
+      delay: 120,
+    });
+    fetchSiteSettings();
+    fetchSlideImages();
+  }, []);
     useEffect(() => {
              var referrer = document.referrer;
              console.log("referrer url", referrer);
@@ -45,18 +60,39 @@ export default function Hero() {
               //  setFirstTime(true);
             //  }
     }, [firstTime]);
+    const zoomOutProperties = {
+      duration: 5000,
+      transitionDuration: 500,
+      infinite: true,
+      indicators: true,
+      scale: 2,
+      arrows: false,
+    };
+    const Slideshow = () => {
+      return (
+        <Zoom {...zoomOutProperties}>
+          {slideImages.map((each, index) => (
+            <img
+              key={index}
+              src={`${process.env.REACT_APP_SERVER_URL}/images/${each}`}
+            />
+          ))}
+        </Zoom>
+      );
+    };
   return (
     <Section>
       <BackgroundCover>
-        <img
+        {/* <img
           src={
             settings?.splash_screen_image
               ? `${process.env.REACT_APP_SERVER_URL}/images/${settings?.splash_screen_image}`
               : Background
           }
           alt=""
-        />
+        /> */}
         {/* <video src={Video} autoPlay loop muted /> */}
+        <Slideshow />
       </BackgroundCover>
       <BackgroundContent>
         <div className="ContentCover">
@@ -65,7 +101,7 @@ export default function Hero() {
             data-aos-easing="ease-in-sine"
             className="Info"
           >
-            <label htmlFor="/">The {settings?.display_name}</label>
+            <label htmlFor="/">{settings?.display_name}</label>
             <div className="comment">
               A SCHOOL WHERE <br /> <mark>ALL - ROUND </mark> <br />
               FORMATION IS <br /> PROVIDED{" "}
@@ -137,130 +173,125 @@ const ModalImg = styled.section`
   }
 `;
 const BackgroundCover = styled.div`
+  height: 90vh;
+  z-index: 1;
+
+  img {
+    width: 100%;
+    filter: brightness(60%);
     height: 90vh;
-    z-index:1;
+    object-fit: cover;
+  }
 
-    img{
-        width: 100%;
-        filter: brightness(60%);
-        height: 100%;
-        object-fit: cover;
-    }
-
-    video{
-        width: 100%;
-        filter: brightness(60%);
-        height: 100vh;
-        object-fit: cover;
-    }
-
-`
+  video {
+    width: 100%;
+    filter: brightness(60%);
+    height: 100vh;
+    object-fit: cover;
+  }
+`;
 
 const BackgroundContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  z-index: 2;
+  .ContentCover {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 40%;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+
+    .Info {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 1rem;
+      label {
+        font-size: clamp(2rem, 8vw, 2rem);
+        color: #fff;
+        text-transform: uppercase;
+        font-family: monseratSemi;
+      }
+
+      .comment {
+        font-size: clamp(3rem, 10vw, 4rem);
+        color: #fff;
+        font-weight: 900px;
+        font-family: monseratSemi;
+        flex-wrap: wrap;
+        mark {
+          margin: 0;
+          padding: 0;
+          width: 0;
+          color: #e21020;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .play {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+
+    .cover {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      gap: 2rem;
+      align-items: center;
+
+      label {
+        color: #fff;
+        font-size: clamp(2rem, 8vw, 2rem);
+        text-align: left;
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    .ContentCover {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 88%;
+      align-items: baseline;
+      gap: 6rem;
+    }
+
+    .play {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      justify-content: left;
+
+      .cover {
         display: flex;
         flex-direction: column;
-        text-align:center ;
-        justify-content:center ;
-        position:absolute ;
-        top:0 ;
-        height:100% ;
-        width:100% ;
-        align-items:center ;
-        z-index: 0;
-       .ContentCover{
-           text-align:center ;
-           display:grid ;
-           grid-template-columns:  1fr 40%;
-           width:90% ;
-           margin: 0 auto ;
-           justify-content:space-between ;
+        text-align: left;
+        justify-content: left;
+        gap: 2rem;
+        align-items: left !important;
 
-           .Info{
-               display:flex;
-               flex-direction:column;
-               text-align:left ;
-               gap:1rem;
-               label{
-                   font-size:clamp(2rem, 8vw, 2rem);
-                   color:#fff;
-                   text-transform:uppercase;
-                   font-family:monseratSemi;
-
-               }
-
-               .comment{
-                font-size:clamp(3rem, 10vw, 4rem);
-                   color:#fff; 
-                   font-weight:900px;
-                   font-family:monseratSemi;
-                   flex-wrap:wrap;
-                   mark{
-                       margin:0 ;
-                       padding:0 ;
-                       width: 0;
-                       color:#e21020 ;
-                       background-color:transparent ;
-                   }
-               }
-           }
-       } 
-
-       .play{
-           display:flex ;
-           flex-direction:column ;
-           text-align:center ;
-           justify-content:center ;
-
-           .cover{
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            gap: 2rem;
-            align-items: center;
-
-            label{
-                color:#fff ;
-                font-size:clamp(2rem, 8vw, 2rem);
-                text-align:left ;
-
-            }
-           }
-       }
-       @media screen and (min-width: 280px) and (max-width: 1080px) {
-        .ContentCover{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 88%;
-            align-items: baseline;
-            gap: 6rem;}
-
-           .play{
-           display:flex ;
-           flex-direction:column ;
-           text-align:left ;
-           justify-content:left ;
-
-           .cover{
-            display: flex;
-            flex-direction:column ;
-            text-align: left;
-            justify-content: left;
-            gap: 2rem;
-            align-items: left !important;
-
-            label{
-                color:#fff ;
-                font-size:clamp(2rem, 8vw, 2rem);
-                text-align:left ;
-
-            }
-           }
-       }
-       }
-
-       
-`
+        label {
+          color: #fff;
+          font-size: clamp(2rem, 8vw, 2rem);
+          text-align: left;
+        }
+      }
+    }
+  }
+`;
 
 const Button = styled.button`
 

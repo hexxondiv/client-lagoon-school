@@ -78,6 +78,14 @@ export default function Education() {
       </div>
       <div className="content">
         <div>
+        <div className="patch">
+            <h2>PURSUE THE TRUTH</h2>
+            <p>
+              <span
+                dangerouslySetInnerHTML={{ __html: pageData?.other_contents_2 }}
+              ></span>
+            </p>
+          </div>
           <div className="patch">
             <h2>FOSTER VIRTUES OF MIND, HEART AND CHARACTER</h2>
             <p>

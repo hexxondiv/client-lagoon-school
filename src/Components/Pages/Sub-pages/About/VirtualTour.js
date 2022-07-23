@@ -6,6 +6,7 @@ import Backdrop from '../../../../Assets/Backdrop.png'
 
 import { subRoute } from './AboutItems';
 import {api} from "../../../../misc/api";
+import NotFound from '../../../NotFound';
 
 
 
@@ -66,21 +67,25 @@ export default function VirtualTour(props) {
         </div>
       </div> */}
       <div className="row col-md-12">
-        <iframe
-          width="100%"
-          height={720}
-          marginWidth={500}
-          marginHeight={560}
-          src={
-            settings?.virtual_tour +
-            (settings.autoplay == 1 ? `?autoplay=1` : ``)
-          }
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full-screen"
-          allowFullScreen={true}
-          autoplay={true}
-        ></iframe>
+        {settings?.virtual_tour == "" || settings?.virtual_tour == null ? (
+          <NotFound/>
+        ) : (
+          <iframe
+            width="100%"
+            height={720}
+            marginWidth={500}
+            marginHeight={560}
+            src={
+              settings?.virtual_tour +
+              (settings.autoplay == 1 ? `?autoplay=1` : ``)
+            }
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full-screen"
+            allowFullScreen={true}
+            autoplay={true}
+          ></iframe>
+        )}
       </div>
 
       <div className="content">

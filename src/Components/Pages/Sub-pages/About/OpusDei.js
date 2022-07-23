@@ -103,11 +103,12 @@ export default function OpusDei() {
             alt=""
           />
           <div>
-            <h2>
+          <span><h2>{pageData?.other_titles_1}</h2></span>
+            {/* <h2>
               <span
                 dangerouslySetInnerHTML={{ __html: pageData?.other_titles_1 }}
               ></span>
-            </h2>
+            </h2> */}
           </div>
           <div>
             <h4>

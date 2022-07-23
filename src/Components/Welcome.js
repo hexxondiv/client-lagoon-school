@@ -141,7 +141,7 @@ export default function Welcome() {
                 <div className='expcov' data-aos="zoom-in-right">
                     {Explore2.map((exp, index)=>{
                         return (
-                          <Link to={exp.link}>
+                          <Link to={exp.link} style={{ textDecoration: 'none' }}>
                             <div key={index}>
                               <img src={exp.Image} alt="" />
                               <div>

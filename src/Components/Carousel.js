@@ -17,7 +17,7 @@ function Carousel() {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
   };
 
   const [data, setData] = useState([]);

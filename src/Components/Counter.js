@@ -10,99 +10,107 @@ import Feather2 from '../Assets/Vector.svg'
 import Roll from 'react-reveal/Roll';
 
 
-export default function Counter() {
+export default function Counter({
+  statistics_average_class_size,
+  statistics_enrolment,
+  statistics_graduates,
+  statistics_student_mentor_ratio,
+}) {
+  const Ratio = [
+    { icon: Feather, numbers: statistics_graduates, label: "GRADUATES" },
+    { icon: Feather1, numbers: statistics_student_mentor_ratio, label: "STUDENT MENTOR RATIO" },
+    { icon: Feather2, numbers: statistics_enrolment, label: "ENROLLMENT" },
+    { icon: Feather, numbers: statistics_average_class_size, label: "AVERAGE CLASS SIZE" },
+  ];
 
-    const Ratio =[
-        {   icon: Feather,
-            numbers:'300',
-            label:'GRADUATES'
-        },
-        {   icon: Feather1,
-            numbers:'1 : 1',
-            label:'STUDENT MENTOR RATIO'
-        },
-        {   icon: Feather2,
-            numbers:'800',
-            label:'ENROLLMENT'
-        },
-        {   icon: Feather,
-            numbers:'35',
-            label:'AVERAGE CLASS SIZE'
-        }
-
-    ]
-
-    const Believe =[
-        {place:Confrence, sub:'ACADEMIC EXCELLENCE', writeUp:'an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’'},
-        {place:Faith, sub:'FAITH', writeUp:'an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’'},
-        {place:Inter, sub:'PARENT PARTNERSHIP', writeUp:'an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’'},
-    ]
+  const Believe = [
+    {
+      place: Confrence,
+      sub: "ACADEMIC EXCELLENCE",
+      writeUp:
+        "an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’",
+    },
+    {
+      place: Faith,
+      sub: "FAITH",
+      writeUp:
+        "an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’",
+    },
+    {
+      place: Inter,
+      sub: "PARENT PARTNERSHIP",
+      writeUp:
+        "an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’",
+    },
+  ];
 
   return (
     <CounterCov>
-        <div className='numbers'>
-            <img src={CounterImg} alt="" />
-            <div className='bg'>
-                <div className='overlayimg'>
-                    {Ratio.map((rte, index)=>{
-                        return(
-                            // <div className='cont' key={index}>
-                            //         <div>
-                            //             <img src={rte.icon} alt="" /> 
-                            //         </div>
-                            //          <div>
-                            //             <p>{rte.numbers}</p>
-                            //          </div>
-                            //         <div>
-                            //             <label htmlFor="">{rte.label}</label>
-                            //         </div>
-                            // </div>
-                            <table key={index}>
-                                 <Roll left cascade>
-
-                                    <tbody data-aos="fade-up">
-                                        
-                                        <tr> 
-                                            <td>   <img src= {rte.icon}alt="" />   </td>
-                                        </tr>
-                                        <tr> 
-                                            <td> <p>{rte.numbers}</p> </td>
-                                        </tr>
-                                        <tr> 
-                                            <td> <label htmlFor="">{rte.label} </label> </td>
-                                        </tr>
-                                    </tbody>
-                                    </Roll>
-                            </table>
-                        )
-                    })
-
-                    }
-                </div>
-            </div>
-            
+      <div className="numbers">
+        <img src={CounterImg} alt="" />
+        <div className="bg">
+          <div className="overlayimg">
+            {Ratio.map((rte, index) => {
+              return (
+                // <div className='cont' key={index}>
+                //         <div>
+                //             <img src={rte.icon} alt="" />
+                //         </div>
+                //          <div>
+                //             <p>{rte.numbers}</p>
+                //          </div>
+                //         <div>
+                //             <label htmlFor="">{rte.label}</label>
+                //         </div>
+                // </div>
+                <table key={index}>
+                  <Roll left cascade>
+                    <tbody data-aos="fade-up">
+                      <tr>
+                        <td>
+                          {" "}
+                          <img src={rte.icon} alt="" />{" "}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          {" "}
+                          <p>{rte.numbers}</p>{" "}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          {" "}
+                          <label htmlFor="">{rte.label} </label>{" "}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </Roll>
+                </table>
+              );
+            })}
+          </div>
         </div>
-        <div className='photos'>
-            <Roll left cascade>
-                <div className='check'data-aos="fade-up">
-                        {Believe.map((bil,index) =>{
-                        return(
-                            <div className='evenst' key={index}>
-                                <img src={bil.place} alt="" /> 
-                                    <div className='cover'>
-                                        <p>{bil.sub}</p> 
-                                        <h6>{bil.writeUp}</h6>
-                                    </div>
-                            </div>
-                        )
-                    })}
+      </div>
+      <div className="photos">
+        <Roll left cascade>
+          <div className="check" data-aos="fade-up">
+            {Believe.map((bil, index) => {
+              return (
+                <div className="evenst" key={index}>
+                  <img src={bil.place} alt="" />
+                  <div className="cover">
+                    <p>{bil.sub}</p>
+                    <h6>{bil.writeUp}</h6>
+                  </div>
                 </div>
-            </Roll>
-     
-            
-        </div>
+              );
+            })}
+          </div>
+        </Roll>
+      </div>
     </CounterCov>
-  )
+  );
 }
 
 
