@@ -15,32 +15,40 @@ export default function Counter({
   statistics_enrolment,
   statistics_graduates,
   statistics_student_mentor_ratio,
+  statistics_parent_partnership,
+  statistics_faith,
+  statistics_academic_excellence
 }) {
   const Ratio = [
     { icon: Feather, numbers: statistics_graduates, label: "GRADUATES" },
-    { icon: Feather1, numbers: statistics_student_mentor_ratio, label: "STUDENT MENTOR RATIO" },
+    {
+      icon: Feather1,
+      numbers: statistics_student_mentor_ratio,
+      label: "STUDENT MENTOR RATIO",
+    },
     { icon: Feather2, numbers: statistics_enrolment, label: "ENROLLMENT" },
-    { icon: Feather, numbers: statistics_average_class_size, label: "AVERAGE CLASS SIZE" },
+    {
+      icon: Feather,
+      numbers: statistics_average_class_size,
+      label: "AVERAGE CLASS SIZE",
+    },
   ];
 
   const Believe = [
     {
       place: Confrence,
       sub: "ACADEMIC EXCELLENCE",
-      writeUp:
-        "an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’",
+      writeUp: statistics_academic_excellence,
     },
     {
       place: Faith,
       sub: "FAITH",
-      writeUp:
-        "an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’",
+      writeUp:statistics_faith,
     },
     {
       place: Inter,
       sub: "PARENT PARTNERSHIP",
-      writeUp:
-        "an person, integrity, leadership qualities and academic excellence ’ and our vision : ‘ Christian I dentity ’",
+      writeUp: statistics_parent_partnership,
     },
   ];
 

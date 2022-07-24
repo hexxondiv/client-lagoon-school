@@ -268,7 +268,6 @@ const Container = styled.section`
       background-color: rgba(0, 0, 0, 0.5);
       width: 100%;
       height: 100%;
-
       ul {
         padding: 0;
         list-style: none;
@@ -279,9 +278,9 @@ const Container = styled.section`
         /* height:100% ; */
         align-items: baseline;
         position: absolute;
-        margin-left: 160px;
-
         bottom: 30%;
+        width: 100% !important;
+
         li {
           display: flex;
           flex-direction: column;
@@ -302,17 +301,146 @@ const Container = styled.section`
       }
     }
   }
-
-  .content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  span {
+    text-align: center;
+    font-weight: 1000;
+    font-size: 30px;
   }
 
-  header {
-    grid-column: 1/3;
+  .redb {
+    border-top: solid 7px red;
+    width: 220px;
+    margin-left: 570px;
+    margin-bottom: -80px;
+  }
+
+  .redbo {
+    border-top: solid 7px red;
+    width: 220px;
+    margin-left: 570px;
+    margin-top: 60px;
+  }
+
+  .second {
+    margin-top: 150px;
+    line-height: 45px;
     text-align: center;
-    color: red;
-    font-size: 2rem;
-    margin-top: 30px;
+  }
+  h1 {
+    line-height: 55px;
+    font-weight: 400;
+  }
+  .content {
+    width: 90%;
+    margin: 5rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .first {
+      span {
+        h2 {
+          position: relative;
+          font-size: 1.6rem;
+          margin: 5rem 0;
+
+          &::before {
+            content: "";
+            border-bottom: 5px solid red;
+            width: 5rem;
+            position: absolute;
+            bottom: 0;
+            top: 30px;
+          }
+        }
+      }
+      h4 {
+        font-size: 2rem;
+        line-height: 35px;
+        // letter-spacing: 4px;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 40px;
+        padding-left: 150px;
+      }
+
+      @media screen and (min-width: 280px) and (max-width: 1080px) {
+        h4 {
+          padding-left: 0px;
+        }
+      }
+
+      @media screen and (min-width: 280px) {
+        .redb {
+          display: none;
+        }
+        .redbo {
+          display: none;
+        }
+      }
+      .lists {
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          tbody {
+            tr {
+              text-align: left;
+              vertical-align: center;
+              align-items: center;
+
+              \ &:first-child {
+                background: #d9d9d9;
+              }
+              &:last-child {
+                height: 10rem;
+              }
+
+              td {
+                border: 2px solid #000 !important;
+                padding-left: 5rem;
+                label {
+                  p {
+                    padding: 0;
+                    margin: 10px 0;
+                    font-style: italic;
+                    font-size: 18px;
+                    align-items: center;
+                  }
+                }
+                select {
+                  height: 30px;
+                  width: 15%;
+                  position: relative;
+                  &::after {
+                    content: "hiuwejijw>";
+                    position: absolute;
+                    right: 0;
+                  }
+
+                  &::placeholder {
+                    color: #000;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    vertical-align: center;
+                    align-self: center;
+                    padding-left: 10px;
+                  }
+
+                  option {
+                    &:disabled {
+                      color: #000;
+                      font-size: 18px;
+                      text-transform: uppercase;
+                      vertical-align: center;
+                      align-self: center;
+                      padding-left: 10px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;

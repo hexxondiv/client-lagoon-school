@@ -38,7 +38,11 @@ export default function Container() {
         <Counter statistics_average_class_size={settings?.statistics_average_class_size}
   statistics_enrolment={settings?.statistics_enrolment}
   statistics_graduates={settings?.statistics_graduates}
-  statistics_student_mentor_ratio={settings?.statistics_student_mentor_ratio}/>
+  statistics_student_mentor_ratio={settings?.statistics_student_mentor_ratio}
+  statistics_parent_partnership={settings?.statistics_parent_partnership}
+  statistics_faith={settings?.statistics_faith}
+  statistics_academic_excellence={settings?.statistics_academic_excellence}
+  />
         <Images/>
         <Carousel/>
         <Join/>

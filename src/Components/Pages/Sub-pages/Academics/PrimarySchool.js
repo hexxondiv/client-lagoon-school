@@ -146,14 +146,23 @@ export default function PrimarySchool() {
         <div className="col-md-1">&nbsp;</div>
 
         <div className="fll col-md-10">
-          <img
+          {/* <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_1}` ??
               Holder
             }
             alt=""
             className=" col-md-12"
-          />
+          /> */}
+          <iframe
+            className=" col-md-12"
+            height="315"
+            src={`${noteData.content2}`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p>
             Small classes averaging 15 encourage a high level of rapport between
             students and teachers. Our middle school faculty know how to tap and

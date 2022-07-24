@@ -160,14 +160,23 @@ export default function SecSchool() {
           <h4>
             <span className="bod"> Hear wh</span>at our Alumni has to say
           </h4>
-          <img
+          {/* <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_1}` ??
               Holder
             }
             alt=""
             className=" col-md-12"
-          />
+          /> */}
+          <iframe
+            className=" col-md-12"
+            height="315"
+            src={`${noteData.content2}`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
 

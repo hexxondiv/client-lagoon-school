@@ -115,7 +115,7 @@ export default function Welcome() {
           {/*    effort to do ordinary things extraordinarily well for love of God*/}
           {/*  </li>*/}
           {/*</ul>*/}
-          <Link to="/about/virtual-tour">
+          <Link to="/academics/secondary-school">
             <button>{pageData?.other_titles_2}</button>
           </Link>
         </div>
