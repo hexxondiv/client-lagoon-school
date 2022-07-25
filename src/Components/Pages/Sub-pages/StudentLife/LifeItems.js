@@ -1,6 +1,6 @@
 export const subRoute = [
   {
-    title: "LIFE IN LAGGON",
+    title: "LIFE IN LAGOON",
     cName: "linked",
     path: "/student_life/life_in_lagoon",
   },
@@ -13,6 +13,11 @@ export const subRoute = [
     title: "SERVICE",
     cName: "linked",
     path: "/student_life/service",
+  },
+  {
+    title: "UNIFORM",
+    cName: "linked",
+    path: "/student_life/uniform",
   },
   {
     title: "CLUBS & ACTIVITIES",

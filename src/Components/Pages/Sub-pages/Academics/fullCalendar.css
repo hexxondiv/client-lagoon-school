@@ -270,6 +270,13 @@ background-image:url('../../../../Assets/ExplaoreTwo.png');
    margin-top:40px;
 
 }
+
+.box2 {
+   /* height: 400px;
+   margin-left: 27px;*/
+   margin-top: 40px;
+   max-width: 100%; 
+}
 .reg{
    height:80px;
    /* width:220px; */
@@ -288,7 +295,8 @@ background-image:url('../../../../Assets/ExplaoreTwo.png');
 
 
 @media(max-width:620px) {
-           .box{
+         .box,
+            .box2 {
    margin-left:0px !important;
            }  
            .reg{margin-left:15px !important;

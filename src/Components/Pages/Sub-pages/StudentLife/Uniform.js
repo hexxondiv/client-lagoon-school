@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Backdrop from "../../../../Assets/Backdrop.png";
-import { subRoute } from "./ParentsItems";
+import Space from "../../../../Assets/space.png";
+import { subRoute } from "./LifeItems";
 import Holder from "../../../../Assets/ExplaoreTwo.png";
-import Pdf from "../../../../Assets/lunchmenu.pdf";
 import { api } from "../../../../misc/api";
 
-export default function DigitalSafety() {
+export default function Uniform() {
   const currentPath = window.location.pathname;
   const [pageData, setPageData] = useState("");
   const fetchPageData = () => {
     api
-      .get("parents/digital-safety")
+      .get("studentLife/uniform")
       .then((res) => {
         const abridgePageData = res.data;
         // console.log(abridgePageData);
@@ -23,7 +23,6 @@ export default function DigitalSafety() {
     fetchPageData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <Container>
       <div className="placeholder2">
@@ -34,7 +33,6 @@ export default function DigitalSafety() {
           }
           alt="placeholder"
         />
-
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -74,26 +72,45 @@ export default function DigitalSafety() {
           </ul>
         </div>
       </div>
-
       <div className="content">
         <div className="first">
           <span>
-            <h2>Digital Safety</h2>
+            <h2>Service</h2>
           </span>
-          <div style={{ marginTop: "100px" }}>
-            <a
-              href={
-                `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_1}` ??
-                Pdf
-              }
-              without
-              rel="noopener noreferrer"
-              target="_blank"
-              className="btndownload"
-            >
-              Click to Download Digital Safety
-            </a>
-          </div>
+
+          <h4>{pageData.other_contents_1}</h4>
+        </div>
+        <div className="conimages">
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_1}` ??
+              Holder
+            }
+            alt=""
+          />
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_2}` ??
+              Holder
+            }
+            alt=""
+          />
+          <img src={Space} alt="" />
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_3}` ??
+              Holder
+            }
+            alt=""
+          />
+          
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_4}` ??
+              Holder
+            }
+            alt=""
+          />
         </div>
       </div>
     </Container>
@@ -188,22 +205,7 @@ const Container = styled.section`
         color: red;
       }
     }
-    .btndownload {
-      color: white;
-      border: solid 1px red;
-      padding: 20px;
-      background-color: red;
-      margin-top: 100px;
-      border-radius: 5px;
-      font-weight: 1000;
-      text-decoration: none;
-      font-size: 24px;
 
-      &:hover {
-        background-color: white;
-        color: red;
-      }
-    }
     .conimages {
       display: grid;
       grid-template-columns: repeat(3, 20rem);
@@ -214,6 +216,13 @@ const Container = styled.section`
         width: 100%;
         height: 100%;
         object-fit: cover;
+
+        &:first-child {
+          grid-column: 1/4;
+        }
+        &:last-child {
+          grid-column: 2/3;
+        }
       }
     }
   }

@@ -14,14 +14,31 @@ import { render } from "react-dom";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import reactImageSize from "react-image-size";
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
+
 export function getRand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export default function Images() {
   const [splash, setSplash] = useState([]);
+  // const [photoIndex, setCurrentImage] = useState(0);
+  // const [IsOpen, setViewerIsOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const [photos, setPhotos] = useState([]);
+  const [photosAll, setPhotosAll] = useState([]);
+
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
+  };
+
   const fetchSplashImages = () => {
     api
       .get("splash-photo")
@@ -31,62 +48,50 @@ export default function Images() {
       })
       .catch(console.log);
   };
-  const photos = [];
-  const images = [];
+
   useEffect(() => {
+    setPhotos([]);
     fetchSplashImages();
   }, []);
 
   useEffect(() => {
-    splash.map((spl, index) => {
-      // const { newWidth, newHeight } = getImageAspectRatio(
-      //   `${process.env.REACT_APP_SERVER_URL}/images/${spl?.image_path}`
-      // );
-      reactImageSize(
-        `${process.env.REACT_APP_SERVER_URL}/images/${spl?.image_path}`
-      )
-        .then(({ width, height }) => {
-          const ratio = height / width;
-          const newWidth = parseInt((width / width) * 2);
-          const newHeight = parseInt((height / width) * 2);
-          console.log("ratio", newWidth, newHeight);
-          const pht = {
-            src: `${process.env.REACT_APP_SERVER_URL}/images/${spl?.image_path}`,
-            width: newWidth,
-            height: newHeight,
-          };
-          images.push(pht.src);
-        //   if (photos.length < 7) photos.push(pht);
-          photos.push(pht);
-        })
-        .catch((errorMessage) => {
-          photos.push({
-            src: `${process.env.REACT_APP_SERVER_URL}/images/${spl?.image_path}`,
-            width: 1,
-            height: 1,
-            title: spl?.image_path,
+    setPhotos([]);
+    if (splash.length > 0) {  
+      splash.map((spl, index) => {
+        reactImageSize(
+          `${process.env.REACT_APP_SERVER_URL}/images/${spl?.image_path}`
+        )
+          .then(({ width, height }) => {
+            const ratio = height / width;
+            const newWidth = parseInt((width / width) * 2);
+            const newHeight = parseInt((height / width) * 2);
+            console.log("ratio", newWidth, newHeight);
+            const pht = {
+              src: `${process.env.REACT_APP_SERVER_URL}/images/${spl?.image_path}`,
+              width: newWidth,
+              height: newHeight,
+              title: spl?.title,
+              index:spl?.id,
+            };
+            // images.push(pht.src);
+            //   if (photos.length < 7) photos.push(pht);
+            // setPhotos([...photos,pht]);
+            setPhotos(photos => [...photos, pht]);
+          })
+          .catch((errorMessage) => {
+            let pt={
+              src: `${process.env.REACT_APP_SERVER_URL}/images/${spl?.image_path}`,
+              width: 1,
+              height: 1,
+              title: spl?.title,
+              index:spl?.id,
+            }
+            // setPhotos([...photos,pt]);
+            setPhotos(photos => [...photos, pt]);
           });
-        });
-    });
+      });
+    }
   }, [splash]);
-  const [photoIndex, setCurrentImage] = useState(0);
-  const [IsOpen, setViewerIsOpen] = useState(false);
-
-//   const openLightbox = useCallback((event, { photo, index }) => {
-//     console.log(photo,index)
-//     setCurrentImage(index);
-//     setViewerIsOpen(true);
-//   }, []);
-
-  const openLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(true);
-  }
-
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
-  };
 
   return (
     <>
@@ -131,24 +136,20 @@ export default function Images() {
           );
         })} */}
         <Gallery photos={photos} onClick={openLightbox}></Gallery>
-        {IsOpen && (
-          <Lightbox
-            mainSrc={images[photoIndex]}
-            nextSrc={images[(photoIndex + 1) % images.length]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-            onCloseRequest= {closeLightbox}
-            onMovePrevRequest={() =>
-                setCurrentImage({
-                photoIndex: (photoIndex + images.length - 1) % images.length
-              })
-            }
-            onMoveNextRequest={() =>
-                setCurrentImage({
-                photoIndex: (photoIndex + 1) % images.length
-              })
-            }
-          />
-        )}
+        <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={photos.map(x => ({
+                ...x,
+                srcset: x.srcSet,
+                caption: x.title
+              }))}
+            />
+          </Modal>
+        ) : null}
+      </ModalGateway>
       </div>
     </>
   );
@@ -206,8 +207,8 @@ const ImageSection = styled.section`
     grid-column: 5/7;
   }
 
-  .react-photo-gallery--gallery img:hover{
-    opacity:0.5;
+  .react-photo-gallery--gallery img:hover {
+    opacity: 0.5;
   }
 
   .seven {

@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Backdrop from "../../../../Assets/Backdrop.png";
 import { subRoute } from "./ParentsItems";
 import Holder from "../../../../Assets/ExplaoreTwo.png";
 import Pdf from "../../../../Assets/lunchmenu.pdf";
+import { api } from "../../../../misc/api";
 
-export default function lunchMenu() {
+export default function LunchMenu() {
   const currentPath = window.location.pathname;
+  const [pageData, setPageData] = useState("");
+  const fetchPageData = () => {
+    api
+      .get("parents/launch-menu")
+      .then((res) => {
+        const abridgePageData = res.data;
+        // console.log(abridgePageData);
+        setPageData(abridgePageData);
+      })
+      .catch(console.log);
+  };
+  useEffect(() => {
+    fetchPageData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container>
       <div className="placeholder2">
-        <img src={Backdrop} alt="placeholder" />
+        <img
+          src={
+            `${process.env.REACT_APP_SERVER_URL}/images/${pageData.banner}` ??
+            Backdrop
+          }
+          alt="placeholder"
+        />
 
         <div className="overlay">
           <ul>
@@ -60,7 +82,10 @@ export default function lunchMenu() {
           </span>
           <div style={{ marginTop: "100px" }}>
             <a
-              href={Pdf}
+              href={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_1}` ??
+                Pdf
+              }
               without
               rel="noopener noreferrer"
               target="_blank"
@@ -163,22 +188,22 @@ const Container = styled.section`
         color: red;
       }
     }
-.btndownload{
-  color:white;
-border:solid 1px red;
-padding:20px;
-background-color:red;
-margin-top:100px;
-border-radius:5px;
-font-weight:1000;
-text-decoration:none;
-font-size:24px;
+    .btndownload {
+      color: white;
+      border: solid 1px red;
+      padding: 20px;
+      background-color: red;
+      margin-top: 100px;
+      border-radius: 5px;
+      font-weight: 1000;
+      text-decoration: none;
+      font-size: 24px;
 
-&:hover{
-  background-color:white;
-  color:red;
-}
-}
+      &:hover {
+        background-color: white;
+        color: red;
+      }
+    }
     .conimages {
       display: grid;
       grid-template-columns: repeat(3, 20rem);

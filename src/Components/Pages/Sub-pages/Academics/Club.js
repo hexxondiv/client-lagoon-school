@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Backdrop from "../../../../Assets/Backdrop.png";
+import Holder from '../../../../Assets/ExplaoreTwo.png'
+
 import { subRoute } from "./Acaitems";
-import Accordion, { accordionData2 } from "../About/Accordion";
+import Accordion from "../About/Accordion";
 import "./fullCalendar.css";
 import { api } from "../../../../misc/api";
 
@@ -10,6 +12,8 @@ export default function Club() {
   const [accordionDt, setAccordionData] = useState({});
   const [primaries, setPrimaries] = useState({});
   const [secondaries, setSecondaries] = useState({});
+  const [noteData, setNoteData] = useState({});
+  const [accordionData, setaccordionData] = useState([]);
   const fetchAccordionData = () => {
     api
       .get("clubs-index")
@@ -24,21 +28,28 @@ export default function Club() {
     fetchAccordionData();
   }, []);
   function callListPrimary(content) {
-    var arr = { title: "Primary School", content };
+    var arr = { title: "Primary School", content:content };
     setPrimaries(arr);
   }
-  function callListPrimary(content) {
-    var arr = { title: "Secondary School", content };
-    setPrimaries(arr);
+  function callListSecondary(content) {
+    var arr = { title: "Secondary School", content:content };
+    setSecondaries(arr);
   }
   useEffect(() => {
     console.log(accordionDt);
-    callListPrimary(accordionDt?.primaries);
-    callListPrimary(accordionDt?.secondaries);
+    callListPrimary(accordionDt?.primary);
+    callListSecondary(accordionDt?.secondary);
+    setNoteData(accordionDt?.notes);
   }, [accordionDt]);
 
   useEffect(() => {
-    console.log("primaries", primaries);
+    console.log("notes", noteData);
+    // console.log("secondaries", secondaries);
+    let accd=[]
+    accd.push(primaries)
+    accd.push(secondaries)
+    setaccordionData(accd)
+
   }, [primaries]);
   //   const currentPath = window.location.pathname;
 
@@ -67,21 +78,15 @@ export default function Club() {
       <div className="content">
         <div className="first">
           <span>
-            <h2>Clubs and Activies</h2>
+            <h2>Clubs and Activities</h2>
           </span>
           <div>
             <h4>
-              We encourage students to participate in extracurricular events,
-              pursue their personal interests, and create new clubs each school
-              year. Lagoon is currently home to many Primary and Secondary
-              School clubs, many of them initiated by students. These clubs and
-              activities encourage students to take initiative and
-              responsibility in leading activities that allow them to explore
-              their talents and passions outside the classroom.
+              {noteData?.other_contents_1}
             </h4>
           </div>
           <div className="accordion">
-            {accordionData2.map(({ title, content }) => (
+            {accordionData.map(({ title, content }) => (
               <Accordion title={title} content={content} />
             ))}
           </div>
@@ -90,22 +95,52 @@ export default function Club() {
 
       <div className="col-md-12 flexy">
         <div className="col-md-4 ">
-          <div className="col-md-11 box"></div>
+          <div className="col-md-11 box2">
+          <img
+                style={{ maxWidth: "100%" }}
+                src={
+                  `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_1}` ??
+                  Holder
+                }
+                alt=""
+              />
+          </div>
         </div>
         <div className="col-md-4 ">
-          <div className="col-md-11 box"></div>
+          <div className="col-md-11 box2"><img
+                style={{ maxWidth: "100%" }}
+                src={
+                  `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_2}` ??
+                  Holder
+                }
+                alt=""
+              /></div>
         </div>
         <div className="col-md-4 ">
-          <div className="col-md-11 box"></div>
+          <div className="col-md-11 box2"><img
+                style={{ maxWidth: "100%" }}
+                src={
+                  `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_3}` ??
+                  Holder
+                }
+                alt=""
+              /></div>
         </div>
       </div>
       <div className="col-md-12 flexy">
         <div className="col-md-4 ">
-          <div className="col-md-11 ">&nbsp;</div>
+          <div className="col-md-11 "></div>
         </div>
         <div className="col-md-4 ">
-          <div className="col-md-11 box"></div>
-          <button className="reg col-md-12">REGISTER FOR A CLUB</button>
+          <div className="col-md-11 box2"><img
+                style={{ maxWidth: "100%" }}
+                src={
+                  `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_4}` ??
+                  Holder
+                }
+                alt=""
+              /></div>
+          {/* <button className="reg col-md-12">REGISTER FOR A CLUB</button> */}
         </div>
         <div className="col-md-4 ">
           <div className="col-md-11 ">&nbsp;</div>

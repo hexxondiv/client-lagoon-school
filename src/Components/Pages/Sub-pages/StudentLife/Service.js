@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import Backdrop from '../../../../Assets/Backdrop.png'
 import { subRoute } from "./LifeItems";
 import Holder from '../../../../Assets/ExplaoreTwo.png'
+import { api } from "../../../../misc/api";
 
 export default function Service() {
   const currentPath = window.location.pathname;
-
+  const [pageData, setPageData] = useState("");
+  const fetchPageData = () => {
+    api
+      .get("studentLife/service")
+      .then((res) => {
+        const abridgePageData = res.data;
+        // console.log(abridgePageData);
+        setPageData(abridgePageData);
+      })
+      .catch(console.log);
+  };
+  useEffect(() => {
+    fetchPageData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Container>
       <div className='placeholder2'>
-          <img src={Backdrop} alt="placeholder" />
+          <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData.banner}` ??Backdrop} alt="placeholder" />
         <div className='overlay'>
             <ul>
                 {subRoute?.map((sub, idx)=>{
@@ -35,17 +50,14 @@ export default function Service() {
               </span>
              
                 <h4>
-                      Service is an integral part of the Lagoon culture. At the heart of Christian leadership is service. Our service
-                      program helps girls recognize the beauty of self-gift and the many ways they can step up to be servant-
-                      leaders. Each service component at Laggon encourages our girls to serve in ways that are best suited to
-                      their gifts and personal circumstance
+                {pageData.other_contents_1}
                 </h4>
           </div>
           <div className='conimages'>
-              <img src={Holder} alt="" />
-              <img src={Holder} alt="" />
-              <img src={Holder} alt="" />
-              <img src={Holder} alt="" />
+              <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_1}` ??Holder} alt="" />
+              <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_2}` ??Holder} alt="" />
+              <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_3}` ??Holder} alt="" />
+              <img src={`${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_4}` ??Holder} alt="" />
 
           </div>
          

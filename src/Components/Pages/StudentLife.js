@@ -10,6 +10,7 @@ import Activities from './Sub-pages/StudentLife/Activities';
 import Mentor from './Sub-pages/StudentLife/Mentor';
 import Lunch from "./Sub-pages/StudentLife/Lunch";
 import Safety from "./Sub-pages/StudentLife/Safety";
+import Uniform from './Sub-pages/StudentLife/Uniform';
 
 
 function StudentLife() {
@@ -27,6 +28,7 @@ function StudentLife() {
           component={Traditions}
         />
         <Route path={"/student_life/service"} component={Service} />
+        <Route path={"/student_life/uniform"} component={Uniform} />
         <Route path={"/student_life/activities"} component={Activities} />
         <Route path={"/student_life/mentorship"} component={Mentor} />
         <Route path={"/student_life/Lunch"} component={Lunch} />
