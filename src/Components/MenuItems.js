@@ -11,7 +11,7 @@ export const navMenus = {
       cName: "dropdown-link",
     },
     {
-      title: "Educational phylosophy and model",
+      title: "Educational philosophy and model",
       path: "/about/education",
       cName: "dropdown-link",
     },
