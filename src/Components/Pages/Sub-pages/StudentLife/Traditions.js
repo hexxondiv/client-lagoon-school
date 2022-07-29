@@ -114,16 +114,6 @@ export default function Traditions() {
                     backgroundPosition: "center",
                   }}
                 >
-                  {" "}
-                  <div
-                    className="col-md-12 pic"
-                    style={{
-                      backgroundImage: `url(${process.env.REACT_APP_SERVER_URL}/images/${image_path})`,
-                      backgroundRepeat: "no-repeat",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  ></div>
                 </div>
               </div>
             </div>
@@ -212,7 +202,7 @@ const Container = styled.section`
     border-bottom: solid 7px red;
   }
   .big {
-    height: 900px;
+    height: 500px;
     border-radius: 20px;
     border: solid 1px black;
     padding: 10px 80px 80px 120px;
@@ -255,7 +245,7 @@ const Container = styled.section`
     text-align:center;
   }
   .pic {
-    height: 700px;
+    height: 300px;
     background-color: rgb(217, 217, 217);
     border-radius: 10px;
     margin-left: 35px;
