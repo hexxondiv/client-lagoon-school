@@ -335,14 +335,14 @@ const Container = styled.section`
         h2 {
           position: relative;
           font-size: 1.6rem;
-          margin: 5rem 0;
-
+          text-align: left;
+          margin-bottom: 30px;
           &::before {
             content: "";
             border-bottom: 5px solid red;
-            width: 5rem;
+            width: 4rem;
             position: absolute;
-            bottom: 0;
+            bottom: 30;
             top: 30px;
           }
         }
