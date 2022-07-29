@@ -112,7 +112,7 @@ export default function PrimarySchool() {
                   }
                   alt=""
                 />
-                <p>{title}</p>
+                <p style={{textAlign:"justify"}}>{title}</p>
               </div>
             </div>
           );
