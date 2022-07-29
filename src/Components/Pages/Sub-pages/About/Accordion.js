@@ -13,12 +13,8 @@ const Accordion = ({ title, content }) => {
         <div>{isActive ? "-" : "+"}</div>
       </div>
       {isActive && (
-        <div className="accordion-content">
-          <ul>
-            {content?.map(({id, name, category, created_at, updated_at, link, target}) => {
-              return <li>{name}</li>;
-            })}
-          </ul>
+        <div className="accordion-content" dangerouslySetInnerHTML={{ __html: content }}>
+          
         </div>
       )}
     </Accord>
