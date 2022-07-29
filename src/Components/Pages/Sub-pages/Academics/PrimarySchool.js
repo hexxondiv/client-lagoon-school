@@ -164,22 +164,9 @@ export default function PrimarySchool() {
             allowfullscreen
           ></iframe>
           <p>
-            Small classes averaging 15 encourage a high level of rapport between
-            students and teachers. Our middle school faculty know how to tap and
-            channel the intellectual energy and passion of middle school girls.
-          </p>
-          <p>
-            During the primary school years, students gradually take ownership
-            of their learning. They grow in self-knowledge, build and value
-            friendships, and come to understand their responsibility to each
-            other as well as to the wider community.
-          </p>
-          <p>
-            Our primary school curriculum sets girls up for success in our
-            rigorous upper school college preparatory, honors lists, while a
-            wide variety of{" "}
-            <a href="/academics/club_&_activities">curricular activities</a>{" "}
-            allows them to explore and develop interests.
+          <span
+              dangerouslySetInnerHTML={{ __html: noteData?.other_contents_2 }}
+            ></span>
           </p>
         </div>
       </div>
