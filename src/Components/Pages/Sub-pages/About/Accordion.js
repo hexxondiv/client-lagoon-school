@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 
-const Accordion = ({ title, content }) => {
+const Accordion = ({ title, content, lst}) => {
   const [isActive, setIsActive] = useState(false);
  console.log(content, "as content");
   return (
@@ -13,9 +13,18 @@ const Accordion = ({ title, content }) => {
         <div>{isActive ? "-" : "+"}</div>
       </div>
       {isActive && (
-        <div className="accordion-content" dangerouslySetInnerHTML={{ __html: content }}>
-          
+        lst ?(
+          <div className="accordion-content">
+          <ul>
+            {content?.map(({id, name, category, created_at, updated_at, link, target}) => {
+              return <li>{name}</li>;
+            })}
+          </ul>
         </div>
+        ):(
+          <div className="accordion-content" dangerouslySetInnerHTML={{ __html: content }}></div>
+        )
+        
       )}
     </Accord>
   );
