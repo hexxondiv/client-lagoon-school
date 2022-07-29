@@ -9,6 +9,7 @@ export default function Mentor() {
   const currentPath = window.location.pathname;
   const [pageData, setPageData] = useState("");
   const [noteData, setNoteData] = useState({});
+  const [contentData, setContentData] = useState({});
   const [testimonialList, setTestimonialList] = useState([]);
   const fetchPageData = () => {
     api
@@ -27,6 +28,7 @@ export default function Mentor() {
     if (pageData !== "") {
       setNoteData(pageData.images);
       setTestimonialList(pageData.testimonials);
+      setContentData(pageData.note);
       console.log(noteData);
     }
   }, [pageData]);
@@ -112,7 +114,8 @@ export default function Mentor() {
             <h4>- {testimonialList.commentor}</h4>
           </div>
           {/* <img src={Holder} alt="" /> */}
-          <img src={Holder} alt="" />
+          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${contentData.other_images_1}` ??
+                    Holder} alt="" />
         </div>
       </div>
 
@@ -295,7 +298,7 @@ const Container = styled.section`
 
       .individual {
         background-color: #ababab96;
-        width: 70%;
+        width: 100%;
         height: fit-content;
         border-radius: 20px;
         padding: 50px;
