@@ -53,6 +53,10 @@ export default function Club() {
   }, [primaries]);
   //   const currentPath = window.location.pathname;
 
+  const openPortal = () => {
+    console.log("Clicked");
+    window.open(noteData.other_contents_2);
+  };
   return (
     <Container>
       <div className="placeholder2">
@@ -140,7 +144,7 @@ export default function Club() {
                 }
                 alt=""
               /></div>
-          {/* <button className="reg col-md-12">REGISTER FOR A CLUB</button> */}
+          <button onClick={openPortal} className="reg col-md-12">REGISTER FOR A CLUB</button>
         </div>
         <div className="col-md-4 ">
           <div className="col-md-11 ">&nbsp;</div>
