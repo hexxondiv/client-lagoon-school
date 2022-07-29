@@ -85,50 +85,54 @@ export default function Club() {
             <h2>Clubs and Activities</h2>
           </span>
           <div>
-            <h4>
-              {noteData?.other_contents_1}
-            </h4>
+            <h4>{noteData?.other_contents_1}</h4>
           </div>
-          <div className="accordion">
-            {accordionData.map(({ title, content }) => (
-              <Accordion title={title} content={content} lst={true}/>
-            ))}
-          </div>
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+          {/* <div className=""> */}
+          {accordionData.map(({ title, content }) => (
+            <Accordion title={title} content={content} lst={true} />
+          ))}
+          {/* </div> */}
         </div>
       </div>
 
       <div className="col-md-12 flexy">
         <div className="col-md-4 ">
           <div className="col-md-11 box2">
-          <img
-                style={{ maxWidth: "100%" }}
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_1}` ??
-                  Holder
-                }
-                alt=""
-              />
+            <img
+              style={{ maxWidth: "100%" }}
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_1}` ??
+                Holder
+              }
+              alt=""
+            />
           </div>
         </div>
         <div className="col-md-4 ">
-          <div className="col-md-11 box2"><img
-                style={{ maxWidth: "100%" }}
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_2}` ??
-                  Holder
-                }
-                alt=""
-              /></div>
+          <div className="col-md-11 box2">
+            <img
+              style={{ maxWidth: "100%" }}
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_2}` ??
+                Holder
+              }
+              alt=""
+            />
+          </div>
         </div>
         <div className="col-md-4 ">
-          <div className="col-md-11 box2"><img
-                style={{ maxWidth: "100%" }}
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_3}` ??
-                  Holder
-                }
-                alt=""
-              /></div>
+          <div className="col-md-11 box2">
+            <img
+              style={{ maxWidth: "100%" }}
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_3}` ??
+                Holder
+              }
+              alt=""
+            />
+          </div>
         </div>
       </div>
       <div className="col-md-12 flexy">
@@ -136,15 +140,19 @@ export default function Club() {
           <div className="col-md-11 "></div>
         </div>
         <div className="col-md-4 ">
-          <div className="col-md-11 box2"><img
-                style={{ maxWidth: "100%" }}
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_4}` ??
-                  Holder
-                }
-                alt=""
-              /></div>
-          <button onClick={openPortal} className="reg col-md-12">REGISTER FOR A CLUB</button>
+          <div className="col-md-11 box2">
+            <img
+              style={{ maxWidth: "100%" }}
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_4}` ??
+                Holder
+              }
+              alt=""
+            />
+          </div>
+          <button onClick={openPortal} className="reg col-md-12">
+            REGISTER FOR A CLUB
+          </button>
         </div>
         <div className="col-md-4 ">
           <div className="col-md-11 ">&nbsp;</div>
