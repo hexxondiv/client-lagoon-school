@@ -69,9 +69,9 @@ function Admission() {
               <Route path="/admission/admission-proceedure">
                 <Proceedure content={noteData.content} />
               </Route>
-              <Route path="/admission/tuition">
+              {/* <Route path="/admission/tuition">
                 <Tuition content={noteData.content} />
-              </Route>
+              </Route> */}
               <Route path="/admission/scholarship">
                 <Scholarship content={noteData.content} />
               </Route>

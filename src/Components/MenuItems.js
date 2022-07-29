@@ -61,11 +61,11 @@ export const navMenus = {
       path: "/admission/admission-proceedure",
       cName: "dropdown-link",
     },
-    {
-      title: "school tuition fees",
-      path: "/admission/tuition",
-      cName: "dropdown-link",
-    },
+    // {
+    //   title: "school tuition fees",
+    //   path: "/admission/tuition",
+    //   cName: "dropdown-link",
+    // },
     {
       title: "scholarships",
       path: "/admission/scholarship",
