@@ -80,13 +80,13 @@ export default function PrimarySchool() {
           </ul>
         </div>
       </div>
-      <div className="tent">
+      <div className="tent  col-md-12">
         <div className="first">
           <span>
             <h2>{noteData?.other_titles_1}</h2>
           </span>
 
-          <h4>
+          <h4 className="col-md-12">
             {/* <mark>
               Laying the Groundwork. Strengthening the Foundation. Building the
               Bridge.
@@ -94,9 +94,10 @@ export default function PrimarySchool() {
             {/* In the primary school, girls develop curiosity, tenacity and
             intellectual carefulness. They research problems, brainstorm
             solutions, create prototypes, test and revise. */}
-            <span
+            <div
+              className="col-md-12"
               dangerouslySetInnerHTML={{ __html: noteData?.content }}
-            ></span>
+            ></div>
           </h4>
         </div>
       </div>
@@ -112,7 +113,7 @@ export default function PrimarySchool() {
                   }
                   alt=""
                 />
-                <p style={{textAlign:"justify"}}>{title}</p>
+                <p style={{ textAlign: "justify" }}>{title}</p>
               </div>
             </div>
           );
@@ -143,9 +144,9 @@ export default function PrimarySchool() {
       </div>
 
       <div className="col-md-12 flexy">
-        <div className="col-md-1">&nbsp;</div>
+        {/* <div className="col-md-1">&nbsp;</div> */}
 
-        <div className="fll col-md-10">
+        <div className="row col-md-12">
           {/* <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_1}` ??
@@ -156,17 +157,18 @@ export default function PrimarySchool() {
           /> */}
           <iframe
             className=" col-md-12"
-            height="315"
+            height="600"
             src={`${noteData.content2}`}
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-          <p>
-          <span
+          <p className="container">
+            <div
+              className="col-md-12"
               dangerouslySetInnerHTML={{ __html: noteData?.other_contents_2 }}
-            ></span>
+            ></div>
           </p>
         </div>
       </div>

@@ -5,6 +5,8 @@ body,html {
   scroll-behavior: smooth;
   box-sizing: border-box;
   overflow-x: hidden;
+  background-image: url("./Assets/bg2.jpg");
+    flex-direction: column;
 }
 
 

@@ -1,305 +1,265 @@
-
-@media(min-width:600px) {
-           .flexy{
-               display:flex;
-           }  
-        }
-.calendar{padding:40px;}
-
-.calendar h1{color:rgb(227,64,43)}
-
-
-.accord{
-   margin-top:40px
+@media (min-width: 600px) {
+  .flexy {
+    display: flex;
+  }
+}
+@media (max-width: 600px) {
+   .flexy {
+     display: block;
+   }
+ }
+.calendar {
+  padding: 40px;
 }
 
-.calendar h4{color:rgb(227,64,43);
-   margin-top:50px;   font-weight:1000
+.calendar h1 {
+  color: rgb(227, 64, 43);
 }
 
-.dott{
-   background-color:red;
-   padding:2px !important;
-   height:0.5px;border-radius: 50%!important;
-}
-.Bton{
-   border:solid 1px red;
-   color:red;
-   /* padding:15px 30px 15px 15px; */
-   margin-bottom:40px;
-   height:40px;
-   width:140px;
-   text-decoration:none;
-   font-weight:1000;
-   padding:10px;
-   text-align:center;
+.accord {
+  margin-top: 40px;
 }
 
-.Bton2{
-   border:solid 1px red;
-   color:red;
-   /* padding:15px 30px 15px 15px; */
-   margin-bottom:100px;
-   height:60px;
-   width:300px;
-   text-decoration:none;
-   font-weight:1000;
-   padding:20px;
-   text-align:center;
-   border-radius:5px;
+.calendar h4 {
+  color: rgb(227, 64, 43);
+  margin-top: 50px;
+  font-weight: 1000;
 }
 
-.Bton:hover{
-   background-color:Red;color:white;
+.dott {
+  background-color: red;
+  padding: 2px !important;
+  height: 0.5px;
+  border-radius: 50% !important;
+}
+.Bton {
+  border: solid 1px red;
+  color: red;
+  /* padding:15px 30px 15px 15px; */
+  margin-bottom: 40px;
+  height: 40px;
+  width: 140px;
+  text-decoration: none;
+  font-weight: 1000;
+  padding: 10px;
+  text-align: center;
 }
 
-.Bton2:hover{
-   background-color:Red;color:white;
+.Bton2 {
+  border: solid 1px red;
+  color: red;
+  /* padding:15px 30px 15px 15px; */
+  margin-bottom: 100px;
+  height: 60px;
+  width: 300px;
+  text-decoration: none;
+  font-weight: 1000;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
 }
 
-.conimages div{
-   height:250px;
-   width:300px;
-   border-radius:5px;
-/* text-align:center !important;  */
-padding-top:100px
+.Bton:hover {
+  background-color: Red;
+  color: white;
 }
 
-
-
-.conimages div h4{
-  color:black;
-/* padding:15px 20px 15px 20px; */
-background-color:rgba(255,255,255,0.5)	;
-font-weight:500;
-width:fit-content;
-padding-top:10px ;
-padding-left:20px ;
-padding-bottom:10px ;
-padding-right:20px !important;
-
-margin-left:70px;
-/* text-align:center; */
-
+.Bton2:hover {
+  background-color: Red;
+  color: white;
 }
 
+.conimages div {
+  height: 250px;
+  width: 300px;
+  border-radius: 5px;
+  /* text-align:center !important;  */
+  padding-top: 100px;
+}
 
-.fac1{
+.conimages div h4 {
+  color: black;
+  /* padding:15px 20px 15px 20px; */
+  background-color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  width: fit-content;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-right: 20px !important;
 
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
+  margin-left: 70px;
+  /* text-align:center; */
+}
+
+.fac1 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 .fac {
-
-   background-image: url('../../../../Assets/ExplaoreTwo.png');
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center;
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-
-.fac2{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-
-.fac3{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-.fac4{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-
-.fac5{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-
-.fac6{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-
-.fac7{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-
-.fac8{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-.fac9{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-.fac10{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-.fac11{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-
-
-
-
-.fac12{
-
-background-image:url('../../../../Assets/ExplaoreTwo.png');
-       background-size:cover;
-       background-repeat: no-repeat;
-       background-position: center;
-      }
-
-.con{
-   padding-left:120px;
+.fac2 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-      .con img{
-         width:100%;
-         margin-top:80px;
-      }
+.fac3 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-      .con p{  
-        font-weight:1000 ;
-          font-size:20px ;
-          margin-top:3rem ;
-      }
+.fac4 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-      .fll img{
- height:467px ;
-         width:100%;
- object-fit:cover ;
-      }
+.fac5 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-      .fll p{ font-weight:1000 ;
-          font-size:22px ;
-          margin-top:3rem ;}
+.fac6 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-.fll h4{ font-weight:1000 ;
-   margin-top:80px;
-         }
+.fac7 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-          .bod{
-             border-bottom:solid 6px red;
-          }
+.fac8 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-          .alum{
-             padding-left:120px;
-             margin-top:180px;
-          }
+.fac9 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-.box{
-   background-color:rgb(217,217,217);
-   height:400px;
-   margin-left:27px;
-   margin-top:40px;
+.fac10 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
+.fac11 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.fac12 {
+  background-image: url("../../../../Assets/ExplaoreTwo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.con img {
+  width: 100%;
+  margin-top: 80px;
+}
+
+.con p {
+  font-weight: 1000;
+  font-size: 20px;
+  margin-top: 3rem;
+}
+
+.fll img {
+  height: 467px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.fll p {
+  font-weight: 1000;
+  font-size: 22px;
+  margin-top: 3rem;
+}
+
+.fll h4 {
+  font-weight: 1000;
+  margin-top: 80px;
+}
+
+.bod {
+  border-bottom: solid 6px red;
+}
+
+.alum {
+  padding-left: 120px;
+  margin-top: 180px;
+}
+
+.box {
+  background-color: rgb(217, 217, 217);
+  height: 400px;
+  margin-left: 27px;
+  margin-top: 40px;
 }
 
 .box2 {
-   /* height: 400px;
+  /* height: 400px;
    margin-left: 27px;*/
-   margin-top: 40px;
-   max-width: 100%; 
+  margin-top: 40px;
+  max-width: 100%;
 }
-.reg{
-   height:80px;
-   /* width:220px; */
-   border:solid 3px red;
-   color:red;
-   background-color:inherit;
-   font-size:35px;
-   margin-top:30px;
-   font-weight:300;
-}
-
-.reg:hover{
-   background-color:red;
-   color:white;
+.reg {
+  height: 80px;
+  /* width:220px; */
+  border: solid 3px red;
+  color: red;
+  background-color: inherit;
+  font-size: 35px;
+  margin-top: 30px;
+  font-weight: 300;
 }
 
+.reg:hover {
+  background-color: red;
+  color: white;
+}
 
-@media(max-width:620px) {
-         .box,
-            .box2 {
-   margin-left:0px !important;
-           }  
-           .reg{margin-left:15px !important;
-         
-         }
-        }
+@media (max-width: 620px) {
+  .box,
+  .box2 {
+    margin-left: 0px !important;
+  }
+  .reg {
+    margin-left: 15px !important;
+  }
+}
+@media (min-width: 621px) {
+  .con {
+    padding-left: 120px;
+  }
+}

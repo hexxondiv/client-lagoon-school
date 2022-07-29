@@ -116,8 +116,9 @@ export default function Nabar() {
       <DetailsNavbar>
         <a href={"/"} className="home">
           <img
-              src={`${process.env.REACT_APP_SERVER_URL}/images/${settings?.logo}`}
-              alt="logo" />
+            src={`${process.env.REACT_APP_SERVER_URL}/images/${settings?.logo}`}
+            alt="logo"
+          />
         </a>
         <div className="menu-item">
           {navbarState ? (
@@ -135,8 +136,8 @@ export default function Nabar() {
               <a href={"/about"}> About </a>{" "}
               {activeMenu.menu1 && (
                 <Dropdown
-                    menuPic={settings?.menu_pic}
-                    menuText={settings?.menu_text}
+                  menuPic={settings?.menus["about"].image}
+                  menuText={settings?.menus["about"].caption}
                   menuArray={navMenus.about}
                   label={navLabels["about"]}
                 />
@@ -147,8 +148,8 @@ export default function Nabar() {
               <a href={"/academics"}> Academics </a>{" "}
               {activeMenu.menu2 && (
                 <Dropdown
-                    menuPic={settings?.menu_pic}
-                    menuText={settings?.menu_text}
+                  menuPic={settings?.menus["academics"].image}
+                  menuText={settings?.menus["academics"].caption}
                   menuArray={navMenus.academics}
                   label={navLabels["academics"]}
                 />
@@ -169,8 +170,8 @@ export default function Nabar() {
               <a href={"/admission"}> Admission </a>{" "}
               {activeMenu.menu3 && (
                 <Dropdown
-                    menuPic={settings?.menu_pic}
-                    menuText={settings?.menu_text}
+                menuPic={settings?.menus["admission"].image}
+                menuText={settings?.menus["admission"].caption}
                   menuArray={navMenus.admission}
                   label={navLabels["admission"]}
                 />
@@ -181,8 +182,8 @@ export default function Nabar() {
               <a href={"/student_life"}> Student Life </a>{" "}
               {activeMenu.menu6 && (
                 <Dropdown
-                    menuPic={settings?.menu_pic}
-                    menuText={settings?.menu_text}
+                menuPic={settings?.menus["studentlife"].image}
+                menuText={settings?.menus["studentlife"].caption}
                   menuArray={navMenus.studentlife}
                   label={navLabels["studentlife"]}
                 />
@@ -193,8 +194,8 @@ export default function Nabar() {
               <a href={"/parents"}> Parents </a>{" "}
               {activeMenu.menu5 && (
                 <Dropdown
-                    menuPic={settings?.menu_pic}
-                    menuText={settings?.menu_text}
+                menuPic={settings?.menus["parents"].image}
+                menuText={settings?.menus["parents"].caption}
                   menuArray={navMenus.parents}
                   label={navLabels["parents"]}
                 />
@@ -203,9 +204,7 @@ export default function Nabar() {
             {/* <li onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}> <Link to={'/'} onClick={closeMobileMenu}> Student Life </Link>      {activeMenu.menu5 && <Dropdown menuArray={navMenus.studentlife}/>}</li>
                 <li onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}> <Link to={'/'} onClick={closeMobileMenu}> Parents </Link>      {activeMenu.menu6 && <Dropdown menuArray={navMenus.parents}/>}</li> */}
           </ul>
-          <Button onClick={openPortal}>
-              PORTAL
-          </Button>
+          <Button onClick={openPortal}>PORTAL</Button>
         </div>
       </DetailsNavbar>
     </NavbarContainer>

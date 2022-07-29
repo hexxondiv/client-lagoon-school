@@ -35,7 +35,8 @@ export default function Mentor() {
   return (
     <Container>
       <div className="placeholder2">
-        <img src={Backdrop} alt="placeholder" />
+        <img src={`${process.env.REACT_APP_SERVER_URL}/images/${contentData.banner}` ??
+            Backdrop} alt="placeholder" />
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -96,18 +97,11 @@ export default function Mentor() {
             <span>
               <h2>INDIVIDUALIZED MENTORING</h2>
             </span>
-            <ul>
-              <li>Goes far beyond traditional academic advising</li>
-              <li>Provides every student with a mentor and a coach</li>
-              <li>
-                A mentor serves as captain of each girl's success management
-                team
-              </li>
-              <li>Formal meetings occur 6-8 times a semester</li>
-              <li>Informal meetings are frequent</li>
-              <li>Mentors meet with parents at least twice a year</li>
-            </ul>
+            <span
+              dangerouslySetInnerHTML={{ __html: contentData?.other_contents_1 }}
+            ></span>
           </div>
+          
           <div className="quotes">
             <hr />
             <h4>“ {testimonialList.paragraph} “</h4>
