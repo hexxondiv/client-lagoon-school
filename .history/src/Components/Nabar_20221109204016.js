@@ -312,23 +312,21 @@ export default function Nabar() {
                     Admission Procedure
                   </a>{" "}
                   <a
-                    href={"/admission/scholarship"}
+                    href={"/admission/admission-proceedure"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Scholarships
                   </a>
                   <a
-                    href={"/admission/f-a-q"}
+                    href={"/history"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     FAQs
                   </a>
                   <a
-                    href={
-                      "https://lagoonweb.eschoolng.net/primary/application/start_application.php"
-                    }
+                    href={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
@@ -342,35 +340,35 @@ export default function Nabar() {
                 </a>
                 <div className="subMenu">
                   <a
-                    href={"/student_life/life_in_lagoon"}
+                    href={"/principal"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Life in Lagoon
                   </a>{" "}
                   <a
-                    href={"/student_life/lagoon_traditions"}
+                    href={"/message"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Lagoon Traditions
                   </a>
                   <a
-                    href={"/student_life/service"}
+                    href={"/history"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Service
                   </a>
                   <a
-                    href={"/academics/club_&_activities"}
+                    href={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Clubs & Activities
                   </a>
                   <a
-                    href={"/student_life/mentorship"}
+                    href={"/Conduct"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
@@ -384,35 +382,35 @@ export default function Nabar() {
                 </a>
                 <div className="subMenu">
                   <a
-                    href={"https://nafad.org.ng/"}
+                    href={"/principal"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     NAFAD
                   </a>{" "}
                   <a
-                    href={"/student_life/Safety"}
+                    href={"/message"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Digital Safety
                   </a>
                   <a
-                    href={"/student_life/Lunch"}
+                    href={"/history"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Lunch Menu
                   </a>
                   <a
-                    href={"/student_life/mentorship"}
+                    href={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Mentoring & Tutorials
                   </a>
                   <a
-                    href={"/student_life/uniform"}
+                    href={"/Conduct"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >

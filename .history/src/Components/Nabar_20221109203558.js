@@ -258,35 +258,35 @@ export default function Nabar() {
                 </a>
                 <div className="subMenu">
                   <a
-                    href={"/academics/academic-facilities"}
+                    href={"/apply"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Academic Facilities
                   </a>{" "}
                   <a
-                    href={"/academics/primary-school"}
+                    href={"/fees"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Primary School
                   </a>{" "}
                   <a
-                    href={"/academics/secondary-school"}
+                    href={"/transfer"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Secondary School
                   </a>
                   <a
-                    href={"/academics/courses"}
+                    href={"/transfer"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Courses
                   </a>
                   <a
-                    href={"/academics/full_calendar"}
+                    href={"/transfer"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
@@ -305,30 +305,28 @@ export default function Nabar() {
                 </a>
                 <div className="subMenu">
                   <a
-                    href={"/admission/admission-proceedure"}
+                    href={"/principal"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Admission Procedure
                   </a>{" "}
                   <a
-                    href={"/admission/scholarship"}
+                    href={"/message"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Scholarships
                   </a>
                   <a
-                    href={"/admission/f-a-q"}
+                    href={"/history"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     FAQs
                   </a>
                   <a
-                    href={
-                      "https://lagoonweb.eschoolng.net/primary/application/start_application.php"
-                    }
+                    href={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
@@ -342,40 +340,40 @@ export default function Nabar() {
                 </a>
                 <div className="subMenu">
                   <a
-                    href={"/student_life/life_in_lagoon"}
+                    href={"/principal"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Life in Lagoon
                   </a>{" "}
                   <a
-                    href={"/student_life/lagoon_traditions"}
+                    href={"/message"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Lagoon Traditions
                   </a>
                   <a
-                    href={"/student_life/service"}
+                    to={"/history"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Service
                   </a>
-                  <a
-                    href={"/academics/club_&_activities"}
+                  <NavLink
+                    to={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Clubs & Activities
-                  </a>
-                  <a
-                    href={"/student_life/mentorship"}
+                  </NavLink>
+                  <NavLink
+                    to={"/Conduct"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Mentoring & Tutorials{" "}
-                  </a>
+                  </NavLink>
                 </div>
               </li>{" "}
               <li className="item" id="parents">
@@ -383,41 +381,41 @@ export default function Nabar() {
                   Parents
                 </a>
                 <div className="subMenu">
-                  <a
-                    href={"https://nafad.org.ng/"}
+                  <NavLink
+                    to={"/principal"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     NAFAD
-                  </a>{" "}
-                  <a
-                    href={"/student_life/Safety"}
+                  </NavLink>{" "}
+                  <NavLink
+                    to={"/message"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Digital Safety
-                  </a>
-                  <a
-                    href={"/student_life/Lunch"}
+                  </NavLink>
+                  <NavLink
+                    to={"/history"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Lunch Menu
-                  </a>
-                  <a
-                    href={"/student_life/mentorship"}
+                  </NavLink>
+                  <NavLink
+                    to={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Mentoring & Tutorials
-                  </a>
-                  <a
-                    href={"/student_life/uniform"}
+                  </NavLink>
+                  <NavLink
+                    to={"/Conduct"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Uniform
-                  </a>
+                  </NavLink>
                 </div>
               </li>
               <li className="item">

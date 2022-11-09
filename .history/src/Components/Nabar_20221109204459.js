@@ -412,7 +412,7 @@ export default function Nabar() {
                     Mentoring & Tutorials
                   </a>
                   <a
-                    href={"/student_life/uniform"}
+                    href={"/Conduct"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >

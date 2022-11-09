@@ -349,28 +349,28 @@ export default function Nabar() {
                     Life in Lagoon
                   </a>{" "}
                   <a
-                    href={"/student_life/lagoon_traditions"}
+                    href={"/message"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Lagoon Traditions
                   </a>
                   <a
-                    href={"/student_life/service"}
+                    href={"/history"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Service
                   </a>
                   <a
-                    href={"/academics/club_&_activities"}
+                    href={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Clubs & Activities
                   </a>
                   <a
-                    href={"/student_life/mentorship"}
+                    href={"/Conduct"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
@@ -384,35 +384,35 @@ export default function Nabar() {
                 </a>
                 <div className="subMenu">
                   <a
-                    href={"https://nafad.org.ng/"}
+                    href={"/principal"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     NAFAD
                   </a>{" "}
                   <a
-                    href={"/student_life/Safety"}
+                    href={"/message"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Digital Safety
                   </a>
                   <a
-                    href={"/student_life/Lunch"}
+                    href={"/history"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Lunch Menu
                   </a>
                   <a
-                    href={"/student_life/mentorship"}
+                    href={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Mentoring & Tutorials
                   </a>
                   <a
-                    href={"/student_life/uniform"}
+                    href={"/Conduct"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >

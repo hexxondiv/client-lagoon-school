@@ -405,14 +405,14 @@ export default function Nabar() {
                     Lunch Menu
                   </a>
                   <a
-                    href={"/student_life/mentorship"}
+                    href={"/contact"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
                     Mentoring & Tutorials
                   </a>
                   <a
-                    href={"/student_life/uniform"}
+                    href={"/Conduct"}
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
