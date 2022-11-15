@@ -92,7 +92,7 @@ export default function Message() {
                 width="100%"
               />
             </div>
-            <div className="col-md-8" style={{padding:'15px'}}>
+            <div className="col-md-8" style={{padding}}>
               <p dangerouslySetInnerHTML={{ __html: pageData?.content }}></p>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function Message() {
             <div className="img-hold">
               <img
                 src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
+                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}` ??
                   Holder
                 }
                 alt="placeHolder"
@@ -206,8 +206,8 @@ const Container = styled.section`
         /* margin-top: 7rem; */
         /* flex-direction:column ; */
         img {
-          // height: 400px;
-          width: 100%;
+          height: 400px;
+          width: 500px;
         }
       }
 

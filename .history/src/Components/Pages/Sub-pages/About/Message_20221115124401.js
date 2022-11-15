@@ -79,43 +79,41 @@ export default function Message() {
           <span>
             <h2>{pageData?.other_titles_1}</h2>
           </span>
-        </div>
-        <div className="col-md-12 flexy">
-          <div className="col-md-8 flexy">
-            <div className="col-md-4">
-              <img
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
-                  Holder
-                }
-                alt="placeHolder"
-                width="100%"
-              />
-            </div>
-            <div className="col-md-8" style={{padding:'15px'}}>
-              <p dangerouslySetInnerHTML={{ __html: pageData?.content }}></p>
+          <div className="col-md-12 flexy">
+            <div className="col-md-8 flexy">
+              <div className="col-md-4">
+                <img
+                  src={
+                    `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
+                    Holder
+                  }
+                  alt="placeHolder"
+                />
+              </div>
+              <div className="col-md-8">
+                <p dangerouslySetInnerHTML={{ __html: pageData?.content }}></p>
+              </div>
             </div>
           </div>
-
-          <div className="second col-md-4" >
-            <div className="img-hold">
-              <img
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
-                  Holder
-                }
-                alt="placeHolder"
-              />
-            </div>
-            <div className="img-hold">
-              <img
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
-                  Holder
-                }
-                alt="placeHolder"
-              />
-            </div>
+        </div>
+        <div className="second">
+          <div className="img-hold">
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
+                Holder
+              }
+              alt="placeHolder"
+            />
+          </div>
+          <div className="img-hold">
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}` ??
+                Holder
+              }
+              alt="placeHolder"
+            />
           </div>
         </div>
       </div>
@@ -187,8 +185,30 @@ const Container = styled.section`
     // width: 90%;
     margin: 5rem auto 0 auto;
 
-    
-      
+    .first {
+      span {
+        h2 {
+          position: relative;
+
+          &::before {
+            content: "";
+            border-bottom: 5px solid red;
+            width: 5rem;
+            position: absolute;
+            bottom: 0;
+            top: 30px;
+          }
+        }
+      }
+      h4 {
+        img {
+          float: left;
+          width: 250px;
+          height: 300px;
+          object-fit: cover;
+          padding: 0 20px;
+        }
+      }
       button {
         width: 100%;
         /* height:4rem ; */
@@ -202,12 +222,13 @@ const Container = styled.section`
 
     .second {
       .img-hold {
-        
+        display: flex;
+        justify-content: flex-end;
         /* margin-top: 7rem; */
         /* flex-direction:column ; */
         img {
-          // height: 400px;
-          width: 100%;
+          height: 400px;
+          width: 500px;
         }
       }
 

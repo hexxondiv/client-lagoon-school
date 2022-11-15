@@ -79,43 +79,75 @@ export default function Message() {
           <span>
             <h2>{pageData?.other_titles_1}</h2>
           </span>
-        </div>
-        <div className="col-md-12 flexy">
-          <div className="col-md-8 flexy">
-            <div className="col-md-4">
-              <img
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
-                  Holder
-                }
-                alt="placeHolder"
-                width="100%"
-              />
-            </div>
-            <div className="col-md-8" style={{padding:'15px'}}>
-              <p dangerouslySetInnerHTML={{ __html: pageData?.content }}></p>
-            </div>
-          </div>
+          <h4>
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
+                Holder
+              }
+              alt="placeHolder"
+            />
+            <span
+              dangerouslySetInnerHTML={{ __html: pageData?.content }}
+            ></span>
+          </h4>
+          {/* <h4>
+                  ‘partnership with the parents to give an all-round education
+                  to the students, based on the dignity of the human person,
+                  integrity, leadership qualities and academic excellence’ and
+                  our vision: ‘Christian Identity’.
+              </h4>
+              <h4>
+                    I welcome you- parents, teachers, students, prospective
+                    parents and guests- to explore our website.
+              </h4>
+              <h4>
+                  To our parents: You can keep up to date with your daughter’s
+                  progress in the school, be it academic or extra-curricular. You
+                  also have access to schedules of interesting activities
+                  specially organised for you and your children.
+              </h4>
+              <h4>
+                  To our teachers: This is another great avenue for getting
+                  across to parents and students and communicating with one
+                  another.
+              </h4>
+              <h4>
+                    To the students: I encourage you to visit the website as often
+                    as possible to get the latest updates on your assignments
+                    and projects.
+              </h4>
+              <h4>
+                To prospective parents and guests: we hope that the
+                information on our website will be of interest to you and will
+                excite you into joining this great family of The Lagoon
+                School.
+              </h4>
+              <h4>
+                    We would be grateful to receive suggestions and feedback.
+                    For more information, do not hesitate to contact us.
+              </h4>
 
-          <div className="second col-md-4" >
-            <div className="img-hold">
-              <img
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
-                  Holder
-                }
-                alt="placeHolder"
-              />
-            </div>
-            <div className="img-hold">
-              <img
-                src={
-                  `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
-                  Holder
-                }
-                alt="placeHolder"
-              />
-            </div>
+              <h4>Doreen Onyekwelu (Principal)</h4> */}
+        </div>
+        <div className="second">
+          <div className="img-hold">
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
+                Holder
+              }
+              alt="placeHolder"
+            />
+          </div>
+          <div className="img-hold">
+            <img
+              src={
+                `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_3}` ??
+                Holder
+              }
+              alt="placeHolder"
+            />
           </div>
         </div>
       </div>
@@ -129,9 +161,6 @@ export default function Message() {
 const Container = styled.section`
   .placeholder2 {
     position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
-    }
 
     img {
       width: 100%;
@@ -168,7 +197,6 @@ const Container = styled.section`
             text-decoration: none;
             font-size: 1.5rem;
             color: #fff;
-            font-weight:900;
             @media screen and (max-width: 620px) {
               font-size: 10px;
             }
@@ -182,13 +210,35 @@ const Container = styled.section`
   }
 
   .content {
-    // display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-    // width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
     margin: 5rem auto 0 auto;
 
-    
-      
+    .first {
+      span {
+        h2 {
+          position: relative;
+
+          &::before {
+            content: "";
+            border-bottom: 5px solid red;
+            width: 5rem;
+            position: absolute;
+            bottom: 0;
+            top: 30px;
+          }
+        }
+      }
+      h4 {
+        img {
+          float: left;
+          width: 250px;
+          height: 300px;
+          object-fit: cover;
+          padding: 0 20px;
+        }
+      }
       button {
         width: 100%;
         /* height:4rem ; */
@@ -202,12 +252,13 @@ const Container = styled.section`
 
     .second {
       .img-hold {
-        
+        display: flex;
+        justify-content: flex-end;
         /* margin-top: 7rem; */
         /* flex-direction:column ; */
         img {
-          // height: 400px;
-          width: 100%;
+          height: 400px;
+          width: 500px;
         }
       }
 
