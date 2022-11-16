@@ -187,7 +187,7 @@ const Container = styled.section`
     // display: grid;
     // grid-template-columns: repeat(2, 1fr);
     // width: 90%;
-    margin-top: 30px ;
+    margin: 20px auto;
     padding:20px;
 
     .writings {

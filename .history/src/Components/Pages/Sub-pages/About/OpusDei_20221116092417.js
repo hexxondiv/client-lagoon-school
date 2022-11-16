@@ -75,8 +75,8 @@ export default function OpusDei() {
           </ul>
         </div>
       </div>
-      <div className="content col-md-12 flexy">
-        <div className="writings col-md-6">
+      <div className="content">
+        <div className="writings">
           <span dangerouslySetInnerHTML={{ __html: pageData?.content }}></span>
 
           <img
@@ -87,7 +87,7 @@ export default function OpusDei() {
             alt=""
           />
         </div>
-        <div className="hold col-md-6">
+        <div className="hold">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
@@ -187,8 +187,7 @@ const Container = styled.section`
     // display: grid;
     // grid-template-columns: repeat(2, 1fr);
     // width: 90%;
-    margin-top: 30px ;
-    padding:20px;
+    margin: 0 auto;
 
     .writings {
       h4 {
@@ -221,7 +220,7 @@ const Container = styled.section`
 
       img {
         // height: 30rem;
-        width: 100%;
+        width: 30rem;
         margin: 0 auto;
         object-fit: cover;
         border-right: 50px;

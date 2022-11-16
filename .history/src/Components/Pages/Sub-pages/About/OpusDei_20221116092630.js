@@ -187,8 +187,8 @@ const Container = styled.section`
     // display: grid;
     // grid-template-columns: repeat(2, 1fr);
     // width: 90%;
-    margin-top: 30px ;
-    padding:20px;
+    margin: 0 auto;
+    padding
 
     .writings {
       h4 {

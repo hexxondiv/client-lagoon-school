@@ -87,7 +87,7 @@ export default function OpusDei() {
             alt=""
           />
         </div>
-        <div className="hold col-md-6">
+        <div className="hold">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
@@ -187,8 +187,7 @@ const Container = styled.section`
     // display: grid;
     // grid-template-columns: repeat(2, 1fr);
     // width: 90%;
-    margin-top: 30px ;
-    padding:20px;
+    margin: 0 auto;
 
     .writings {
       h4 {
