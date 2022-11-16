@@ -101,7 +101,7 @@ export default function PrimarySchool() {
           </h4>
         </div>
       </div>
-      <div className="con col-md-12 flexy content">
+      <div className="con col-md-12 flexy">
         {imgList.map(({ id, title, image_path }) => {
           return (
             <div classname="col-md-4">
@@ -143,7 +143,7 @@ export default function PrimarySchool() {
         </div>*/}
       </div>
 
-      <div className="col-md-12 flexy content">
+      <div className="col-md-12 flexy">
         {/* <div className="col-md-1">&nbsp;</div> */}
 
         <div className="row col-md-12">

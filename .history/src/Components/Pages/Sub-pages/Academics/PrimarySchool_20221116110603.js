@@ -80,7 +80,7 @@ export default function PrimarySchool() {
           </ul>
         </div>
       </div>
-      <div className="tent  col-md-12 content">
+      <div className="tent  col-md-12">
         <div className="first">
           <span>
             <h2>{noteData?.other_titles_1}</h2>
@@ -101,7 +101,7 @@ export default function PrimarySchool() {
           </h4>
         </div>
       </div>
-      <div className="con col-md-12 flexy content">
+      <div className="con col-md-12 flexy">
         {imgList.map(({ id, title, image_path }) => {
           return (
             <div classname="col-md-4">
@@ -143,7 +143,7 @@ export default function PrimarySchool() {
         </div>*/}
       </div>
 
-      <div className="col-md-12 flexy content">
+      <div className="col-md-12 flexy">
         {/* <div className="col-md-1">&nbsp;</div> */}
 
         <div className="row col-md-12">
@@ -178,10 +178,9 @@ export default function PrimarySchool() {
 
 const Container = styled.section`
   .placeholder2 {
+    height: 37rem;
     position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
-    }
+
     img {
       width: 100%;
       height: 100%;
@@ -218,9 +217,7 @@ const Container = styled.section`
             text-decoration: none;
             font-size: 1.5rem;
             color: #fff;
-            @media screen and (max-width: 620px) {
-              font-size: 10px;
-            }
+
             &:hover {
               color: red;
             }
@@ -231,7 +228,7 @@ const Container = styled.section`
   }
 
   .content {
-    padding: 20px;
+   padding:20px;
 
     .first {
       span {
