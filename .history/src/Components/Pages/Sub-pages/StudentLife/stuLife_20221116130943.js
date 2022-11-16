@@ -71,7 +71,7 @@ export default function StuLife() {
           </ul>
         </div>
       </div>
-      <div className="row" style={{padding:'20px'}}>
+      <div className="row" style={{padding}}>
         <div className="col-md-12">
           <div className="content">
             <div className="first">
