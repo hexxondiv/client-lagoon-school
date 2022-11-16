@@ -127,7 +127,7 @@ export default function SecSchool() {
             className=" col-md-12"
             height="400"
 
-            width='100%'
+            width:
             src={`${noteData.content2}`}
             title="YouTube video player"
             frameborder="0"

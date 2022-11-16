@@ -126,8 +126,6 @@ export default function SecSchool() {
           <iframe
             className=" col-md-12"
             height="400"
-
-            width='100%'
             src={`${noteData.content2}`}
             title="YouTube video player"
             frameborder="0"
@@ -137,7 +135,7 @@ export default function SecSchool() {
         </div>
       </div>
 
-      <div className="content col-md-12 flexy alum">
+      <div className=" col-md-12 flexy alum">
         <div className="col-md-4">
           <img
             src={

@@ -166,6 +166,7 @@ export default function SecSchool() {
             }
             alt=""
             className=" col-md-12"
+            height=""
           />
         </div>
       </div>

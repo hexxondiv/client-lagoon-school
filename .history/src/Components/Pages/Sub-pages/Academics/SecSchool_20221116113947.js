@@ -126,8 +126,6 @@ export default function SecSchool() {
           <iframe
             className=" col-md-12"
             height="400"
-
-            width='100%'
             src={`${noteData.content2}`}
             title="YouTube video player"
             frameborder="0"
@@ -137,8 +135,8 @@ export default function SecSchool() {
         </div>
       </div>
 
-      <div className="content col-md-12 flexy alum">
-        <div className="col-md-4">
+      <div className="col-md-12 flexy alum">
+        <div classname="col-md-4">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_2}` ??
@@ -148,7 +146,7 @@ export default function SecSchool() {
             className=" col-md-12"
           />
         </div>
-        <div className="col-md-4">
+        <div classname="col-md-4">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_3}` ??
@@ -158,14 +156,14 @@ export default function SecSchool() {
             className=" col-md-12"
           />
         </div>{" "}
-        <div className="col-md-4">
+        <div classname="col-md-4">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_4}` ??
               Holder
             }
             alt=""
-            className=" col-md-12"
+            className=" col-md-9"
           />
         </div>
       </div>

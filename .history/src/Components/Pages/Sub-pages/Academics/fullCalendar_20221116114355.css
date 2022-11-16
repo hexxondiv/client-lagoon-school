@@ -216,7 +216,8 @@
 
 .alum img{
 width:100%;
-margin-top:20px}
+margin:20px;
+margin-right:20px !important;}
 
 .box {
   background-color: rgb(217, 217, 217);

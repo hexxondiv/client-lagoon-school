@@ -80,14 +80,20 @@ export default function SecSchool() {
           </ul>
         </div>
       </div>
-      <div className="content">
+      <div className="tent">
         <div className="first">
           <span>
             <h2>{noteData?.other_titles_1}</h2>
           </span>
 
           <h4>
-           
+            {/* <mark>
+              Laying the Groundwork. Strengthening the Foundation. Building the
+              Bridge.
+            </mark>
+            In the primary school, girls develop curiosity, tenacity and
+            intellectual carefulness. They research problems, brainstorm
+            solutions, create prototypes, test and revise. */}
             <span
               dangerouslySetInnerHTML={{ __html: noteData?.content }}
             ></span>
@@ -95,7 +101,7 @@ export default function SecSchool() {
         </div>
       </div>
 
-      <div className="con col-md-12 flexy content">
+      <div className="con col-md-12 flexy">
         {imgList.map(({ id, title, image_path }) => {
           return (
             <div classname="col-md-4">
@@ -112,22 +118,59 @@ export default function SecSchool() {
             </div>
           );
         })}
-        
+        {/* <div classname="col-md-4">
+          <div className="col-md-9">
+            <img src={Holder} alt="" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="col-md-9">
+            <img src={Holder} alt="" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="col-md-9">
+            <img src={Holder} alt="" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div> */}
       </div>
 
-      <div className="content col-md-12 flexy">
+      <div className="col-md-12 flexy">
         <div className="col-md-1">&nbsp;</div>
 
-        <div className="col-md-10 col-12">
+        <div className="fll col-md-10">
           <h4>
             <span className="bod"> Hear wh</span>at our Alumni has to say
           </h4>
-        
+          {/* <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_1}` ??
+              Holder
+            }
+            alt=""
+            className=" col-md-12"
+          /> */}
           <iframe
             className=" col-md-12"
-            height="400"
-
-            width='100%'
+            height="315"
             src={`${noteData.content2}`}
             title="YouTube video player"
             frameborder="0"
@@ -137,35 +180,35 @@ export default function SecSchool() {
         </div>
       </div>
 
-      <div className="content col-md-12 flexy alum">
-        <div className="col-md-4">
+      <div className="col-md-12 flexy alum">
+        <div classname="col-md-4">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_2}` ??
               Holder
             }
             alt=""
-            className=" col-md-12"
+            className=" col-md-9"
           />
         </div>
-        <div className="col-md-4">
+        <div classname="col-md-4">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_3}` ??
               Holder
             }
             alt=""
-            className=" col-md-12"
+            className=" col-md-9"
           />
         </div>{" "}
-        <div className="col-md-4">
+        <div classname="col-md-4">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_4}` ??
               Holder
             }
             alt=""
-            className=" col-md-12"
+            className=" col-md-9"
           />
         </div>
       </div>
