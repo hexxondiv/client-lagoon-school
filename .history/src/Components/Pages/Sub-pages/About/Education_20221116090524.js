@@ -92,8 +92,12 @@ export default function Education() {
             <h2>DISCOVER GREATNESS IN ORDINARY LIFE</h2>
             <p dangerouslySetInnerHTML={{ __html: pageData?.content }}>
             </p>
-          </div> 
-       
+          </div> <div className="patch">
+            <h2>DISCOVER GREATNESS IN ORDINARY LIFE</h2>
+            <p >
+              nkjnknbnnbk jnkjnknkmkm lplxpk okpkbk  kmjizfjgfpo  pkjpfpokopko mknbn knkgjij kmsgkkskp'aekfkpsg sjpojkkgskop skojsojpsposko sokojjspojm okokjoj  s
+            </p>
+          </div>
         </div>
 
         <div className="badge">
@@ -216,7 +220,7 @@ const Container = styled.section`
 
       p {
         // width:70% ;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
 
       ul {

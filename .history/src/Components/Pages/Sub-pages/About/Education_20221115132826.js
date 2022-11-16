@@ -76,24 +76,32 @@ export default function Education() {
           </ul>
         </div>
       </div>
-      <div className="content col-md-12 flexy">
-        <div className="col-md-8">
-          <div className="patch">
+      <div className="content">
+        <div>
+        <div className="patch">
             <h2>PURSUE THE TRUTH</h2>
-            <p
-              dangerouslySetInnerHTML={{ __html: pageData?.other_contents_2 }}
-         className="style"></p>
+            <p>
+              <span
+                dangerouslySetInnerHTML={{ __html: pageData?.other_contents_2 }}
+              ></span>
+            </p>
           </div>
           <div className="patch">
             <h2>FOSTER VIRTUES OF MIND, HEART AND CHARACTER</h2>
-            <p dangerouslySetInnerHTML={{ __html: pageData?.content2 }}></p>
+            <p>
+              <span
+                dangerouslySetInnerHTML={{ __html: pageData?.content2 }}
+              ></span>
+            </p>
           </div>
           <div className="patch">
             <h2>DISCOVER GREATNESS IN ORDINARY LIFE</h2>
-            <p dangerouslySetInnerHTML={{ __html: pageData?.content }}>
+            <p>
+              <span
+                dangerouslySetInnerHTML={{ __html: pageData?.content }}
+              ></span>
             </p>
-          </div> 
-       
+          </div>
         </div>
 
         <div className="badge">
@@ -121,10 +129,8 @@ export default function Education() {
 
 const Container = styled.section`
   .placeholder2 {
+    height: 37rem;
     position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
-    }
 
     img {
       width: 100%;
@@ -177,7 +183,9 @@ const Container = styled.section`
   }
 
   .content {
-    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 35%;
+    width: 90%;
     margin: 0 auto;
     margin-top: 7rem;
 
@@ -185,10 +193,7 @@ const Container = styled.section`
       padding: 20px;
       background-color: #d9d9d9;
       border-radius: 20px;
-      .style {
-        width: 100%; 
-        
-      }
+
       &:nth-child(n + 2) {
         margin-top: 3rem;
       }
@@ -215,8 +220,8 @@ const Container = styled.section`
       }
 
       p {
-        // width:70% ;
-        font-size: 1.5rem;
+        width: 70%;
+        font-size: 1.3rem;
       }
 
       ul {

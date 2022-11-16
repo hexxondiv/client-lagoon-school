@@ -82,7 +82,7 @@ export default function Education() {
             <h2>PURSUE THE TRUTH</h2>
             <p
               dangerouslySetInnerHTML={{ __html: pageData?.other_contents_2 }}
-         className="style"></p>
+            ></p>
           </div>
           <div className="patch">
             <h2>FOSTER VIRTUES OF MIND, HEART AND CHARACTER</h2>
@@ -92,8 +92,7 @@ export default function Education() {
             <h2>DISCOVER GREATNESS IN ORDINARY LIFE</h2>
             <p dangerouslySetInnerHTML={{ __html: pageData?.content }}>
             </p>
-          </div> 
-       
+          </div>
         </div>
 
         <div className="badge">
@@ -120,54 +119,54 @@ export default function Education() {
 
 
 const Container = styled.section`
-  .placeholder2 {
-    position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
+
+  .placeholder2{
+    height:37rem ;
+    position:relative ;
+
+    img{
+      width:100% ;
+      height:100% ;
+      object-fit:cover ;
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .overlay{
+      position:absolute ;
+      top:0 ;
+      background-color:rgba(0,0,0,0.5) ;
+      width:100% ;
+      height:100% ;
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      width: 100%;
-      height: 100%;
-
-      ul {
-        padding: 0;
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
+      ul{
+        padding:0 ;
+        list-style:none ;
+        display:flex ;
+        justify-content:center ;
+        flex-wrap:wrap ;
+        gap:2rem;
         /* height:100% ; */
-        align-items: baseline;
+        align-items:baseline ;
         position: absolute;
         bottom: 30%;
 
-        li {
-          display: flex;
-          flex-direction: column;
+        li{
+          display:flex ;
+          flex-direction:column ;
           /* height:70% ; */
-          align-items: baseline;
-          justify-content: flex-end;
+          align-items:baseline ;
+          justify-content:flex-end ;
 
-          a {
-            text-decoration: none;
-            font-size: 1.5rem;
-            color: #fff;
-            font-weight: 900;
+          a{
+            text-decoration:none ;
+            font-size:1.5rem;
+            color:#fff ;
+ font-weight:900;
 
-            @media screen and (max-width: 620px) {
-              font-size: 10px;
-            }
-            &:hover {
+            @media screen and (max-width: 620px){
+               font-size:10px;
+
+              }
+            &:hover{
               color: red;
             }
           }
@@ -176,75 +175,82 @@ const Container = styled.section`
     }
   }
 
-  .content {
-    padding: 20px;
-    margin: 0 auto;
-    margin-top: 7rem;
+  .content{
+    // display:grid ;
+padding:20px;    // width:90% ;
+    margin:0 auto ;
+    margin-top:7rem ;
 
-    .patch {
-      padding: 20px;
-      background-color: #d9d9d9;
-      border-radius: 20px;
-      .style {
-        width: 100%; 
-        
-      }
-      &:nth-child(n + 2) {
-        margin-top: 3rem;
-      }
-      &:last-child {
-        margin-bottom: 3rem;
-      }
+    .patch{
+        padding:0px;
+        background-color:#d9d9d9;
+        border-radius:20px;
 
-      h2 {
-        position: relative;
-
-        &::before {
-          content: "";
-          border-bottom: 5px solid red;
-          width: 5rem;
-          position: absolute;
-          bottom: 0;
-          top: 30px;
+        &:nth-child(n+2){
+          margin-top: 3rem;
         }
-      }
+        &:last-child{
+          margin-bottom:3rem;
+        }
 
-      h1 {
-        font-weight: 900;
-        font-size: 20px;
-      }
+        h2{
+              position:relative ;
+              
+              &::before{
+                content: '';
+                border-bottom: 5px solid red;
+                width: 5rem;
+                position: absolute;
+                bottom: 0;
+                top: 30px;
+              }
+            }
 
-      p {
-        // width:70% ;
-        font-size: 1.5rem;
-      }
+            h1{
+              font-weight:900 ;
+              font-size:20px ;
+            }
 
-      ul {
-        font-size: 1.2rem;
-      }
+            p{
+              width:70% ;
+              font-size:1.3rem ;
+            }
+
+            ul{
+              font-size:1.2rem ;
+
+            }
     }
 
-    .badge {
-      justify-content: center;
-      display: flex;
 
-      .cor {
-        display: flex;
-        flex-direction: column;
-        img {
-          width: 20rem;
-        }
+    .badge{
+      justify-content:center ;
+      display:flex ;
 
-        button {
-          font-size: 1.3rem;
-          background: #fff;
-          padding: 10px;
-          border: 2px solid red;
-          color: red;
-          font-weight: 900;
-          margin-top: 4rem;
-        }
+      .cor{
+        display:flex ;
+        flex-direction:column;
+          img{
+            width:20rem ;
+            }
+
+            button{
+              font-size:1.3rem;
+              background:#fff;
+              padding:10px ;
+              border:2px solid red ;
+              color:red ;
+              font-weight:900;
+              margin-top: 4rem;
+            }
+
       }
+
+     
     }
   }
-`;
+
+
+ 
+
+`

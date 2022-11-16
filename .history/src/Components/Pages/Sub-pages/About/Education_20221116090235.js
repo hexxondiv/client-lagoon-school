@@ -82,7 +82,7 @@ export default function Education() {
             <h2>PURSUE THE TRUTH</h2>
             <p
               dangerouslySetInnerHTML={{ __html: pageData?.other_contents_2 }}
-         className="style"></p>
+         ></p>
           </div>
           <div className="patch">
             <h2>FOSTER VIRTUES OF MIND, HEART AND CHARACTER</h2>
@@ -92,8 +92,7 @@ export default function Education() {
             <h2>DISCOVER GREATNESS IN ORDINARY LIFE</h2>
             <p dangerouslySetInnerHTML={{ __html: pageData?.content }}>
             </p>
-          </div> 
-       
+          </div>
         </div>
 
         <div className="badge">
@@ -185,7 +184,7 @@ const Container = styled.section`
       padding: 20px;
       background-color: #d9d9d9;
       border-radius: 20px;
-      .style {
+      element.style {
         width: 100%; 
         
       }
@@ -216,7 +215,7 @@ const Container = styled.section`
 
       p {
         // width:70% ;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
 
       ul {
