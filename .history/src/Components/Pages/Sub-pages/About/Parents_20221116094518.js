@@ -138,7 +138,7 @@ export default function Parents() {
             </ul>
           </div>
         </div>
-        <div className="col-md-1">&nbsp;</div>
+        <div></div>
         <div className="stacks col-md-5">
           <img
             src={

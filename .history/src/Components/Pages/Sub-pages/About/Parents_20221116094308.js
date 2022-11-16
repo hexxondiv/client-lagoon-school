@@ -110,7 +110,7 @@ export default function Parents() {
 
 
 <div className="col-md-12 flexy">
-        <div className="primary col-md-6">
+        <div className="primary col-md-7">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
@@ -138,8 +138,7 @@ export default function Parents() {
             </ul>
           </div>
         </div>
-        <div className="col-md-1">&nbsp;</div>
-        <div className="stacks col-md-5">
+        {/* <div className="stacks col-md-5">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
@@ -154,7 +153,7 @@ export default function Parents() {
             }
             alt=""
           />
-        </div>
+        </div> */}
         </div>
       </div>
     </Container>
@@ -216,7 +215,7 @@ const Container = styled.section`
     // width: 90%;
     padding:20px;
     margin: 0 auto;
-    margin-top: 3rem;
+    margin-top: 1rem;
     // display: grid;
     // grid-template-columns: 1fr 30%;
     .redup {
@@ -233,7 +232,7 @@ const Container = styled.section`
       }
     }
     .primary {
-      // width: 80%;
+      width: 80%;
       margin-top: 8rem;
       img {
         width: 100%;

@@ -99,7 +99,6 @@ export default function Parents() {
           </ul>
         </div>
       </div>
-      <div className="content col-md-12">
         <div className="redup col-md-12">
           <h4>
             <span
@@ -109,8 +108,7 @@ export default function Parents() {
         </div>
 
 
-<div className="col-md-12 flexy">
-        <div className="primary col-md-6">
+        <div className="primary col-md-7">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
@@ -125,7 +123,7 @@ export default function Parents() {
               ))}
             </div>
           </div>
-          <div className="principle ">
+          <div className="principle">
             <header>Seven principles of Catholic Social Teaching:</header>
             <ul>
               <li>Life and Dignity of the Human Person</li>
@@ -138,8 +136,7 @@ export default function Parents() {
             </ul>
           </div>
         </div>
-        <div className="col-md-1">&nbsp;</div>
-        <div className="stacks col-md-5">
+        <div className="stacks">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_2}` ??
@@ -154,7 +151,6 @@ export default function Parents() {
             }
             alt=""
           />
-        </div>
         </div>
       </div>
     </Container>
@@ -213,12 +209,11 @@ const Container = styled.section`
     }
   }
   .content {
-    // width: 90%;
-    padding:20px;
+    width: 90%;
     margin: 0 auto;
-    margin-top: 3rem;
-    // display: grid;
-    // grid-template-columns: 1fr 30%;
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 30%;
     .redup {
       background-color: #f85f58;
       padding: 20px;
@@ -233,7 +228,7 @@ const Container = styled.section`
       }
     }
     .primary {
-      // width: 80%;
+      width: 80%;
       margin-top: 8rem;
       img {
         width: 100%;

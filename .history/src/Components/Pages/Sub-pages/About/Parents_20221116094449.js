@@ -110,7 +110,7 @@ export default function Parents() {
 
 
 <div className="col-md-12 flexy">
-        <div className="primary col-md-6">
+        <div className="primary col-md-7">
           <img
             src={
               `${process.env.REACT_APP_SERVER_URL}/images/${pageData?.other_images_1}` ??
@@ -138,7 +138,6 @@ export default function Parents() {
             </ul>
           </div>
         </div>
-        <div className="col-md-1">&nbsp;</div>
         <div className="stacks col-md-5">
           <img
             src={
