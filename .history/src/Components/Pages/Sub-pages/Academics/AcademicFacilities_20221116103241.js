@@ -104,7 +104,7 @@ export default function AcademicFacilities() {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
-                className="col-md-2 fac"
+                className="col-md-2"
               >
                 <h4>{title}</h4>
               </div>

@@ -94,7 +94,7 @@ export default function AcademicFacilities() {
             ></span>
           </h4>
         </div>
-        <div className="conimages col-md-12 flexy">
+        <div className="conimages">
           {imgList.map(({ id, title, image_path }) => {
             return (
               <div
@@ -104,7 +104,6 @@ export default function AcademicFacilities() {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
-                className="col-md-2 fac"
               >
                 <h4>{title}</h4>
               </div>
@@ -118,10 +117,9 @@ export default function AcademicFacilities() {
 
 const Container = styled.section`
   .placeholder2 {
+    height: 37rem;
     position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
-    }
+
     img {
       width: 100%;
       height: 100%;
@@ -157,9 +155,7 @@ const Container = styled.section`
             text-decoration: none;
             font-size: 1.5rem;
             color: #fff;
-            @media screen and (max-width: 620px) {
-              font-size: 10px;
-            }
+
             &:hover {
               color: red;
             }
@@ -170,11 +166,10 @@ const Container = styled.section`
   }
 
   .content {
-    // width: 90%;
-    padding:20px;
+    width: 90%;
     margin: 5rem auto 0 auto;
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
     .first {
       span {
@@ -211,8 +206,9 @@ const Container = styled.section`
     }
 
     .conimages {
-      
-      gap: 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 20rem);
+      gap: 5rem;
       justify-content: center;
 
       img {

@@ -81,14 +81,17 @@
 }
 .conimages div h4 {
   color: black;
+  /* padding:15px 20px 15px 20px; */
   background-color: rgba(255, 255, 255, 0.5);
   font-weight: 500;
   width: fit-content;
-  padding: 10px;
-  
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px !important;
 
   margin-left: 35px;
-  margin-right: 35px;
+  margin-right: 70px;
+  /* text-align:center; */
 }
 
 .fac1 {

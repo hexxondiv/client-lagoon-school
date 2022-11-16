@@ -104,7 +104,7 @@ export default function AcademicFacilities() {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
-                className="col-md-2 fac"
+                className="col-md-2"
               >
                 <h4>{title}</h4>
               </div>
@@ -211,10 +211,11 @@ const Container = styled.section`
     }
 
     .conimages {
-      
+      // display: grid;
+      // grid-template-columns: repeat(3, 20rem);
       gap: 3rem;
       justify-content: center;
-
+@media and (ma)
       img {
         width: 100%;
         height: 100%;
