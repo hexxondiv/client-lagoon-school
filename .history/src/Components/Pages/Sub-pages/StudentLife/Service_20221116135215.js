@@ -94,7 +94,7 @@ export default function Service() {
           </div>
           <div className="col-md-2">&nbsp;</div>
         </div>
-        <div className="conimages2 col-md-12 flexy">
+        <div className="conimages col-md-12 flexy">
           <div className="col-md-3">
             <img
               src={
@@ -216,7 +216,7 @@ padding:20px;
       }
     }
 
-    .conimages2 {
+    .conimages {
       gap: 3rem;
       justify-content: center;
 

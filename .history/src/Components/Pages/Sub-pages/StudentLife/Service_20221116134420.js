@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import Backdrop from "../../../../Assets/Backdrop.png";
+import styled from 'styled-components';
+import Backdrop from '../../../../Assets/Backdrop.png'
 import { subRoute } from "./LifeItems";
-import Holder from "../../../../Assets/ExplaoreTwo.png";
+import Holder from '../../../../Assets/ExplaoreTwo.png'
 import { api } from "../../../../misc/api";
 
 export default function Service() {
@@ -71,7 +71,7 @@ export default function Service() {
           </ul>
         </div>
       </div>
-      <div className="content col-md-12">
+      <div className="content">
         <div className="first">
           <span>
             <h2>Service</h2>
@@ -79,23 +79,16 @@ export default function Service() {
 
           <h4>{pageData.other_contents_1}</h4>
         </div>
-        
-        <div className="col-md-12 flexy">
-          <div className="col-md-2">&nbsp;</div>
-          <div className="col-md-8">
-            <img
-              src={
-                `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_1}` ??
-                Holder
-              }
-              alt=""
-              width="100%"
-            />
-          </div>
-          <div className="col-md-2">&nbsp;</div>
-        </div>
-        <div className="conimages2 col-md-12 flexy">
-          <div className="col-md-3">
+        <img
+          src={
+            `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_1}` ??
+            Holder
+          }
+          alt=""
+        />
+
+        <div className="conimages col-md-12 flexy">
+          <div>
             <img
               src={
                 `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_2}` ??
@@ -104,29 +97,28 @@ export default function Service() {
               alt=""
             />
           </div>
-          <div className="col-md-3">
-            <img
-              src={
-                `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_3}` ??
-                Holder
-              }
-              alt=""
-            />
-          </div>
-          <div className="col-md-3">
-            <img
-              src={
-                `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_4}` ??
-                Holder
-              }
-              alt=""
-            />
-          </div>
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_3}` ??
+              Holder
+            }
+            alt=""
+          />
+          <img
+            src={
+              `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_4}` ??
+              Holder
+            }
+            alt=""
+          />
         </div>
       </div>
     </Container>
   );
 }
+
+
+
 
 const Container = styled.section`
   .placeholder2 {
@@ -182,7 +174,11 @@ const Container = styled.section`
   }
 
   .content {
-padding:20px;    
+    width: 90%;
+    margin: 5rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+
     .first {
       span {
         h2 {
@@ -216,8 +212,9 @@ padding:20px;
       }
     }
 
-    .conimages2 {
-      gap: 3rem;
+    .conimages {
+      
+      gap: 5rem;
       justify-content: center;
 
       img {

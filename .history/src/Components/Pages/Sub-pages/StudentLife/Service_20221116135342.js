@@ -216,7 +216,7 @@ padding:20px;
       }
     }
 
-    .conimages2 {
+    .conimages {
       gap: 3rem;
       justify-content: center;
 

@@ -79,10 +79,11 @@ export default function Service() {
 
           <h4>{pageData.other_contents_1}</h4>
         </div>
-        
+        </div>
+
         <div className="col-md-12 flexy">
           <div className="col-md-2">&nbsp;</div>
-          <div className="col-md-8">
+          <div className="col-md-10">
             <img
               src={
                 `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_1}` ??
@@ -94,7 +95,7 @@ export default function Service() {
           </div>
           <div className="col-md-2">&nbsp;</div>
         </div>
-        <div className="conimages2 col-md-12 flexy">
+        <div className="conimages col-md-12 flexy">
           <div className="col-md-3">
             <img
               src={
@@ -123,7 +124,6 @@ export default function Service() {
             />
           </div>
         </div>
-      </div>
     </Container>
   );
 }
@@ -216,7 +216,7 @@ padding:20px;
       }
     }
 
-    .conimages2 {
+    .conimages {
       gap: 3rem;
       justify-content: center;
 
