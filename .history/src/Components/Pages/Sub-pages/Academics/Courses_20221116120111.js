@@ -127,12 +127,12 @@ export default function Courses() {
           </ul>
         </div>
       </div>
-      <div className="content col-md-12">
+      <div className="content">
         <div className="first">
           <span>
             <h2>Courses</h2>
           </span>
-          <div className="lists col-md-12">
+          <div className="lists">
             <table>
               <tbody>
                 <tr>
@@ -146,8 +146,11 @@ export default function Courses() {
                       <p>SCHOOL LEVEL</p>
                       {/* <input list="classes" placeholder='choose' />   */}
                     </label>
-                    
-                    <select id="lang" onChange={handleChange} className="col-md-12 col-12">
+                    {/* <select  onChange={event => handleChange(event.target.value)}>
+                                  <option value="Primary"   />
+                                  <option value="Secondary" />
+                              </select> */}
+                    <select id="lang" onChange={handleChange}>
                       <option disabled selected>
                         Select School Level
                       </option>
@@ -215,13 +218,27 @@ export default function Courses() {
             })
           ) : (
             <div className="row col-md-12">
-              {paragraphy !== undefined
+              {paragraphy != undefined
                 ? 
                   <div dangerouslySetInnerHTML={{ __html: paragraphy }}></div>
                 : ""}
             </div>
           )}
-         
+          {/* <div className="redb"></div>
+          <div className="second">
+            <h1 className="col-md-12 ">
+              “ Lagoon School provided me with the invaluable academic and
+              intellectual skills that allowed me to flourish and excel in
+              college . Having developed these essential skills in high school,
+              I was able to delve more deeply into complex subjects and acheieve
+              greater academic success in college- which in turn enabled to earn
+              a full ride to graduate school.“
+            </h1>
+            <br />
+            <span>
+              <p>- Nweze Isabella</p>
+            </span>
+          </div> */}
         </div>
       </div>
     </Container>
@@ -230,10 +247,9 @@ export default function Courses() {
 
 const Container = styled.section`
   .placeholder2 {
+    
     position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
-    }
+
     img {
       width: 100%;
       height: 100%;
@@ -311,11 +327,10 @@ const Container = styled.section`
     font-weight: 400;
   }
   .content {
-    // width: 90%;
-padding:20px;
-    // margin: 5rem auto 0 auto;
-    // display: flex;
-    // flex-direction: column;
+    width: 90%;
+    margin: 5rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
 
     .first {
       span {

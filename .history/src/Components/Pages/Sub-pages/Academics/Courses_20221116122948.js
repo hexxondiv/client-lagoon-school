@@ -127,12 +127,12 @@ export default function Courses() {
           </ul>
         </div>
       </div>
-      <div className="content col-md-12">
-        <div className="first">
-          <span>
-            <h2>Courses</h2>
-          </span>
-          <div className="lists col-md-12">
+      <div className="first">
+        <span>
+          <h2>Courses</h2>
+        </span>
+        <div className="content col-md-12">
+          <div className="lists">
             <table>
               <tbody>
                 <tr>
@@ -146,8 +146,11 @@ export default function Courses() {
                       <p>SCHOOL LEVEL</p>
                       {/* <input list="classes" placeholder='choose' />   */}
                     </label>
-                    
-                    <select id="lang" onChange={handleChange} className="col-md-12 col-12">
+                    {/* <select  onChange={event => handleChange(event.target.value)}>
+                                  <option value="Primary"   />
+                                  <option value="Secondary" />
+                              </select> */}
+                    <select id="lang" onChange={handleChange}>
                       <option disabled selected>
                         Select School Level
                       </option>
@@ -215,13 +218,13 @@ export default function Courses() {
             })
           ) : (
             <div className="row col-md-12">
-              {paragraphy !== undefined
-                ? 
-                  <div dangerouslySetInnerHTML={{ __html: paragraphy }}></div>
-                : ""}
+              {paragraphy !== undefined ? (
+                <div dangerouslySetInnerHTML={{ __html: paragraphy }}></div>
+              ) : (
+                ""
+              )}
             </div>
           )}
-         
         </div>
       </div>
     </Container>

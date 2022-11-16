@@ -146,8 +146,11 @@ export default function Courses() {
                       <p>SCHOOL LEVEL</p>
                       {/* <input list="classes" placeholder='choose' />   */}
                     </label>
-                    
-                    <select id="lang" onChange={handleChange} className="col-md-12 col-12">
+                    {/* <select  onChange={event => handleChange(event.target.value)}>
+                                  <option value="Primary"   />
+                                  <option value="Secondary" />
+                              </select> */}
+                    <select id="lang" onChange={handleChange}>
                       <option disabled selected>
                         Select School Level
                       </option>

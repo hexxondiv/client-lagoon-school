@@ -1,83 +1,76 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../../../misc/api";
+
 import styled from "styled-components";
-import Backdrop from "../../../../Assets/Backdrop.png";
 import { subRoute } from "./Acaitems";
-// import Holder from '../../../../Assets/ExplaoreTwo.png'
-// import { useLocation } from 'react-router-dom';
-// import { useRoute } from '@react-navigation/native';
-export default function Courses() {
+
+import Backdrop from "../../../../Assets/Backdrop.png";
+import Calendar1 from "../../../../Assets/calendarimg.png";
+
+import Calendar2 from "../../../../Assets/calendarimg2.png";
+
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from "react-accessible-accordion";
+
+// Demo styles, see 'Styles' section below for some notes on use.
+import "react-accessible-accordion/dist/fancy-example.css";
+
+import { Modal, Button as Btn } from "react-bootstrap";
+
+import FullCalendar from "@fullcalendar/react"; // must go before plugins
+import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
+import "./fullCalendar.css";
+import Pdf from "../../../../Assets/bigCalendar.pdf";
+// import "react-accessible-accordion/dist/fancy-example.css";
+import { api } from "../../../../misc/api";
+
+export default function FullCalendr() {
   const currentPath = window.location.pathname;
-  const [sublink, setSublink] = useState(undefined);
-  const [subpage, setSubpage] = useState(undefined);
-  const [paragraphy, setParagraphy] = useState(undefined);
-  function handleChange(e) {
-    let link = e.target.value;
-    console.log(link);
-    if (link === "primary" || link === "secondary") {
-      setSublink(link);
-    } else {
-      setSublink(undefined);
-    }
-  }
-
-  function handleChangePage(e) {
-    let pg = e.target.value;
-    console.log(pg);
-    if (
-      pg === "junior-primary-course" ||
-      pg === "senior-primary-course" ||
-      pg === "junior-secondary-course" ||
-      pg === "senior-secondary-course"
-    ) {
-      setSubpage(pg);
-    } else {
-      setSubpage(undefined);
-    }
-
-    switch (pg) {
-      case "junior-primary-course":
-        setParagraphy(noteData.other_contents_1);
-        break;
-      case "senior-primary-course":
-        setParagraphy(noteData.other_contents_2);
-        break;
-      case "junior-secondary-course":
-        setParagraphy(noteData.other_contents_3);
-        break;
-      case "senior-secondary-course":
-        setParagraphy(noteData.other_contents_4);
-        break;
-      default:
-        setParagraphy(undefined);
-        break;
-    }
-    console.log(paragraphy, "in courses");
-  }
-  const [pageData, setPageData] = useState("");
   const [noteData, setNoteData] = useState({});
-  const [testimonialList, setTestimonialList] = useState([]);
+  // function handleChange(e) {
+  //   let link = e.target.value;
+  //   console.log(link);
+  //   window.location = link;
+  // }
+  const [data, setData] = useState([]);
 
-  const fetchPageData = () => {
+  const fetchData = () => {
     api
-      .get("courses-index")
+      .get("full-calendar")
       .then((res) => {
-        const abridgePageData = res.data;
-        console.log(abridgePageData);
-        setPageData(abridgePageData);
+        // const abridgeData = res.data;
+        console.log("Fetched", res.data.data);
+        setData(res.data.data);
       })
       .catch(console.log);
   };
   useEffect(() => {
-    fetchPageData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    fetchData();
   }, []);
   useEffect(() => {
-    if (pageData !== "") {
-      setNoteData(pageData.note);
-      setTestimonialList(pageData.testimonials);
+    if (data != [] && data.notes) {
+      setNoteData(data.notes);
+      console.log(noteData);
     }
-  }, [pageData]);
+  }, [data]);
+  const EventDates2 = [];
+  if (data != [] && data?.events) {
+    // console.log(data?.events);
+    const eventsList = data?.events;
+    if (eventsList) {
+      data?.events.forEach((data) => {
+        EventDates2.push({
+          date: data?.date,
+          title: data?.ceremony,
+        });
+      });
+    }
+  }
+
   return (
     <Container>
       <div className="placeholder2">
@@ -127,101 +120,121 @@ export default function Courses() {
           </ul>
         </div>
       </div>
-      <div className="content col-md-12">
-        <div className="first">
-          <span>
-            <h2>Courses</h2>
-          </span>
-          <div className="lists col-md-12">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <h2>SELECT A SCHOOL LEVEL</h2>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label>
-                      <p>SCHOOL LEVEL</p>
-                      {/* <input list="classes" placeholder='choose' />   */}
-                    </label>
-                    
-                    <select id="lang" onChange={handleChange} className="col-md-12 col-12">
-                      <option disabled selected>
-                        Select School Level
-                      </option>
-                      <option value="primary">Primary</option>
-                      <option value="secondary">Secondary</option>
-                    </select>
 
-                    {sublink === "primary" ? (
-                      <select id="lang" onChange={handleChangePage}>
-                        <option value="" disabled selected>
-                          Select School Level
-                        </option>
-                        <option value="junior-primary-course">
-                          Junior Primary
-                        </option>
-                        <option value="senior-primary-course">
-                          Senior Primary
-                        </option>
-                      </select>
-                    ) : (
-                      ""
-                    )}
-                    {sublink === "secondary" ? (
-                      <select id="lang" onChange={handleChangePage}>
-                        <option value="" disabled selected>
-                          Select School Level
-                        </option>
-                        <option value="junior-secondary-course">
-                          Junior Secondary
-                        </option>
-                        <option value="senior-secondary-course">
-                          Senior Secondary
-                        </option>
-                      </select>
-                    ) : (
-                      ""
-                    )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div className="col-md-12 flexy calendar content" >
+        <div className="col-md-4">
+          {" "}
+          <h1>Calendar</h1>
+          <Accordion className="accord">
+            <AccordionItem>
+              <AccordionItemHeading>
+                <AccordionItemButton className="accordbutton">
+                  <h5>Academic Calendars</h5>
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <div className="Bton" href="#">
+                  Select All
+                </div>
+                <br />
+
+                <ul className="list-unstyled">
+                  <li>
+                    {" "}
+                    <h6>
+                      {" "}
+                      <input type="checkbox" />
+                      LS Calendar
+                    </h6>
+                  </li>
+                  <li>
+                    {" "}
+                    <h6>
+                      {" "}
+                      <input type="checkbox" />
+                      MS/HS Calendar
+                    </h6>
+                  </li>
+                  <li>
+                    {" "}
+                    <h6>
+                      {" "}
+                      <input type="checkbox" />
+                      Non-School Days
+                    </h6>
+                  </li>
+                </ul>
+              </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionItemHeading>
+                <AccordionItemButton className="accordbutton">
+                  <h5>Atheletic Activities</h5>
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <div className="Bton" href="#">
+                  Deselect All
+                </div>
+                <br />
+
+                <ul className="list-unstyled">
+                  <li>
+                    {" "}
+                    <h6>
+                      {" "}
+                      <input type="checkbox" />
+                      Atheletic Activities
+                    </h6>
+                  </li>
+                </ul>
+              </AccordionItemPanel>
+            </AccordionItem>
+          </Accordion>
+          <div className="Bton2" href="#">
+            Update Calendar
           </div>
-          <br /> <br />
-          {subpage == undefined ? (
-            testimonialList.map(({ id, commentor, paragraph }) => {
-              return (
-                <>
-                  <div className="redb"></div>
-                  <div>
-                    <h1 className="col-md-12">
-                      “{" "}
-                      <span
-                        dangerouslySetInnerHTML={{ __html: paragraph }}
-                      ></span>{" "}
-                      “
-                    </h1>
-                    <br />
-                    <span>
-                      <p>- {commentor}</p>
-                    </span>
-                  </div>
-                  <br /> <br />
-                </>
-              );
-            })
-          ) : (
-            <div className="row col-md-12">
-              {paragraphy !== undefined
-                ? 
-                  <div dangerouslySetInnerHTML={{ __html: paragraphy }}></div>
-                : ""}
-            </div>
-          )}
+        </div>
+
+        <div className="col-md-4 cal">
+          <h4>Academic Activities Key Dates</h4>
+
+          <a
+            href={
+              `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_1}` ??
+              Pdf
+            }
+            without
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img src={Calendar1} alt="calendar" />
+          </a>
+        </div>
+        <div className="col-md-4 cal">
+          <h4>Atheletic Activities Key Dates</h4>
+          <a
+            href={
+              `${process.env.REACT_APP_SERVER_URL}/images/${noteData.other_images_2}` ??
+              Pdf
+            }
+            without
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img src={Calendar2} alt="calendar" />
+          </a>
+        </div>
+      </div>
+      <div className="col-md-12 flexy " style={{padding}}>
+        <div className="col-md-1">&nbsp;</div>
+        <div className="col-md-10">
          
+          <FullCalendar
+            plugins={[dayGridPlugin]}
+            initialView="dayGridMonth"
+            events={EventDates2}
+          />
         </div>
       </div>
     </Container>
@@ -311,25 +324,20 @@ const Container = styled.section`
     font-weight: 400;
   }
   .content {
-    // width: 90%;
 padding:20px;
-    // margin: 5rem auto 0 auto;
-    // display: flex;
-    // flex-direction: column;
-
     .first {
       span {
         h2 {
           position: relative;
           font-size: 1.6rem;
-          text-align: left;
-          margin-bottom: 30px;
+          margin: 5rem 0;
+
           &::before {
             content: "";
             border-bottom: 5px solid red;
-            width: 4rem;
+            width: 5rem;
             position: absolute;
-            bottom: 30;
+            bottom: 0;
             top: 30px;
           }
         }
