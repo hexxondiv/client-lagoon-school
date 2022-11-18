@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Backdrop from "../../../../Assets/Backdrop.png";
-import { subRoute } from "./ParentsItems";
+import Space from "../../../../Assets/space.png";
+import { subRoute } from "./LifeItems";
 import Holder from "../../../../Assets/ExplaoreTwo.png";
-import Pdf from "../../../../Assets/lunchmenu.pdf";
 import { api } from "../../../../misc/api";
 
-export default function LunchMenu() {
+export default function Uniform() {
   const currentPath = window.location.pathname;
   const [pageData, setPageData] = useState("");
   const fetchPageData = () => {
     api
-      .get("parents/launch-menu")
+      .get("studentLife/uniform")
       .then((res) => {
         const abridgePageData = res.data;
         // console.log(abridgePageData);
@@ -23,7 +23,6 @@ export default function LunchMenu() {
     fetchPageData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <Container>
       <div className="placeholder2">
@@ -34,7 +33,6 @@ export default function LunchMenu() {
           }
           alt="placeholder"
         />
-
         <div className="overlay">
           <ul>
             {subRoute?.map((sub, idx) => {
@@ -74,27 +72,29 @@ export default function LunchMenu() {
           </ul>
         </div>
       </div>
-
       <div className="content">
         <div className="first">
           <span>
-            <h2>Lunch Menu</h2>
+            <h2>Service</h2>
           </span>
-          <div style={{ marginTop: "100px" }}>
-            <a
-              href={
+
+          <h4>{pageData.other_contents_1}</h4>
+        </div>
+        <div className="col-md-12 flexy">
+          <div className="col-md-2">&nbsp;</div>
+          <div className="col-md-8">
+            <img
+              src={
                 `${process.env.REACT_APP_SERVER_URL}/images/${pageData.other_images_1}` ??
-                Pdf
+                Holder
               }
-              without
-              rel="noopener noreferrer"
-              target="_blank"
-              className="btndownload"
-            >
-              Click to Download Lunch Menu
-            </a>
+              alt=""
+              width="100%"
+            />
           </div>
         </div>
+        <div className="col-md-12 flexy"></div>
+        
       </div>
     </Container>
   );
@@ -106,6 +106,7 @@ const Container = styled.section`
     @media screen and (max-width: 620px) {
       height: 17rem;
     }
+
     img {
       width: 100%;
       height: 100%;
@@ -191,24 +192,7 @@ const Container = styled.section`
         color: red;
       }
     }
-    .btndownload {
-      color: white;
-      border: solid 1px red;
-      padding: 20px;
-      background-color: red;
-      margin-top: 100px;
-      border-radius: 5px;
-      font-weight: 1000;
-      text-decoration: none;
-      font-size: 24px;
-@media screen and (max-width:620px){
-  font-size:20px;
-}
-      &:hover {
-        background-color: white;
-        color: red;
-      }
-    }
+
     .conimages {
       display: grid;
       grid-template-columns: repeat(3, 20rem);
@@ -219,6 +203,13 @@ const Container = styled.section`
         width: 100%;
         height: 100%;
         object-fit: cover;
+
+        &:first-child {
+          grid-column: 1/4;
+        }
+        &:last-child {
+          grid-column: 2/3;
+        }
       }
     }
   }
