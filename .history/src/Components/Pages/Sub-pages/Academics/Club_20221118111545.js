@@ -88,9 +88,9 @@ export default function Club() {
           </div>
         </div>
       </div>
-      <div className="col-md-12 flexy content">
-        <div className="col-md-1">&nbsp;</div>
-        <div className="col-md-10">
+      <div className="col-md-12 flexy">
+        <div className="col-md-2">&nbsp;</div>
+        <div>
           {" "}
           {accordionData.map(({ title, content }) => (
             <Accordion title={title} content={content} lst={true} />

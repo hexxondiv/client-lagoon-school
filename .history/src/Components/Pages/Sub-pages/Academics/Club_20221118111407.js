@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Backdrop from "../../../../Assets/Backdrop.png";
-import Holder from "../../../../Assets/ExplaoreTwo.png";
+import Holder from '../../../../Assets/ExplaoreTwo.png'
 
 import { subRoute } from "./Acaitems";
 import Accordion from "../About/Accordion";
@@ -28,11 +28,11 @@ export default function Club() {
     fetchAccordionData();
   }, []);
   function callListPrimary(content) {
-    var arr = { title: "Primary School", content: content };
+    var arr = { title: "Primary School", content:content };
     setPrimaries(arr);
   }
   function callListSecondary(content) {
-    var arr = { title: "Secondary School", content: content };
+    var arr = { title: "Secondary School", content:content };
     setSecondaries(arr);
   }
   useEffect(() => {
@@ -45,10 +45,11 @@ export default function Club() {
   useEffect(() => {
     console.log("notes", noteData);
     // console.log("secondaries", secondaries);
-    let accd = [];
-    accd.push(primaries);
-    accd.push(secondaries);
-    setaccordionData(accd);
+    let accd=[]
+    accd.push(primaries)
+    accd.push(secondaries)
+    setaccordionData(accd)
+
   }, [primaries]);
   //   const currentPath = window.location.pathname;
 
@@ -88,15 +89,9 @@ export default function Club() {
           </div>
         </div>
       </div>
-      <div className="col-md-12 flexy content">
-        <div className="col-md-1">&nbsp;</div>
-        <div className="col-md-10">
-          {" "}
-          {accordionData.map(({ title, content }) => (
-            <Accordion title={title} content={content} lst={true} />
-          ))}
-        </div>
-      </div>
+      {accordionData.map(({ title, content }) => (
+        <Accordion title={title} content={content} lst={true} />
+      ))}
       <div className="col-md-12 flexy content">
         <div className="col-md-3 ">
           <div className="col-md-12 box2">
@@ -220,7 +215,7 @@ const Container = styled.section`
   }
 
   .content {
-    padding: 20px;
+    padding:20px;
     .first {
       span {
         h2 {

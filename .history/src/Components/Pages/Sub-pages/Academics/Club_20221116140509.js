@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Backdrop from "../../../../Assets/Backdrop.png";
-import Holder from "../../../../Assets/ExplaoreTwo.png";
+import Holder from '../../../../Assets/ExplaoreTwo.png'
 
 import { subRoute } from "./Acaitems";
 import Accordion from "../About/Accordion";
@@ -28,11 +28,11 @@ export default function Club() {
     fetchAccordionData();
   }, []);
   function callListPrimary(content) {
-    var arr = { title: "Primary School", content: content };
+    var arr = { title: "Primary School", content:content };
     setPrimaries(arr);
   }
   function callListSecondary(content) {
-    var arr = { title: "Secondary School", content: content };
+    var arr = { title: "Secondary School", content:content };
     setSecondaries(arr);
   }
   useEffect(() => {
@@ -45,10 +45,11 @@ export default function Club() {
   useEffect(() => {
     console.log("notes", noteData);
     // console.log("secondaries", secondaries);
-    let accd = [];
-    accd.push(primaries);
-    accd.push(secondaries);
-    setaccordionData(accd);
+    let accd=[]
+    accd.push(primaries)
+    accd.push(secondaries)
+    setaccordionData(accd)
+
   }, [primaries]);
   //   const currentPath = window.location.pathname;
 
@@ -86,20 +87,19 @@ export default function Club() {
           <div>
             <h4>{noteData?.other_contents_1}</h4>
           </div>
-        </div>
-      </div>
-      <div className="col-md-12 flexy content">
-        <div className="col-md-1">&nbsp;</div>
-        <div className="col-md-10">
-          {" "}
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+          {/* <div className=""> */}
           {accordionData.map(({ title, content }) => (
             <Accordion title={title} content={content} lst={true} />
           ))}
+          {/* </div> */}
         </div>
       </div>
-      <div className="col-md-12 flexy content">
-        <div className="col-md-3 ">
-          <div className="col-md-12 box2">
+
+      <div className="col-md-12 flexy">
+        <div className="col-md-4 ">
+          <div className="col-md-11 box2">
             <img
               style={{ maxWidth: "100%" }}
               src={
@@ -110,8 +110,8 @@ export default function Club() {
             />
           </div>
         </div>
-        <div className="col-md-3 ">
-          <div className="col-md-12 box2">
+        <div className="col-md-4 ">
+          <div className="col-md-11 box2">
             <img
               style={{ maxWidth: "100%" }}
               src={
@@ -122,24 +122,12 @@ export default function Club() {
             />
           </div>
         </div>
-        <div className="col-md-3 ">
-          <div className="col-md-12 box2">
+        <div className="col-md-4 ">
+          <div className="col-md-11 box2">
             <img
               style={{ maxWidth: "100%" }}
               src={
-                `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_2}` ??
-                Holder
-              }
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="col-md-3 ">
-          <div className="col-md-12 box2">
-            <img
-              style={{ maxWidth: "100%" }}
-              src={
-                `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_4}` ??
+                `${process.env.REACT_APP_SERVER_URL}/images/${noteData?.other_images_3}` ??
                 Holder
               }
               alt=""
@@ -152,7 +140,9 @@ export default function Club() {
           <div className="col-md-11 "></div>
         </div>
         <div className="col-md-4 ">
-          <div className="col-md-11 box2"></div>
+          <div className="col-md-11 box2">
+            
+          </div>
           <button onClick={openPortal} className="reg col-md-12">
             REGISTER FOR A CLUB
           </button>
@@ -220,7 +210,7 @@ const Container = styled.section`
   }
 
   .content {
-    padding: 20px;
+    padding:20px;
     .first {
       span {
         h2 {

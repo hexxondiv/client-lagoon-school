@@ -88,7 +88,7 @@ export default function Club() {
           </div>
         </div>
       </div>
-      <div className="col-md-12 flexy content">
+      <div className="col-md-12 flexy">
         <div className="col-md-1">&nbsp;</div>
         <div className="col-md-10">
           {" "}
