@@ -27,7 +27,7 @@ export default function Inquire() {
       link: settings?.inquire,
     },
     {
-      title: "Apply",
+      title: "Aply",
       link: settings?.apply,
       target: "_blank",
     },
@@ -55,12 +55,12 @@ export default function Inquire() {
 
 const List = styled.ul`
   display: flex;
-  // width: 90%;
+  width: 90%;
   justify-content: space-between;
   list-style: none;
   transition: all 0.5s linear;
   margin: 5rem auto 4rem auto;
-  padding-right: 30px;
+  padding: 0;
   li {
     border: 2px solid red;
     padding: 10px 10px;
@@ -90,7 +90,7 @@ const List = styled.ul`
     display:block;
     li{
       width:100%;
-      margin-top:10px;
+      margin:10px;
       
     }
   }

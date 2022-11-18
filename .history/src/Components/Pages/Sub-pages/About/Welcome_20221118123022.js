@@ -123,7 +123,7 @@ export default function Welcome() {
 
       <div className="potrait content">
         <div className="first-col">
-          <h5>{pageData?.other_titles_4}</h5>
+          <h>{pageData?.other_titles_4}</h>
         </div>
         <div className="col-md-12 flexy">
           <div className="col-md-4" style={{ padding: "4px" }}>

@@ -60,7 +60,7 @@ const List = styled.ul`
   list-style: none;
   transition: all 0.5s linear;
   margin: 5rem auto 4rem auto;
-  padding-right: 30px;
+  padding: 0;
   li {
     border: 2px solid red;
     padding: 10px 10px;
@@ -90,7 +90,7 @@ const List = styled.ul`
     display:block;
     li{
       width:100%;
-      margin-top:10px;
+      margin:10px;
       
     }
   }

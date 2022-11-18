@@ -90,7 +90,7 @@ const List = styled.ul`
     display:block;
     li{
       width:100%;
-      margin-top:10px;
+      // margin:10px;
       
     }
   }

@@ -121,9 +121,9 @@ export default function Welcome() {
         </div>
       </div>
 
-      <div className="potrait content">
+      <div className="potrait">
         <div className="first-col">
-          <h5>{pageData?.other_titles_4}</h5>
+          <h4>{pageData?.other_titles_4}</h4>
         </div>
         <div className="col-md-12 flexy">
           <div className="col-md-4" style={{ padding: "4px" }}>
@@ -233,7 +233,7 @@ const Container = styled.section`
     grid-template-columns:1fr 40%;
     // width:90% ;
     margin:5rem auto 0 auto ;
-padding:20px;
+padding
 
    .first{
         span{

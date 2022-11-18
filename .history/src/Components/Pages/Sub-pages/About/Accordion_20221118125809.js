@@ -7,36 +7,25 @@ const Accordion = ({ title, content, lst}) => {
   const [isActive, setIsActive] = useState(false);
  console.log(content, "as content");
   return (
-    <Accord className="accordion-item" style={{ border: "solid 1px #ff8b8b"}}>
+    <Accord className="accordion-item">
       <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
         <div>{title}</div>
         <div>{isActive ? "-" : "+"}</div>
       </div>
-      {isActive &&
-        (lst ? (
+      {isActive && (
+        lst ?(
           <div className="accordion-content">
-            <ul>
-              {content?.map(
-                ({
-                  id,
-                  name,
-                  category,
-                  created_at,
-                  updated_at,
-                  link,
-                  target,
-                }) => {
-                  return <li>{name}</li>;
-                }
-              )}
-            </ul>
-          </div>
-        ) : (
-          <div
-            className="accordion-content"
-            dangerouslySetInnerHTML={{ __html: content }}
-          ></div>
-        ))}
+          <ul>
+            {content?.map(({id, name, category, created_at, updated_at, link, target}) => {
+              return <li>{name}</li>;
+            })}
+          </ul>
+        </div>
+        ):(
+          <div className="accordion-content" dangerouslySetInnerHTML={{ __html: content }}></div>
+        )
+        
+      )}
     </Accord>
   );
 };
@@ -53,7 +42,6 @@ const Accord = styled.div`
     max-width: 600px;
     // border:solid 2px red !important;
   }
-  
   .accordion-title {
     display: flex;
     flex-direction: row;
@@ -86,6 +74,7 @@ const Accord = styled.div`
     padding: 3rem;
     font-size: 20px;
   }
+  
 `;
 
 

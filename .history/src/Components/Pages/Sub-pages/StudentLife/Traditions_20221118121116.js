@@ -192,10 +192,7 @@ const Container = styled.section`
             text-decoration: none;
             font-size: 1.5rem;
             color: #fff;
- @media screen and (max-width: 620px){
-               font-size:10px;
 
-              }
             &:hover {
               color: red;
             }

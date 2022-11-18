@@ -59,7 +59,7 @@ const List = styled.ul`
   justify-content: space-between;
   list-style: none;
   transition: all 0.5s linear;
-  margin: 5rem auto 4rem auto;
+  // margin: 5rem auto 4rem auto;
   padding-right: 30px;
   li {
     border: 2px solid red;
@@ -90,7 +90,7 @@ const List = styled.ul`
     display:block;
     li{
       width:100%;
-      margin-top:10px;
+      margin:10px;
       
     }
   }
