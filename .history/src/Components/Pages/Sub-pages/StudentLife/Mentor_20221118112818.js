@@ -139,9 +139,7 @@ export default function Mentor() {
 const Container = styled.section`
   .placeholder2 {
     position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
-    }
+
     img {
       width: 100%;
       height: 100%;
@@ -177,9 +175,7 @@ const Container = styled.section`
             text-decoration: none;
             font-size: 1.5rem;
             color: #fff;
-            @media screen and (max-width: 620px) {
-              font-size: 10px;
-            }
+
             &:hover {
               color: red;
             }
@@ -296,7 +292,7 @@ const Container = styled.section`
 
       img {
         width: 100%;
-        height: 50rem;
+        height: 30rem;
         object-fit: cover;
       }
     }

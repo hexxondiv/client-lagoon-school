@@ -108,8 +108,8 @@ export default function Mentor() {
             <h4>- {testimonialList.commentor}</h4>
           </div>
           {/* <img src={Holder} alt="" /> */}
-          <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${contentData.other_images_1}` ??
-                    Holder} alt="" />
+          {/* <img src={ `${process.env.REACT_APP_SERVER_URL}/images/${contentData.other_images_1}` ??
+                    Holder} alt="" /> */}
         </div>
       </div>
 
@@ -138,10 +138,9 @@ export default function Mentor() {
 
 const Container = styled.section`
   .placeholder2 {
+    height: 37rem;
     position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
-    }
+
     img {
       width: 100%;
       height: 100%;
@@ -177,9 +176,7 @@ const Container = styled.section`
             text-decoration: none;
             font-size: 1.5rem;
             color: #fff;
-            @media screen and (max-width: 620px) {
-              font-size: 10px;
-            }
+
             &:hover {
               color: red;
             }
@@ -236,10 +233,10 @@ const Container = styled.section`
     }
 
     .images {
-      // display: grid;
-      // grid-template-columns: repeat(1, 1fr);
-      // gap: 5rem;
-      // justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 5rem;
+      justify-content: center;
 
       .individual {
         background-color: #ababab96;
@@ -296,7 +293,7 @@ const Container = styled.section`
 
       img {
         width: 100%;
-        height: 50rem;
+        height: 30rem;
         object-fit: cover;
       }
     }

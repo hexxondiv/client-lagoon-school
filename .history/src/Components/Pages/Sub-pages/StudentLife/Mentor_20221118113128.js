@@ -296,7 +296,7 @@ const Container = styled.section`
 
       img {
         width: 100%;
-        height: 50rem;
+        height: 30rem;
         object-fit: cover;
       }
     }
