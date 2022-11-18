@@ -4,7 +4,7 @@ import Accordion from "../About/Accordion";
 function Frequent({ noteData }) {
   const result = Object.values(noteData);
   return (
-    <div className="table" style={{marginTop:'50px'}}>
+    <div className="table" style={{marginTop:''}}>
       <h4>Frequently Asked Questions</h4>
       <div className="accordion">
         {result.map(({ title, content }) => (
