@@ -102,10 +102,9 @@ export default function DigitalSafety() {
 
 const Container = styled.section`
   .placeholder2 {
+    height: 37rem;
     position: relative;
-    @media screen and (max-width: 620px) {
-      height: 17rem;
-    }
+
     img {
       width: 100%;
       height: 100%;
@@ -201,15 +200,12 @@ const Container = styled.section`
       font-weight: 1000;
       text-decoration: none;
       font-size: 24px;
-      @media screen and (max-width: 620px) {
-        font-size: 20px;
-      }
+
       &:hover {
         background-color: white;
         color: red;
       }
     }
-
     .conimages {
       display: grid;
       grid-template-columns: repeat(3, 20rem);
